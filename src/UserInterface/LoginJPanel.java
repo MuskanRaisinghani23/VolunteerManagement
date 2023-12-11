@@ -26,7 +26,7 @@ public class LoginJPanel extends javax.swing.JPanel {
         initComponents();
         this.homeJPanel = homeJPanel;
         this.business = business;
-        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -173,10 +173,11 @@ public class LoginJPanel extends javax.swing.JPanel {
                     // Setting current enterprise
                     business.setEnterprise(enterprise);
                     
-                    EnterpriseJPanel panel = new EnterpriseJPanel(business);
+                    EnterpriseJPanel panel = new EnterpriseJPanel(homeJPanel, business);
                     homeJPanel.add("EnterpriseJPanel" ,panel);
                     CardLayout layout = (CardLayout) homeJPanel.getLayout();
                     layout.next(homeJPanel);
+                    
                     useridtxt.setText("");
                     passwordpwd.setText("");
                 }

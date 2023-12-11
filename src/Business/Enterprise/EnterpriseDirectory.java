@@ -39,4 +39,8 @@ public class EnterpriseDirectory {
         Enterprise ent = findEnterprise(type);
         ent.setType(type);
     }
+    
+    public ArrayList<Enterprise> getAllEnter(){
+        return enterpriselist;
+    }
 }
