@@ -5,6 +5,12 @@
 package UserInterface;
 
 import Business.Business;
+import Business.Enterprise.Enterprise;
+import Business.Organization.Organization;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -17,11 +23,13 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
      */
     
     Business business;
+    private JPanel homeJPanel;
     
-    public EnterpriseJPanel(Business business) {
+    public EnterpriseJPanel(JPanel homeJPanel, Business business) {
         initComponents();
+        this.homeJPanel = homeJPanel;
         this.business = business;
-        
+        populateTable();
     }
 
     /**
@@ -35,45 +43,80 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
 
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        headinglbl = new javax.swing.JLabel();
+        logoutBtn = new javax.swing.JButton();
+        cclogo = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        manageOrg = new javax.swing.JTable();
+        idlbl = new javax.swing.JLabel();
+        idtxt = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        nametxt = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        citytxt = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        needvoltxt = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        statetxt = new javax.swing.JTextField();
+        countrytxt = new javax.swing.JTextField();
+        updatedetailsbtn = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(1597, 978));
         setPreferredSize(new java.awt.Dimension(1597, 978));
 
         jSplitPane1.setDividerLocation(130);
+        jSplitPane1.setDividerSize(2);
         jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 153));
-        jLabel1.setText("ENTERPRISE");
+        headinglbl.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        headinglbl.setForeground(new java.awt.Color(0, 0, 153));
+        headinglbl.setText("ENTERPRISE : ");
+
+        logoutBtn.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
+        logoutBtn.setForeground(new java.awt.Color(0, 0, 153));
+        logoutBtn.setText("LOGOUT");
+        logoutBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        logoutBtn.setContentAreaFilled(false);
+        logoutBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutBtnActionPerformed(evt);
+            }
+        });
+
+        cclogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Logo.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(696, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(32, 32, 32)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(476, 476, 476))
+                .addGap(35, 35, 35)
+                .addComponent(cclogo, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 459, Short.MAX_VALUE)
+                .addComponent(headinglbl)
+                .addGap(544, 544, 544)
+                .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(129, 129, 129))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(headinglbl)
+                            .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(cclogo, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         jSplitPane1.setTopComponent(jPanel2);
@@ -85,9 +128,9 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(0, 0, 153));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        manageOrg.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        manageOrg.setForeground(new java.awt.Color(0, 0, 153));
+        manageOrg.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -108,17 +151,69 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setSelectionForeground(new java.awt.Color(0, 0, 153));
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setPreferredWidth(200);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
-            jTable1.getColumnModel().getColumn(4).setResizable(false);
-            jTable1.getColumnModel().getColumn(5).setResizable(false);
+        manageOrg.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setViewportView(manageOrg);
+        if (manageOrg.getColumnModel().getColumnCount() > 0) {
+            manageOrg.getColumnModel().getColumn(0).setResizable(false);
+            manageOrg.getColumnModel().getColumn(1).setResizable(false);
+            manageOrg.getColumnModel().getColumn(1).setPreferredWidth(200);
+            manageOrg.getColumnModel().getColumn(2).setResizable(false);
+            manageOrg.getColumnModel().getColumn(3).setResizable(false);
+            manageOrg.getColumnModel().getColumn(4).setResizable(false);
+            manageOrg.getColumnModel().getColumn(5).setResizable(false);
         }
+
+        idlbl.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        idlbl.setForeground(new java.awt.Color(0, 0, 153));
+        idlbl.setText("ID:");
+
+        idtxt.setEditable(false);
+        idtxt.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+
+        jLabel2.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel2.setText("Name");
+
+        nametxt.setEditable(false);
+        nametxt.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+
+        jLabel4.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel4.setText("City");
+
+        citytxt.setEditable(false);
+        citytxt.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+
+        jLabel14.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel14.setText("Need Volunteer Count");
+
+        needvoltxt.setEditable(false);
+        needvoltxt.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+
+        jLabel5.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel5.setText("State");
+
+        jLabel6.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel6.setText("Country");
+
+        statetxt.setEditable(false);
+        statetxt.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+
+        countrytxt.setEditable(false);
+        countrytxt.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+
+        updatedetailsbtn.setBackground(new java.awt.Color(0, 0, 153));
+        updatedetailsbtn.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
+        updatedetailsbtn.setForeground(new java.awt.Color(255, 255, 255));
+        updatedetailsbtn.setText("View");
+        updatedetailsbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updatedetailsbtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -126,15 +221,71 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(105, 105, 105)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(updatedetailsbtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(idlbl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(45, 45, 45)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(needvoltxt)
+                            .addComponent(idtxt, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(nametxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(99, 99, 99)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(citytxt, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                            .addComponent(statetxt)
+                            .addComponent(countrytxt))))
                 .addContainerGap(327, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(41, 41, 41)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(428, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(updatedetailsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(72, 72, 72)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(statetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(countrytxt, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(idlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel4))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addGap(3, 3, 3)
+                                .addComponent(citytxt, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(29, 29, 29)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addGap(7, 7, 7)
+                                        .addComponent(jLabel2))
+                                    .addComponent(nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(needvoltxt, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel14)))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(jLabel5)
+                                .addGap(38, 38, 38)
+                                .addComponent(jLabel6)))))
+                .addContainerGap(282, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Manage Organizations", jPanel4);
@@ -164,16 +315,74 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void updatedetailsbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatedetailsbtnActionPerformed
+        int selectedRowIndex = manageOrg.getSelectedRow();
+        
+        if(selectedRowIndex<0){
+            JOptionPane.showMessageDialog(this, "Please select a row to view.");
+        }
+        else{
+            DefaultTableModel model = (DefaultTableModel) manageOrg.getModel();
+            idtxt.setText(String.valueOf(model.getValueAt(selectedRowIndex, 0)));
+            nametxt.setText(String.valueOf(model.getValueAt(selectedRowIndex, 1)));
+            citytxt.setText(String.valueOf(model.getValueAt(selectedRowIndex, 2)));
+            statetxt.setText(String.valueOf(model.getValueAt(selectedRowIndex, 3)));
+            countrytxt.setText(String.valueOf(model.getValueAt(selectedRowIndex, 4)));
+            needvoltxt.setText(String.valueOf(model.getValueAt(selectedRowIndex, 5)));
+            
+        }
+    }//GEN-LAST:event_updatedetailsbtnActionPerformed
+
+    private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
+        homeJPanel.remove(this);
+        CardLayout layout = (CardLayout) homeJPanel.getLayout();
+        layout.previous(homeJPanel);
+    }//GEN-LAST:event_logoutBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel cclogo;
+    private javax.swing.JTextField citytxt;
+    private javax.swing.JTextField countrytxt;
+    private javax.swing.JLabel headinglbl;
+    private javax.swing.JLabel idlbl;
+    private javax.swing.JTextField idtxt;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton logoutBtn;
+    private javax.swing.JTable manageOrg;
+    private javax.swing.JTextField nametxt;
+    private javax.swing.JTextField needvoltxt;
+    private javax.swing.JTextField statetxt;
+    private javax.swing.JButton updatedetailsbtn;
     // End of variables declaration//GEN-END:variables
+
+    private void populateTable() {
+        Enterprise enter = business.getEnterprise();
+        String activeEnterType = enter.getType();
+        headinglbl.setText(activeEnterType + " Enterprise");
+        
+//        Table populate
+        DefaultTableModel dtm = (DefaultTableModel) manageOrg.getModel();
+        dtm.setRowCount(0);
+        for(Organization org: enter.getOrglist()){
+            Object[] row = new Object[6];
+            row[0] = org.getId();
+            row[1] = org.getName();
+            row[2] = org.getCity();
+            row[3] = org.getState();
+            row[4] = org.getCountry();
+            row[5] = org.getNeedVolunteerCount();
+            dtm.addRow(row);      
+        }
+    }
 }

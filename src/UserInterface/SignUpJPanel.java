@@ -23,6 +23,7 @@ public class SignUpJPanel extends javax.swing.JPanel {
     private JPanel homeJPanel;
     Business business;
     Business business1;
+    
     public SignUpJPanel(JPanel homeJPanel, Business business) {
         initComponents();
         this.homeJPanel = homeJPanel;

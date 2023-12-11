@@ -29,7 +29,7 @@ public class LoginJPanel extends javax.swing.JPanel {
         initComponents();
         this.homeJPanel = homeJPanel;
         this.business = business;
-        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -176,10 +176,11 @@ public class LoginJPanel extends javax.swing.JPanel {
                     // Setting current enterprise
                     business.setEnterprise(enterprise);
                     
-                    EnterpriseJPanel panel = new EnterpriseJPanel(business);
+                    EnterpriseJPanel panel = new EnterpriseJPanel(homeJPanel, business);
                     homeJPanel.add("EnterpriseJPanel" ,panel);
                     CardLayout layout = (CardLayout) homeJPanel.getLayout();
                     layout.next(homeJPanel);
+                    
                     useridtxt.setText("");
                     passwordpwd.setText("");
                 }
@@ -204,7 +205,7 @@ public class LoginJPanel extends javax.swing.JPanel {
                     // Setting current enterprise
                     business.setOrganization(organization);
                     
-                    OrganizationJPanel panel = new OrganizationJPanel(business);
+                    OrganizationJPanel panel = new OrganizationJPanel(homeJPanel, business);
                     homeJPanel.add("OrganizationJPanel" ,panel);
                     CardLayout layout = (CardLayout) homeJPanel.getLayout();
                     layout.next(homeJPanel);
@@ -233,7 +234,7 @@ public class LoginJPanel extends javax.swing.JPanel {
                     // Setting current enterprise
                     business.setVolunteer(volunteer);
                     
-                    VolunteerJPanel panel = new VolunteerJPanel(business);
+                    VolunteerJPanel panel = new VolunteerJPanel(homeJPanel, business);
                     homeJPanel.add("VolunteerJPanel" ,panel);
                     CardLayout layout = (CardLayout) homeJPanel.getLayout();
                     layout.next(homeJPanel);

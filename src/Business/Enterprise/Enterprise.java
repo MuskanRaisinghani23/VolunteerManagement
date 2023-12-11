@@ -42,5 +42,18 @@ public class Enterprise {
         orglist.add(o);
         return orglist;
     }
+
+    public ArrayList<Organization> getOrglist() {
+        return orglist;
+    }
     
+    public Organization findOrg(int id){
+        for (Organization o : orglist) {
+            if (o.getId() == id) {
+                return o;
+            }
+        }
+        return null; //not found after going through the whole list
+    }
+        
 }
