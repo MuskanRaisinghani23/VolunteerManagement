@@ -26,8 +26,7 @@ public class SignUpJPanel extends javax.swing.JPanel {
     public SignUpJPanel(JPanel homeJPanel, Business business) {
         initComponents();
         this.homeJPanel = homeJPanel;
-        business = ConfigureABusiness.initialize();
-        business1 = ConfigureABusiness.initialize();
+        this.business = business;
         
       //  int nextUserId = manageperson.fetchNextUserId();
         EnterpriseSignUpJPanel panel = new EnterpriseSignUpJPanel(homeJPanel, business);

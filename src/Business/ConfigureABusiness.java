@@ -16,7 +16,6 @@ import Business.Volunteer.VolunteerDirectory;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -28,9 +27,13 @@ import java.util.ArrayList;
  * @author raisi
  */
 public class ConfigureABusiness {
+    Employee employee;
+    Volunteer volunteer;
+    Enterprise enterprise;
+    Organization organization;
     
-    public static Business initialize() {
-        Business business = new Business("WEVolunteer");
+    public Business initialize() {
+        Business business = new Business("WEVolunteer", employee, volunteer, enterprise, organization);
         
         readFromEmployeeTable(business);
         readFromEnterpriseTable(business);

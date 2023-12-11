@@ -22,7 +22,7 @@ public class OrganizationSignUpJPanel extends javax.swing.JPanel {
     public OrganizationSignUpJPanel(JPanel homeJPanel, Business business) {
         initComponents();
         this.homeJPanel = homeJPanel;
-        business = ConfigureABusiness.initialize();
+        this.business = business;
     }
 
     /**
