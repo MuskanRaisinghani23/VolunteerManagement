@@ -17,6 +17,7 @@ public class VolunteerJPanel extends javax.swing.JPanel {
     /**
      * Creates new form VolunteerJPanel
      */
+
     private JPanel homeJPanel;
     Business business;
     

@@ -21,15 +21,16 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Anusha
  */
-public class OrganisationJPanel extends javax.swing.JPanel {
+public class OrganizationJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form OrganisationJPanel
      */
+
     Business business;
     private JPanel homeJPanel;
     
-    public OrganisationJPanel(JPanel homeJPanel, Business business) {
+    public OrganizationJPanel(JPanel homeJPanel, Business business) {
         initComponents();
         this.business = business;
         this.homeJPanel = homeJPanel;
