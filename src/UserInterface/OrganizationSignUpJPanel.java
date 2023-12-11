@@ -53,29 +53,32 @@ public class OrganizationSignUpJPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 153, 0));
+        setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(0, 0, 153));
+        setMinimumSize(new java.awt.Dimension(1477, 787));
+        setPreferredSize(new java.awt.Dimension(1477, 787));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         signuplbl.setFont(new java.awt.Font("Cambria Math", 1, 24)); // NOI18N
         signuplbl.setForeground(new java.awt.Color(0, 0, 153));
         signuplbl.setText("ORGANIZATION SIGNUP");
-        add(signuplbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(683, 94, 279, 39));
+        add(signuplbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 70, 279, 39));
 
         idlbl.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         idlbl.setForeground(new java.awt.Color(0, 0, 153));
         idlbl.setText("ID:");
-        add(idlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(652, 151, 108, 29));
+        add(idlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 108, 29));
 
         idtxt.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        add(idtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 151, 219, 29));
+        add(idtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, 230, 30));
 
         jLabel12.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 153));
         jLabel12.setText("Create Password:");
-        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(652, 259, 122, 28));
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 280, 122, 28));
 
         createpwd.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         createpwd.addActionListener(new java.awt.event.ActionListener() {
@@ -83,15 +86,15 @@ public class OrganizationSignUpJPanel extends javax.swing.JPanel {
                 createpwdActionPerformed(evt);
             }
         });
-        add(createpwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 259, 219, 28));
+        add(createpwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 230, 30));
 
         jLabel13.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 153));
         jLabel13.setText("Confirm Password:");
-        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(652, 305, 122, 28));
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, 122, 28));
 
         confirmpwd.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        add(confirmpwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 305, 219, 28));
+        add(confirmpwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 330, 230, 30));
 
         accountbtn.setFont(new java.awt.Font("Cambria Math", 1, 18)); // NOI18N
         accountbtn.setForeground(new java.awt.Color(0, 0, 153));
@@ -101,37 +104,64 @@ public class OrganizationSignUpJPanel extends javax.swing.JPanel {
                 accountbtnActionPerformed(evt);
             }
         });
-        add(accountbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(722, 664, -1, 33));
+        add(accountbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 450, -1, 33));
 
+        jLabel1.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 153));
         jLabel1.setText("Name");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(652, 206, -1, -1));
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 202, 219, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, -1, -1));
 
+        jTextField1.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, 230, 30));
+
+        jLabel2.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 153));
         jLabel2.setText("Address");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(652, 367, -1, -1));
-        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 363, 219, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 180, -1, -1));
 
+        jTextField2.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 170, 230, 30));
+
+        jLabel3.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 153));
         jLabel3.setText("City");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(652, 426, -1, -1));
-        add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 422, 219, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 240, -1, -1));
 
+        jTextField3.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 230, 230, 30));
+
+        jLabel4.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 153));
         jLabel4.setText("State");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(652, 482, -1, -1));
-        add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 478, 219, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 290, -1, -1));
 
+        jTextField4.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 290, 230, 30));
+
+        jLabel5.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 153));
         jLabel5.setText("Country");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(652, 535, -1, -1));
-        add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 531, 219, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 340, -1, -1));
 
+        jTextField5.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 340, 230, 30));
+
+        jLabel6.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 153));
-        jLabel6.setText("Type");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(652, 590, -1, -1));
-        add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 586, 219, -1));
+        jLabel6.setText("Enterprise Type:");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 390, -1, -1));
+
+        jComboBox1.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        jComboBox1.setForeground(new java.awt.Color(0, 0, 153));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 390, 230, 30));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/bg2.png"))); // NOI18N
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 490, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void createpwdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createpwdActionPerformed
@@ -142,6 +172,10 @@ public class OrganizationSignUpJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_accountbtnActionPerformed
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton accountbtn;
@@ -149,6 +183,7 @@ public class OrganizationSignUpJPanel extends javax.swing.JPanel {
     private javax.swing.JPasswordField createpwd;
     private javax.swing.JLabel idlbl;
     private javax.swing.JTextField idtxt;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -157,12 +192,12 @@ public class OrganizationSignUpJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JLabel signuplbl;
     // End of variables declaration//GEN-END:variables
 }

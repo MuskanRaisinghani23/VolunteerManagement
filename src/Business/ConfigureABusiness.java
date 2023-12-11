@@ -173,7 +173,7 @@ public class ConfigureABusiness {
         
         try{
             Statement statement = conn.createStatement();
-            String query = "SELECT * FROM Employee_Organization";
+            String query = "SELECT * FROM Organization_Enterprise";
             ResultSet resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 String enterpriseType = resultSet.getString("Enterprise_Type");

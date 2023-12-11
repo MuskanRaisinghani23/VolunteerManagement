@@ -48,12 +48,13 @@ public class LoginJPanel extends javax.swing.JPanel {
         loginbtn = new javax.swing.JButton();
         useridlbl1 = new javax.swing.JLabel();
         comboSelected = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 153, 0));
+        setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1400, 1100));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        loginlbl.setFont(new java.awt.Font("Cambria Math", 3, 36)); // NOI18N
+        loginlbl.setFont(new java.awt.Font("Cambria Math", 1, 36)); // NOI18N
         loginlbl.setForeground(new java.awt.Color(0, 0, 153));
         loginlbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         loginlbl.setText("LOGIN TO PROCEED");
@@ -74,14 +75,14 @@ public class LoginJPanel extends javax.swing.JPanel {
                 passwordpwdActionPerformed(evt);
             }
         });
-        add(passwordpwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(863, 278, 209, 33));
+        add(passwordpwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 280, 209, 33));
 
         useridtxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 useridtxtActionPerformed(evt);
             }
         });
-        add(useridtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(863, 218, 209, 33));
+        add(useridtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 220, 209, 33));
 
         backbtn.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
         backbtn.setForeground(new java.awt.Color(0, 0, 153));
@@ -94,14 +95,14 @@ public class LoginJPanel extends javax.swing.JPanel {
         add(backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1270, 40, -1, 33));
 
         CheckBox.setFont(new java.awt.Font("Cambria Math", 0, 12)); // NOI18N
-        CheckBox.setForeground(new java.awt.Color(102, 51, 0));
+        CheckBox.setForeground(new java.awt.Color(0, 0, 153));
         CheckBox.setText(" show password ");
         CheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CheckBoxActionPerformed(evt);
             }
         });
-        add(CheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(863, 344, 128, -1));
+        add(CheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 320, 128, -1));
 
         loginbtn.setFont(new java.awt.Font("Cambria Math", 1, 20)); // NOI18N
         loginbtn.setForeground(new java.awt.Color(0, 0, 153));
@@ -111,22 +112,25 @@ public class LoginJPanel extends javax.swing.JPanel {
                 loginbtnActionPerformed(evt);
             }
         });
-        add(loginbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(681, 555, -1, -1));
+        add(loginbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 450, -1, -1));
 
         useridlbl1.setFont(new java.awt.Font("Cambria Math", 1, 18)); // NOI18N
         useridlbl1.setForeground(new java.awt.Color(0, 0, 153));
         useridlbl1.setText("Login As:");
-        add(useridlbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(546, 445, 116, 33));
+        add(useridlbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 360, 116, 33));
 
         comboSelected.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
-        comboSelected.setForeground(new java.awt.Color(102, 51, 0));
+        comboSelected.setForeground(new java.awt.Color(0, 0, 153));
         comboSelected.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enterprise", "Organization", "Volunteer" }));
         comboSelected.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboSelectedActionPerformed(evt);
             }
         });
-        add(comboSelected, new org.netbeans.lib.awtextra.AbsoluteConstraints(863, 446, 209, 33));
+        add(comboSelected, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 360, 209, 33));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/bg2.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 560, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void passwordpwdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordpwdActionPerformed
@@ -237,6 +241,7 @@ public class LoginJPanel extends javax.swing.JPanel {
     private javax.swing.JCheckBox CheckBox;
     private javax.swing.JButton backbtn;
     private javax.swing.JComboBox<String> comboSelected;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton loginbtn;
     private javax.swing.JLabel loginlbl;
     private javax.swing.JLabel passwordlbl;

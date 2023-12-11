@@ -43,39 +43,40 @@ public class EnterpriseSignUpJPanel extends javax.swing.JPanel {
         jLabel13 = new javax.swing.JLabel();
         confirmpwd = new javax.swing.JPasswordField();
         accountbtn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 153, 0));
+        setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(0, 0, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         signuplbl.setFont(new java.awt.Font("Cambria Math", 1, 24)); // NOI18N
         signuplbl.setForeground(new java.awt.Color(0, 0, 153));
         signuplbl.setText("ENTERPRISE SIGNUP");
-        add(signuplbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 279, 39));
+        add(signuplbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 80, 240, 39));
 
         idlbl.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         idlbl.setForeground(new java.awt.Color(0, 0, 153));
         idlbl.setText("Type:");
-        add(idlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(501, 169, 108, 29));
+        add(idlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 170, 108, 29));
 
         idtxt.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        add(idtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(765, 169, 219, 29));
+        add(idtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 170, 219, 29));
 
         jLabel12.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 153));
         jLabel12.setText("Create Password:");
-        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(501, 251, 122, 28));
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 240, 122, 28));
 
         createpwd.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        add(createpwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(765, 251, 219, 28));
+        add(createpwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 240, 219, 28));
 
         jLabel13.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 153));
         jLabel13.setText("Confirm Password:");
-        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(501, 341, 122, 28));
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 310, 122, 28));
 
         confirmpwd.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        add(confirmpwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(765, 341, 219, 28));
+        add(confirmpwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 310, 219, 28));
 
         accountbtn.setFont(new java.awt.Font("Cambria Math", 1, 18)); // NOI18N
         accountbtn.setForeground(new java.awt.Color(0, 0, 153));
@@ -85,7 +86,10 @@ public class EnterpriseSignUpJPanel extends javax.swing.JPanel {
                 accountbtnActionPerformed(evt);
             }
         });
-        add(accountbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(593, 509, -1, 33));
+        add(accountbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 420, -1, 33));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/bg2.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 490, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void accountbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountbtnActionPerformed
@@ -121,6 +125,7 @@ public class EnterpriseSignUpJPanel extends javax.swing.JPanel {
     private javax.swing.JPasswordField createpwd;
     private javax.swing.JLabel idlbl;
     private javax.swing.JTextField idtxt;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel signuplbl;
