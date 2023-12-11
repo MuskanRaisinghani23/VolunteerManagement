@@ -34,4 +34,9 @@ public class EnterpriseDirectory {
         }
         return null; //not found after going through the whole list
     }
+    
+    public void loggedEnterpriseType(String type){
+        Enterprise ent = findEnterprise(type);
+        ent.setType(type);
+    }
 }

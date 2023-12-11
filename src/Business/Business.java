@@ -3,13 +3,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Business;
+import Business.Employee.Employee;
 import Business.Person.PersonDirectory;
 import Business.Employee.EmployeeDirectory;
+import Business.Enterprise.Enterprise;
 import Business.Volunteer.VolunteerDirectory;
 import Business.Enterprise.EnterpriseDirectory;
+import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 import Business.OrganizationVolunteer.OrganizationVolunteer;
 import Business.OrganizationVolunteer.OrganizationVolunteerDirectory;
+import Business.Volunteer.Volunteer;
 
 /**
  *
@@ -23,9 +27,18 @@ public class Business {
     private EnterpriseDirectory enterprisedirectory;
     private OrganizationDirectory organizationdirectory;
     private OrganizationVolunteerDirectory organizationvolunteerdirectory; 
+    private Employee employee;
+    private Volunteer volunteer;
+    private Enterprise enterprise;
+    private Organization organization;
     
-    public Business(String n){
+    
+    public Business(String n, Employee employee, Volunteer volunteer, Enterprise enterprise, Organization organization){
         this.businessname = n;
+        this.employee = employee;
+        this.volunteer = volunteer;
+        this.enterprise = enterprise;
+        this.organization = organization;
         persondirectory = new PersonDirectory(this);
         employeedirectory = new EmployeeDirectory(this);
         volunteerdirectory = new VolunteerDirectory(this);
@@ -89,5 +102,38 @@ public class Business {
     public void setOrganizationvolunteerdirectory(OrganizationVolunteerDirectory organizationvolunteerdirectory) {
         this.organizationvolunteerdirectory = organizationvolunteerdirectory;
     }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    public Volunteer getVolunteer() {
+        return volunteer;
+    }
+
+    public void setVolunteer(Volunteer volunteer) {
+        this.volunteer = volunteer;
+    }
+
+    public Enterprise getEnterprise() {
+        return enterprise;
+    }
+
+    public void setEnterprise(Enterprise enterprise) {
+        this.enterprise = enterprise;
+    }
+
+    public Organization getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
+    }
+    
     
 }

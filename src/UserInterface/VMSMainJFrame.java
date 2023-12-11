@@ -17,9 +17,11 @@ public class VMSMainJFrame extends javax.swing.JFrame {
      * Creates new form VMSMainJFrame
      */ 
     Business business;
+    
     public VMSMainJFrame() {
         initComponents();
-        business = ConfigureABusiness.initialize();
+        ConfigureABusiness cab= new ConfigureABusiness();
+        business = cab.initialize();
     }
 
     /**

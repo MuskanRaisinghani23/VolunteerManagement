@@ -5,11 +5,9 @@
 package UserInterface;
 
 import Business.Business;
-import Business.ConfigureABusiness;
-import Business.Enterprise.EnterpriseDirectory;
-import Business.Organization.OrganizationDirectory;
-import Business.Volunteer.VolunteerDirectory;
+import Business.Enterprise.Enterprise;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -23,10 +21,11 @@ public class LoginJPanel extends javax.swing.JPanel {
      */
     Business business;
     private JPanel homeJPanel;
+    
     public LoginJPanel(JPanel homeJPanel, Business business) {
         initComponents();
         this.homeJPanel = homeJPanel;
-        business = ConfigureABusiness.initialize();
+        this.business = business;
         }
 
     /**
@@ -160,33 +159,39 @@ public class LoginJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_CheckBoxActionPerformed
 
     private void loginbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginbtnActionPerformed
-        int userId = Integer.parseInt(useridtxt.getText());
         String password = new String(passwordpwd.getPassword());
-        // Verification of user
-//        if(comboSelected.getSelectedItem().toString().equalsIgnoreCase("Enterprise")){
-//            Boolean userExist = managestudent.searchStudentIfExist(userId);
-//            if(userExist){
-//                Boolean checkPassword = manageperson.checkExistingPass(userId, password);
-//                if(checkPassword){ // if correct user id and password, go to user panel
-//                    managestudent.setLoggedStudentID(userId);
-//                    StudentJPanel panel = new StudentJPanel(homeJPanel, manageprofessor, managecourse, managestudent, manageperson);
-//                    homeJPanel.add("StudentJPanel" ,panel);
-//                    CardLayout layout = (CardLayout) homeJPanel.getLayout();
-//                    layout.next(homeJPanel);
-//                    useridtxt.setText("");
-//                    passwordpwd.setText("");
-//                }
-//                else{
-//                    JOptionPane.showMessageDialog(null, "Incorrect Password!","warning", JOptionPane.WARNING_MESSAGE);
-//                }
-//            }
-//            else{
-//                JOptionPane.showMessageDialog(null, "Student does not exist! Enter valid Student ID");
-//            }
-//        }
+        System.out.println(password);
+        // Enterprise option selected
+        if(comboSelected.getSelectedItem().toString().equalsIgnoreCase("Enterprise")){
+            String Id = useridtxt.getText();
+            Enterprise enterprise = business.getEnterprisedirectory().findEnterprise(Id);
+            if(enterprise!=null){
+                String enterprisePass = String.valueOf(enterprise.getEnterprisePass());
+                Boolean checkpassword = (enterprisePass.equals(password)) ? true : false;
+                
+                if(checkpassword){ // if correct user id and password, go to user panel
+                    // Setting current enterprise
+                    business.setEnterprise(enterprise);
+                    
+                    EnterpriseJPanel panel = new EnterpriseJPanel(business);
+                    homeJPanel.add("EnterpriseJPanel" ,panel);
+                    CardLayout layout = (CardLayout) homeJPanel.getLayout();
+                    layout.next(homeJPanel);
+                    useridtxt.setText("");
+                    passwordpwd.setText("");
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Incorrect Password!","warning", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Student does not exist! Enter valid Student ID");
+            }
+        }
 
-//        //        Professor option selected
+//        //        Organization option selected
 //        if(comboSelected.getSelectedItem().toString().equalsIgnoreCase("Organization")){
+//                int Id = Integer.parseInt(useridtxt.getText());
 //            Boolean userExist = manageprofessor.searchProfessorIfExist(userId);
 //            if(userExist){
 //                Boolean checkPassword = manageperson.checkExistingPass(userId, password);
@@ -208,6 +213,7 @@ public class LoginJPanel extends javax.swing.JPanel {
 //            }
 //        }
 //        if(comboSelected.getSelectedItem().toString().equalsIgnoreCase("Volunteer")){
+//              int Id = Integer.parseInt(useridtxt.getText());
 //            Boolean userExist = manageprofessor.searchProfessorIfExist(userId);
 //            if(userExist){
 //                Boolean checkPassword = manageperson.checkExistingPass(userId, password);

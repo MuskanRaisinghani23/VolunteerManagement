@@ -13,12 +13,12 @@ import java.util.ArrayList;
  */
 public class Enterprise {
     String type;
-    char[] empPass;
+    char[] enterprisePass;
     ArrayList<Organization> orglist;
 
-    public Enterprise(String type, char[] empPass) {
+    public Enterprise(String type, char[] enterprisePass) {
         this.type = type;
-        this.empPass = empPass;
+        this.enterprisePass = enterprisePass;
         this.orglist = new ArrayList<>();
     }
 
@@ -30,12 +30,12 @@ public class Enterprise {
         this.type = type;
     }
 
-    public char[] getEmpPass() {
-        return empPass;
+    public char[] getEnterprisePass() {
+        return enterprisePass;
     }
 
-    public void setEmpPass(char[] empPass) {
-        this.empPass = empPass;
+    public void setEnterprisePass(char[] enterprisePass) {
+        this.enterprisePass = enterprisePass;
     }
     
     public ArrayList<Organization> addOrg(Organization o){
