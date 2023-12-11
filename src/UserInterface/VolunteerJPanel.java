@@ -4,6 +4,10 @@
  */
 package UserInterface;
 
+import Business.Business;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Anusha
@@ -13,8 +17,13 @@ public class VolunteerJPanel extends javax.swing.JPanel {
     /**
      * Creates new form VolunteerJPanel
      */
-    public VolunteerJPanel() {
+    private JPanel homeJPanel;
+    Business business;
+    
+    public VolunteerJPanel(JPanel homeJPanel, Business business) {
         initComponents();
+        this.homeJPanel = homeJPanel;
+        this.business = business;
     }
     
 
@@ -30,9 +39,11 @@ public class VolunteerJPanel extends javax.swing.JPanel {
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        cclogo = new javax.swing.JLabel();
+        logoutBtn = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
+        jPanel5 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
 
@@ -43,27 +54,47 @@ public class VolunteerJPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 153));
-        jLabel1.setText("Volunteer");
+        jLabel1.setText("Volunteer Panel");
+
+        cclogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Logo.png"))); // NOI18N
+
+        logoutBtn.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
+        logoutBtn.setForeground(new java.awt.Color(0, 0, 153));
+        logoutBtn.setText("LOGOUT");
+        logoutBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        logoutBtn.setContentAreaFilled(false);
+        logoutBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(341, 341, 341)
+                .addGap(26, 26, 26)
+                .addComponent(cclogo, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(328, 328, 328)
                 .addComponent(jLabel1)
-                .addGap(103, 103, 103)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 396, Short.MAX_VALUE)
+                .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(73, 73, 73))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addContainerGap(58, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(cclogo, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         jSplitPane1.setTopComponent(jPanel2);
@@ -72,6 +103,19 @@ public class VolunteerJPanel extends javax.swing.JPanel {
 
         jTabbedPane2.setBackground(new java.awt.Color(255, 255, 255));
         jTabbedPane2.setForeground(new java.awt.Color(0, 0, 153));
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1277, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 661, Short.MAX_VALUE)
+        );
+
+        jTabbedPane2.addTab("Home", jPanel5);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -88,7 +132,7 @@ public class VolunteerJPanel extends javax.swing.JPanel {
 
         jTabbedPane2.addTab("Manage Profile", jPanel4);
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 0));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -132,15 +176,23 @@ public class VolunteerJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
+        homeJPanel.remove(this);
+        CardLayout layout = (CardLayout) homeJPanel.getLayout();
+        layout.previous(homeJPanel);
+    }//GEN-LAST:event_logoutBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel cclogo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton logoutBtn;
     // End of variables declaration//GEN-END:variables
 }

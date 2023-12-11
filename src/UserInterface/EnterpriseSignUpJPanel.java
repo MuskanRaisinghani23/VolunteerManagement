@@ -5,7 +5,6 @@
 package UserInterface;
 
 import Business.Business;
-import Business.ConfigureABusiness;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -19,6 +18,7 @@ public class EnterpriseSignUpJPanel extends javax.swing.JPanel {
      * Creates new form EnterpriseJPanel
      */
     private JPanel homeJPanel;
+    
     Business business;
     public EnterpriseSignUpJPanel(JPanel homeJPanel, Business business) {
         initComponents();
