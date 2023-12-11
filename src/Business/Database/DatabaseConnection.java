@@ -20,7 +20,7 @@ public class DatabaseConnection {
         try {
             Class.forName("org.sqlite.JDBC");
             connection = DriverManager.getConnection("jdbc:sqlite:volunteerManagementSystemDB.db");
-            System.out.println("Database connected!");
+//            System.out.println("Database connected!");
         } catch (ClassNotFoundException | SQLException e) {
             System.err.println("Error connecting to the database: " + e.getMessage());
         }
