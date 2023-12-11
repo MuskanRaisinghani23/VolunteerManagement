@@ -104,7 +104,8 @@ public class ConfigureABusiness {
                 String orgState = resultSet.getString("State");
                 String orgCountry = resultSet.getString("Country");
                 int needVolunteerCount = resultSet.getInt("NeedVolunteerCount");
-                Organization org = orgDir.newOrganization(orgId, orgName, orgAdd, orgCity, orgState, orgCountry, needVolunteerCount);
+                char [] password = resultSet.getString("password").toCharArray();
+                Organization org = orgDir.newOrganization(orgId, orgName, orgAdd, orgCity, orgState, orgCountry, needVolunteerCount, password);
             }
         }
         catch(Exception e){

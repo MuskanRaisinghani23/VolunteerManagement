@@ -21,9 +21,10 @@ public class Organization {
     public String country;
     public int needVolunteerCount;
     public ArrayList<Employee> empDirectory;
+    char[] organizationPass;
 //    public ArrayList<Volunteer> requestedVolunteerList;
     
-    public Organization(int id, String name, String address, String city, String state, String country, int needVolunteerCount) {
+    public Organization(int id, String name, String address, String city, String state, String country, int needVolunteerCount, char[] organizationPass) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -32,6 +33,7 @@ public class Organization {
         this.country = country;
         this.needVolunteerCount = needVolunteerCount;
         this.empDirectory = new ArrayList<>();
+        this.organizationPass = organizationPass;
     }
 
     public int getId() {
@@ -98,5 +100,13 @@ public class Organization {
         empDirectory.add(e);
         return empDirectory;
     }
-        
+
+    public char[] getOrganizationPass() {
+        return organizationPass;
+    }
+
+    public void setOrganizationPass(char[] organizationPass) {
+        this.organizationPass = organizationPass;
+    }
+
 }

@@ -4,6 +4,8 @@
  */
 package UserInterface;
 
+import Business.Business;
+
 /**
  *
  * @author Anusha
@@ -13,8 +15,10 @@ public class VolunteerJPanel extends javax.swing.JPanel {
     /**
      * Creates new form VolunteerJPanel
      */
-    public VolunteerJPanel() {
+    Business business;
+    public VolunteerJPanel(Business business) {
         initComponents();
+        this.business = business;
     }
     
 

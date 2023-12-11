@@ -4,19 +4,23 @@
  */
 package UserInterface;
 
+import Business.Business;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Anusha
  */
-public class OrganisationJPanel extends javax.swing.JPanel {
+public class OrganizationJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form OrganisationJPanel
      */
-    public OrganisationJPanel() {
+    
+    Business business;
+    public OrganizationJPanel(Business business) {
         initComponents();
+        this.business = business;
     }
 
     /**

@@ -20,8 +20,8 @@ public class OrganizationDirectory {
         this.organizationlist = new ArrayList<>();
     }
     
-    public Organization newOrganization(int id, String name, String address, String city, String state, String country, int needVolunteerCount){
-        Organization org = new Organization(id, name, address, city, state,  country, needVolunteerCount);
+    public Organization newOrganization(int id, String name, String address, String city, String state, String country, int needVolunteerCount, char[] organizationPass){
+        Organization org = new Organization(id, name, address, city, state,  country, needVolunteerCount, organizationPass);
         organizationlist.add(org);
         return org;
     }

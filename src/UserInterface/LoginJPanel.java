@@ -5,7 +5,10 @@
 package UserInterface;
 
 import Business.Business;
+import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
+import Business.Organization.Organization;
+import Business.Volunteer.Volunteer;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -185,57 +188,97 @@ public class LoginJPanel extends javax.swing.JPanel {
                 }
             }
             else{
-                JOptionPane.showMessageDialog(null, "Student does not exist! Enter valid Student ID");
+                JOptionPane.showMessageDialog(null, "Enterprise does not exist! Enter valid Enterprise Type");
             }
         }
 
-//        //        Organization option selected
-//        if(comboSelected.getSelectedItem().toString().equalsIgnoreCase("Organization")){
-//                int Id = Integer.parseInt(useridtxt.getText());
-//            Boolean userExist = manageprofessor.searchProfessorIfExist(userId);
-//            if(userExist){
-//                Boolean checkPassword = manageperson.checkExistingPass(userId, password);
-//                if(checkPassword){ // if correct user id and password, go to user panel
-//                    manageprofessor.setLoggedProfessorID(userId);
-//                    ProfessorJPanel panel = new ProfessorJPanel(homeJPanel, manageprofessor, managecourse, managestudent, manageperson, managegrades);
-//                    homeJPanel.add("ProfessorJPanel" ,panel);
-//                    CardLayout layout = (CardLayout) homeJPanel.getLayout();
-//                    layout.next(homeJPanel);
-//                    useridtxt.setText("");
-//                    passwordpwd.setText("");
-//                }
-//                else{
-//                    JOptionPane.showMessageDialog(null, "Incorrect Password!","warning", JOptionPane.WARNING_MESSAGE);
-//                }
-//            }
-//            else{
-//                JOptionPane.showMessageDialog(null, "Professor does not exist! Enter valid Professor ID");
-//            }
-//        }
-//        if(comboSelected.getSelectedItem().toString().equalsIgnoreCase("Volunteer")){
-//              int Id = Integer.parseInt(useridtxt.getText());
-//            Boolean userExist = manageprofessor.searchProfessorIfExist(userId);
-//            if(userExist){
-//                Boolean checkPassword = manageperson.checkExistingPass(userId, password);
-//                if(checkPassword){ // if correct user id and password, go to user panel
-//                    manageprofessor.setLoggedProfessorID(userId);
-//                    ProfessorJPanel panel = new ProfessorJPanel(homeJPanel, manageprofessor, managecourse, managestudent, manageperson, managegrades);
-//                    homeJPanel.add("ProfessorJPanel" ,panel);
-//                    CardLayout layout = (CardLayout) homeJPanel.getLayout();
-//                    layout.next(homeJPanel);
-//                    useridtxt.setText("");
-//                    passwordpwd.setText("");
-//                }
-//                else{
-//                    JOptionPane.showMessageDialog(null, "Incorrect Password!","warning", JOptionPane.WARNING_MESSAGE);
-//                }
-//            }
-//            else{
-//                JOptionPane.showMessageDialog(null, "Professor does not exist! Enter valid Professor ID");
-//            }
-//        }
-//        
+//      Organization option selected
+        if(comboSelected.getSelectedItem().toString().equalsIgnoreCase("Organization")){
+                int  Id = Integer.parseInt(useridtxt.getText());
+           Organization organization = business.getOrganizationdirectory().findOrg(Id);
+            if(organization!=null){
+                String organizationPass = String.valueOf(organization.getOrganizationPass());
+                Boolean checkpassword = (organizationPass.equals(password)) ? true : false;
+                
+                if(checkpassword){ // if correct user id and password, go to user panel
+                    // Setting current enterprise
+                    business.setOrganization(organization);
+                    
+                    OrganizationJPanel panel = new OrganizationJPanel(business);
+                    homeJPanel.add("OrganizationJPanel" ,panel);
+                    CardLayout layout = (CardLayout) homeJPanel.getLayout();
+                    layout.next(homeJPanel);
+                    useridtxt.setText("");
+                    passwordpwd.setText("");
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Incorrect Password!","warning", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Organization does not exist! Enter valid Organization ID");
+            }
+        }
 
+
+//      Volunteer option selected
+        if(comboSelected.getSelectedItem().toString().equalsIgnoreCase("Volunteer")){
+                int  Id = Integer.parseInt(useridtxt.getText());
+           Volunteer volunteer = business.getVolunteerdirectory().findVolunteer(Id);
+            if(volunteer!=null){
+                String volunteerPass = String.valueOf(volunteer.getPassword());
+                Boolean checkpassword = (volunteerPass.equals(password)) ? true : false;
+                
+                if(checkpassword){ // if correct user id and password, go to user panel
+                    // Setting current enterprise
+                    business.setVolunteer(volunteer);
+                    
+                    VolunteerJPanel panel = new VolunteerJPanel(business);
+                    homeJPanel.add("VolunteerJPanel" ,panel);
+                    CardLayout layout = (CardLayout) homeJPanel.getLayout();
+                    layout.next(homeJPanel);
+                    useridtxt.setText("");
+                    passwordpwd.setText("");
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Incorrect Password!","warning", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Volunteer does not exist! Enter valid Volunteer ID");
+            }
+        }        
+
+        
+
+//      Volunteer option selected
+        if(comboSelected.getSelectedItem().toString().equalsIgnoreCase("Employee")){
+               int  Id = Integer.parseInt(useridtxt.getText());
+           Employee employee = business.getEmployeedirectory().findEmployee(Id);
+            if(employee!=null){
+                String EmployeePass = String.valueOf(employee.getPassword());
+                Boolean checkpassword = (EmployeePass.equals(password)) ? true : false;
+                
+                if(checkpassword){ // if correct user id and password, go to user panel
+                    // Setting current enterprise
+                    business.setEmployee(employee);
+                    
+                    EmployeeJPanel panel = new EmployeeJPanel(business);
+                    homeJPanel.add("EmployeeJPanel" ,panel);
+                    CardLayout layout = (CardLayout) homeJPanel.getLayout();
+                    layout.next(homeJPanel);
+                    useridtxt.setText("");
+                    passwordpwd.setText("");
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Incorrect Password!","warning", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Employee does not exist! Enter valid Employee ID");
+            }
+        } 
+        
     }//GEN-LAST:event_loginbtnActionPerformed
 
     private void comboSelectedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSelectedActionPerformed
