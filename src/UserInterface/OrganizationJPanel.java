@@ -1393,7 +1393,9 @@ public class OrganizationJPanel extends javax.swing.JPanel {
             row[5] = v.getState();
             row[6] = v.getPhone();
             dtm.addRow(row);      
-
+        }
+    }
+        
     private void populateEnterpriseTypeCombo() {
         Set<String> enterprisetypeset = new HashSet<String>();
         for(Enterprise ent : business.getEnterprisedirectory().getAllEnter()){
