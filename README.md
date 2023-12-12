@@ -15,18 +15,29 @@ The primary purpose of WEVolunteer is to:
 - Encourage community engagement and volunteerism on a larger scale.
 - Encourage global community engagement and volunteerism, fostering prosperity, love, and a sense of shared humanity.
 
+## Diagrams and screenshots of panels:
+### class diagram :
+![Class diagram](/src/Resources/classdiagram.png)
+### Panels Screenshots : 
+![Home Page](/src/Resources/Screenshot1.png)
+![Login Page](/src/Resources/Screenshot2.png)
+![Sign up Page](/src/Resources/Screenshot3.png)
+![Organization Panel](/src/Resources/Screenshot4.png)
+
+
 ## Key Features
 ### User Roles:
-- **Companies/Groups/Individuals:** Can sign up, view volunteering opportunities, and sign up based on interests or mention specific interests for targeted mapping.
-- **NGOs:** Can provide facilities, transportation, or arrange volunteers for specific tasks.
+- **Individuals:** Can sign up, view volunteering opportunities, and sign up based on interests or mention specific interests for targeted mapping.
+- **Organizations:** Can provide facilities, or arrange volunteers for specific tasks.
+- **Enterprises** Can manage different organizations.
 
 
 ### Functionality:
 - Registration forms for organizations and individuals interested in volunteering.
 - Volunteer management system for organizations requesting volunteers.
-- Requesting nearby NGOs and organizations to serve the tagged locations.
+- Requesting nearby volunteers for help.
 - Individual voluntee can volunteer for paricular place nearby to his/her location according to the preference(city, area , state)
-- Organization can raise request for volunteer incase of disaster management , within span of period volunteers will be available through our portal.
+- Organization can raise request for volunteer incase of disaster management, within span of period volunteers will be available through our portal.
 
 
 ### Disaster Management:
@@ -41,7 +52,7 @@ A functional Swing app that effectively handles the mapping of volunteering oppo
 A robust authentication module with strong username and password features for secure system access.
 
 -Reporting Module:
-A module offering a summarized view of system data, including key performance metrics at both system and network levels.
+A module offering a summarized view of system data, including key performance metrics at system level.
 
 -Configuration Module with Test Cases:
 A module with test cases demonstrating solution correctness, in order the populate data we have used the faker module and python scripts.
