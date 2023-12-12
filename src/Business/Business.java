@@ -6,7 +6,6 @@ package Business;
 import Business.Employee.Employee;
 import Business.Person.PersonDirectory;
 import Business.Employee.EmployeeDirectory;
-import Business.EmployeeVolunteer.EmployeeVolunteerDirectory;
 import Business.Enterprise.Enterprise;
 import Business.Volunteer.VolunteerDirectory;
 import Business.Enterprise.EnterpriseDirectory;
@@ -28,7 +27,6 @@ public class Business {
     private EnterpriseDirectory enterprisedirectory;
     private OrganizationDirectory organizationdirectory;
     private OrganizationVolunteerDirectory organizationvolunteerdirectory;
-    private EmployeeVolunteerDirectory employeevolunteerdirectory;
     private Employee employee;
     private Volunteer volunteer;
     private Enterprise enterprise;
@@ -47,7 +45,6 @@ public class Business {
         enterprisedirectory = new EnterpriseDirectory(this);
         organizationdirectory = new OrganizationDirectory(this); 
         organizationvolunteerdirectory = new OrganizationVolunteerDirectory(this);
-        employeevolunteerdirectory = new EmployeeVolunteerDirectory(this);
     }
 
     public String getBusinessname() {
@@ -104,14 +101,6 @@ public class Business {
 
     public void setOrganizationvolunteerdirectory(OrganizationVolunteerDirectory organizationvolunteerdirectory) {
         this.organizationvolunteerdirectory = organizationvolunteerdirectory;
-    }
-
-    public EmployeeVolunteerDirectory getEmployeevolunteerdirectory() {
-        return employeevolunteerdirectory;
-    }
-
-    public void setEmployeevolunteerdirectory(EmployeeVolunteerDirectory employeevolunteerdirectory) {
-        this.employeevolunteerdirectory = employeevolunteerdirectory;
     }
     
     public Employee getEmployee() {

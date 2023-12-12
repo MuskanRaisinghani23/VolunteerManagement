@@ -6,7 +6,6 @@ package UserInterface;
 
 import Business.Business;
 import Business.Employee.Employee;
-import Business.EmployeeVolunteer.EmployeeVolunteer;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.OrganizationVolunteer.OrganizationVolunteer;
@@ -248,6 +247,11 @@ public class OrganizationJPanel extends javax.swing.JPanel {
         jLabel2.setText("Name");
 
         nametxt.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        nametxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nametxtActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 153));
@@ -1148,14 +1152,21 @@ public class OrganizationJPanel extends javax.swing.JPanel {
         }
         else{
             DefaultTableModel model = (DefaultTableModel) assignemptable.getModel();
-            int vid = Integer.parseInt(String.valueOf(model.getValueAt(selectedRowIndex, 0)));    
+            int vid = Integer.parseInt(String.valueOf(model.getValueAt(selectedRowIndex, 0)));  
+
             Employee e = business.getEmployeedirectory().findEmployeeByName(EmpjComboBox.getSelectedItem().toString());
             Volunteer v = business.getVolunteerdirectory().findVolunteer(vid);
-            EmployeeVolunteer ev = business.getEmployeevolunteerdirectory().addRequest(e, v);
+            e.addVolToEmplist(v);
+            //System.out.println(e.getVolToEmplist());
             JOptionPane.showMessageDialog(null, "Volunteer assigned to employee successfully");
-            //add code              
+            ((DefaultTableModel) assignemptable.getModel()).removeRow(selectedRowIndex);
+            
         }
     }//GEN-LAST:event_AssignVolunteerActionPerformed
+
+    private void nametxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nametxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nametxtActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

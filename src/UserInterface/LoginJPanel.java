@@ -249,9 +249,7 @@ public class LoginJPanel extends javax.swing.JPanel {
             else{
                 JOptionPane.showMessageDialog(null, "Volunteer does not exist! Enter valid Volunteer ID");
             }
-        }        
-
-        
+        }          
 
 //      Employee option selected
         if(comboSelected.getSelectedItem().toString().equalsIgnoreCase("Employee")){
@@ -265,7 +263,7 @@ public class LoginJPanel extends javax.swing.JPanel {
                     // Setting current employee
                     business.setEmployee(employee);
                     
-                    EmployeeJPanel panel = new EmployeeJPanel(business);
+                    EmployeeJPanel panel = new EmployeeJPanel(homeJPanel, business);
                     homeJPanel.add("EmployeeJPanel" ,panel);
                     CardLayout layout = (CardLayout) homeJPanel.getLayout();
                     layout.next(homeJPanel);
@@ -280,7 +278,27 @@ public class LoginJPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Employee does not exist! Enter valid Employee ID");
             }
         } 
-        
+
+        //admin login
+ if(comboSelected.getSelectedItem().toString().equalsIgnoreCase("Admin")){
+            String  Id = useridtxt.getText();
+            if(Id.matches("Admin")){
+                if(password.matches("admin")){
+                    AdminJPanel panel = new AdminJPanel(homeJPanel, business);
+                    homeJPanel.add("AdminJPanel" ,panel);
+                    CardLayout layout = (CardLayout) homeJPanel.getLayout();
+                    layout.next(homeJPanel);
+                    useridtxt.setText("");
+                    passwordpwd.setText("");
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Incorrect Password!","warning", JOptionPane.WARNING_MESSAGE);
+                }
+            }   
+            else{
+                JOptionPane.showMessageDialog(null, "Admin does not exist! Enter valid Organization ID");
+            }
+        }         
     }//GEN-LAST:event_loginbtnActionPerformed
 
     private void comboSelectedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSelectedActionPerformed
