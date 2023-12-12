@@ -30,6 +30,22 @@ public class OrganizationVolunteerDirectory {
         return ov;
     }
     
+    public ArrayList<OrganizationVolunteer> removeRequest(Organization o, Volunteer v){
+//        for(OrganizationVolunteer ov : ovlist){
+//            System.out.println("org: "+ov.getOrg().getName()+ " Vol: "+ ov.getVol().getName());
+//        }
+        OrganizationVolunteer ovToRemove = null;
+        for(OrganizationVolunteer ov : ovlist){
+            if(ov.getOrg().equals(o) && ov.getVol().equals(v)){
+                System.out.println("o: " + ov.getOrg().getName()+ " v: "+ ov.getVol().getName());
+                ovToRemove = ov;
+                break;
+            }
+        }
+        ovlist.remove(ovToRemove);    
+        return ovlist;
+    }
+    
     public ArrayList<OrganizationVolunteer> getAllRequests(){
         return ovlist;
     }

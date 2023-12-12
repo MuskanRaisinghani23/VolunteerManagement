@@ -1007,11 +1007,40 @@ public class OrganizationJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_emptypecomboActionPerformed
 
     private void sendreqBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendreqBtnActionPerformed
-        // TODO add your handling code here:
+        Organization org = business.getOrganization();
+        int selectedRowIndex = volunteerTbl.getSelectedRow();
+        int vid = 101;
+        if(selectedRowIndex<0){
+            JOptionPane.showMessageDialog(this, "Please select a volunteer to request.");
+        }
+        else{
+            DefaultTableModel model = (DefaultTableModel) volunteerTbl.getModel();
+            vid = Integer.parseInt(String.valueOf(model.getValueAt(selectedRowIndex, 0)));
+        }
+        
+        Volunteer v = business.getVolunteerdirectory().findVolunteer(vid);
+        OrganizationVolunteer ov = business.getOrganizationvolunteerdirectory().addRequest(org, v, "Pending");
+        JOptionPane.showMessageDialog(null, "Request sent to volunteer successfully");
+        populateVolunteerTbl();
     }//GEN-LAST:event_sendreqBtnActionPerformed
 
     private void revokereqBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_revokereqBtnActionPerformed
-        // TODO add your handling code here:
+        Organization org = business.getOrganization();
+        int selectedRowIndex = volunteerTbl.getSelectedRow();
+        int vid = 101;
+        if(selectedRowIndex<0){
+            JOptionPane.showMessageDialog(this, "Please select a volunteer to request.");
+        }
+        else{
+            DefaultTableModel model = (DefaultTableModel) volunteerTbl.getModel();
+            vid = Integer.parseInt(String.valueOf(model.getValueAt(selectedRowIndex, 0)));
+        }
+        
+        Volunteer v = business.getVolunteerdirectory().findVolunteer(vid);
+        ArrayList<OrganizationVolunteer> ovlist = business.getOrganizationvolunteerdirectory().removeRequest(org, v);
+        JOptionPane.showMessageDialog(null, "Request revoked successfully");
+        
+        populateVolunteerTbl();
     }//GEN-LAST:event_revokereqBtnActionPerformed
 
 
