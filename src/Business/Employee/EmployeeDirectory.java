@@ -39,5 +39,14 @@ public class EmployeeDirectory {
     public ArrayList<Employee> getAllEmp(){
         return employeelist;
     }
+    
+    public Employee findEmployeeByName(String name){
+        for (Employee e : employeelist) {
+            if (e.getName() == name) {
+                return e;
+            }
+        }
+        return null;
+    }
 }
 
