@@ -5,6 +5,8 @@
 package Business.Employee;
 
 import Business.Person.Person;
+import Business.Volunteer.Volunteer;
+import java.util.ArrayList;
 
 /**
  *
@@ -12,11 +14,13 @@ import Business.Person.Person;
  */
 public class Employee extends Person {
     
-    private String role;    
+    private String role;
+    ArrayList<Volunteer> VolToEmplist;
     
     public Employee(int personid, String name, char[] password, String type, String phone, String role) {
         super(personid, name, password, type, phone);
         this.role=role;
+        this.VolToEmplist = new ArrayList<>();
     }    
 
     public String getRole() {
@@ -26,5 +30,12 @@ public class Employee extends Person {
     public void setRole(String role) {
         this.role = role;
     }
-    
+    public ArrayList<Volunteer> addVolToEmplist(Volunteer v){
+        VolToEmplist.add(v);
+        return VolToEmplist;
+    }
+
+    public ArrayList<Volunteer> getVolToEmplist() {
+        return VolToEmplist;
+    }
 }

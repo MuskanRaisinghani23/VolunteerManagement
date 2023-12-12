@@ -6,7 +6,6 @@ package UserInterface;
 
 import Business.Business;
 import Business.Employee.Employee;
-import Business.Employee.EmployeeDirectory;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.OrganizationVolunteer.OrganizationVolunteer;
@@ -14,7 +13,6 @@ import Business.Volunteer.Volunteer;
 import java.awt.CardLayout;
 import java.util.HashSet;
 import java.util.Set;
-import java.io.*;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -42,6 +40,8 @@ public class OrganizationJPanel extends javax.swing.JPanel {
         populateEnterpriseTypeCombo();
         populateNextEmployeeId();
         populateVolunteerTbl();
+        populateAllEmployees();
+        populateAllVolunteers();
         populateOrgDetails();
     }
 
@@ -124,6 +124,13 @@ public class OrganizationJPanel extends javax.swing.JPanel {
         volunteerTbl = new javax.swing.JTable();
         sendreqBtn = new javax.swing.JButton();
         revokereqBtn = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        EmpjComboBox = new javax.swing.JComboBox<>();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        assignemptable = new javax.swing.JTable();
+        jLabel18 = new javax.swing.JLabel();
+        AssignVolunteer = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(1597, 979));
         setPreferredSize(new java.awt.Dimension(1597, 979));
@@ -241,6 +248,11 @@ public class OrganizationJPanel extends javax.swing.JPanel {
         jLabel2.setText("Name");
 
         nametxt.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        nametxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nametxtActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 153));
@@ -820,6 +832,94 @@ public class OrganizationJPanel extends javax.swing.JPanel {
 
         jTabbedPane2.addTab("Connect to Volunteers", jPanel5);
 
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel17.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel17.setText("Select Employees: ");
+
+        assignemptable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Id", "Name", "Age", "Gender", "City", "State", "Phone"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(assignemptable);
+        if (assignemptable.getColumnModel().getColumnCount() > 0) {
+            assignemptable.getColumnModel().getColumn(0).setResizable(false);
+            assignemptable.getColumnModel().getColumn(1).setResizable(false);
+            assignemptable.getColumnModel().getColumn(2).setResizable(false);
+            assignemptable.getColumnModel().getColumn(3).setResizable(false);
+            assignemptable.getColumnModel().getColumn(4).setResizable(false);
+            assignemptable.getColumnModel().getColumn(5).setResizable(false);
+            assignemptable.getColumnModel().getColumn(6).setResizable(false);
+        }
+
+        jLabel18.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setText("Select Volunteer from Below list to Assign to Employee");
+
+        AssignVolunteer.setBackground(new java.awt.Color(0, 0, 153));
+        AssignVolunteer.setForeground(new java.awt.Color(255, 255, 255));
+        AssignVolunteer.setText("Assign Volunteer");
+        AssignVolunteer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AssignVolunteerActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(208, 208, 208)
+                .addComponent(jLabel17)
+                .addGap(42, 42, 42)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1006, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EmpjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(218, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 606, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(526, 526, 526))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                        .addComponent(AssignVolunteer, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(336, 336, 336))))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(EmpjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addComponent(jLabel18)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(66, 66, 66)
+                .addComponent(AssignVolunteer, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(463, Short.MAX_VALUE))
+        );
+
+        jTabbedPane2.addTab("Assign Employee", jPanel7);
+
         jSplitPane1.setRightComponent(jTabbedPane2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -1046,8 +1146,35 @@ public class OrganizationJPanel extends javax.swing.JPanel {
         populateVolunteerTbl();
     }//GEN-LAST:event_revokereqBtnActionPerformed
 
+    private void AssignVolunteerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AssignVolunteerActionPerformed
+        // TODO add your handling code here:
+        int selectedRowIndex = assignemptable.getSelectedRow();
+        
+        if(selectedRowIndex<0){
+            JOptionPane.showMessageDialog(this, "Please select a row to update.");
+        }
+        else{
+            DefaultTableModel model = (DefaultTableModel) assignemptable.getModel();
+            int vid = Integer.parseInt(String.valueOf(model.getValueAt(selectedRowIndex, 0)));  
+
+            Employee e = business.getEmployeedirectory().findEmployeeByName(EmpjComboBox.getSelectedItem().toString());
+            Volunteer v = business.getVolunteerdirectory().findVolunteer(vid);
+            e.addVolToEmplist(v);
+            //System.out.println(e.getVolToEmplist());
+            JOptionPane.showMessageDialog(null, "Volunteer assigned to employee successfully");
+            ((DefaultTableModel) assignemptable.getModel()).removeRow(selectedRowIndex);
+            
+        }
+    }//GEN-LAST:event_AssignVolunteerActionPerformed
+
+    private void nametxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nametxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nametxtActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AssignVolunteer;
+    private javax.swing.JComboBox<String> EmpjComboBox;
     private javax.swing.JPasswordField addempconfirmpwd;
     private javax.swing.JTextField addempcontacttxt;
     private javax.swing.JTextField addempid;
@@ -1056,6 +1183,7 @@ public class OrganizationJPanel extends javax.swing.JPanel {
     private javax.swing.JPasswordField addemppasspwd;
     private javax.swing.JComboBox<String> addemprolecombo;
     private javax.swing.JTextField addtxt;
+    private javax.swing.JTable assignemptable;
     private javax.swing.JLabel cclogo;
     private javax.swing.JTextField citytxt;
     private javax.swing.JLabel confirmpasslbl;
@@ -1076,6 +1204,8 @@ public class OrganizationJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1090,8 +1220,10 @@ public class OrganizationJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
@@ -1225,6 +1357,39 @@ public class OrganizationJPanel extends javax.swing.JPanel {
         }
         
     }
+
+    private void populateAllEmployees() {
+        Organization org = business.getOrganization();
+        for(Employee e: org.getEmpDirectory()){
+            String name = e.getName();
+            EmpjComboBox.addItem(name);     
+        }          
+    }
+    
+    private void populateAllVolunteers(){
+        Organization org= business.getOrganization();
+        ArrayList<Volunteer> vollist = business.getVolunteerdirectory().getAllVol();    
+        ArrayList<Volunteer> selectedvolunteer = new ArrayList<>();
+        for(Volunteer v : vollist){
+            String volcity = v.getCity();
+            String volcountry = v.getCountry();
+            if(volcity.equals(org.getCity()) && volcountry.equals(org.getCountry())){
+                selectedvolunteer.add(v);
+            }
+        }
+        
+        DefaultTableModel dtm = (DefaultTableModel) assignemptable.getModel();
+        dtm.setRowCount(0);
+        for(Volunteer v : selectedvolunteer){
+            Object[] row = new Object[7];
+            row[0] = v.getPersonid();
+            row[1] = v.getName();
+            row[2] = v.getAge();
+            row[3] = v.getGender();
+            row[4] = v.getCity();
+            row[5] = v.getState();
+            row[6] = v.getPhone();
+            dtm.addRow(row);      
 
     private void populateEnterpriseTypeCombo() {
         Set<String> enterprisetypeset = new HashSet<String>();

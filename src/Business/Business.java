@@ -26,7 +26,7 @@ public class Business {
     private VolunteerDirectory volunteerdirectory;
     private EnterpriseDirectory enterprisedirectory;
     private OrganizationDirectory organizationdirectory;
-    private OrganizationVolunteerDirectory organizationvolunteerdirectory; 
+    private OrganizationVolunteerDirectory organizationvolunteerdirectory;
     private Employee employee;
     private Volunteer volunteer;
     private Enterprise enterprise;
@@ -102,7 +102,7 @@ public class Business {
     public void setOrganizationvolunteerdirectory(OrganizationVolunteerDirectory organizationvolunteerdirectory) {
         this.organizationvolunteerdirectory = organizationvolunteerdirectory;
     }
-
+    
     public Employee getEmployee() {
         return employee;
     }
