@@ -35,4 +35,7 @@ public class VolunteerDirectory {
         return null; //not found after going through the whole list
     }
 
+    public ArrayList<Volunteer> getAllVol(){
+        return volunteerlist;
+    }
 }

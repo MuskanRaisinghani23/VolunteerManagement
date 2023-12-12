@@ -41,6 +41,7 @@ public class ConfigureABusiness {
         readFromVolunteerTable(business);
         readFromEmployeeOrganizationTable(business);
         readFromOrganizationEnterpriseTable(business);
+        readFromOrganizationVolunteerTable(business);
 
         return business;
     }

@@ -9,6 +9,8 @@ import Business.Employee.Employee;
 import Business.Employee.EmployeeDirectory;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
+import Business.OrganizationVolunteer.OrganizationVolunteer;
+import Business.Volunteer.Volunteer;
 import java.awt.CardLayout;
 import java.util.HashSet;
 import java.util.Set;
@@ -39,6 +41,7 @@ public class OrganizationJPanel extends javax.swing.JPanel {
         populateOrgEmployeesTbl();
         populateEmployeeRoleCombos();
         populateNextEmployeeId();
+        populateVolunteerTbl();
     }
 
     /**
@@ -117,7 +120,9 @@ public class OrganizationJPanel extends javax.swing.JPanel {
         updateEmpDetailsBtn = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        volunteerTbl = new javax.swing.JTable();
+        sendreqBtn = new javax.swing.JButton();
+        revokereqBtn = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(1597, 979));
         setPreferredSize(new java.awt.Dimension(1597, 979));
@@ -656,8 +661,9 @@ public class OrganizationJPanel extends javax.swing.JPanel {
 
         updateEmpContacttxt.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
 
+        updateEmpDetailsBtn.setBackground(new java.awt.Color(0, 0, 153));
         updateEmpDetailsBtn.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
-        updateEmpDetailsBtn.setForeground(new java.awt.Color(0, 0, 153));
+        updateEmpDetailsBtn.setForeground(new java.awt.Color(255, 255, 255));
         updateEmpDetailsBtn.setText("SAVE");
         updateEmpDetailsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -706,7 +712,7 @@ public class OrganizationJPanel extends javax.swing.JPanel {
                         .addGap(20, 20, 20)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel13)
-                            .addComponent(updateEmpContacttxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(updateEmpContacttxt, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(updateEmpDetailsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -730,34 +736,83 @@ public class OrganizationJPanel extends javax.swing.JPanel {
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        volunteerTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Volunteer Id", "Name", "Title 3", "Title 4"
+                "Volunteer Id", "Name", "Contact", "City", "Age", "Gender", "Request Status"
             }
-        ));
-        jScrollPane2.setViewportView(jTable2);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(volunteerTbl);
+        if (volunteerTbl.getColumnModel().getColumnCount() > 0) {
+            volunteerTbl.getColumnModel().getColumn(0).setResizable(false);
+            volunteerTbl.getColumnModel().getColumn(1).setResizable(false);
+            volunteerTbl.getColumnModel().getColumn(1).setPreferredWidth(200);
+            volunteerTbl.getColumnModel().getColumn(2).setResizable(false);
+            volunteerTbl.getColumnModel().getColumn(3).setResizable(false);
+            volunteerTbl.getColumnModel().getColumn(4).setResizable(false);
+            volunteerTbl.getColumnModel().getColumn(5).setResizable(false);
+            volunteerTbl.getColumnModel().getColumn(6).setResizable(false);
+        }
+
+        sendreqBtn.setBackground(new java.awt.Color(0, 0, 153));
+        sendreqBtn.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
+        sendreqBtn.setForeground(new java.awt.Color(255, 255, 255));
+        sendreqBtn.setText("Send Request");
+        sendreqBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sendreqBtnActionPerformed(evt);
+            }
+        });
+
+        revokereqBtn.setBackground(new java.awt.Color(0, 0, 153));
+        revokereqBtn.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
+        revokereqBtn.setForeground(new java.awt.Color(255, 255, 255));
+        revokereqBtn.setText("Revoke Request");
+        revokereqBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                revokereqBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(142, 142, 142)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 767, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(688, Short.MAX_VALUE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(687, 687, 687)
+                        .addComponent(sendreqBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(revokereqBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(136, 136, 136)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 891, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(570, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(60, 60, 60)
+                .addGap(38, 38, 38)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(654, Short.MAX_VALUE))
+                .addGap(59, 59, 59)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(sendreqBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(revokereqBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(583, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Connect to Volunteers", jPanel5);
@@ -844,9 +899,9 @@ public class OrganizationJPanel extends javax.swing.JPanel {
     private void updatepassbtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatepassbtn2ActionPerformed
         Boolean flag = true;
         int orgId = Integer.parseInt(idtxt.getText());
-        String prevPassword =new String(prevpasstxt.getPassword());
-        String password = new String(newpasstxt.getPassword());
-        String confirmpassword = new String(confirmpasstxt.getPassword());
+        String prevPassword =String.valueOf(prevpasstxt.getPassword());
+        String password = String.valueOf(newpasstxt.getPassword());
+        String confirmpassword = String.valueOf(confirmpasstxt.getPassword());
         
         if(prevPassword.equals(password)){
             JOptionPane.showMessageDialog(null, "Previous password and new password cannot be same!");
@@ -868,8 +923,9 @@ public class OrganizationJPanel extends javax.swing.JPanel {
         }
         
         Organization org = business.getOrganizationdirectory().findOrg(orgId);
-        String orgPass = org.getOrganizationPass().toString();
+        String orgPass = String.valueOf(org.getOrganizationPass());
         Boolean checkExistingPassStatus = false;
+        
         if(orgPass.equals(prevPassword)){
             checkExistingPassStatus=true;
         }
@@ -928,7 +984,12 @@ public class OrganizationJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_updatedetailsbtn2ActionPerformed
 
     private void updateEmpDetailsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateEmpDetailsBtnActionPerformed
-        // TODO add your handling code here:
+        int empid = Integer.parseInt(updateEmpIdtxt.getText());
+        Employee e = business.getEmployeedirectory().findEmployee(empid);
+        e.setName(updateEmpnametxt.getText());
+        e.setRole(updateempcombo.getSelectedItem().toString());
+        e.setPhone(updateEmpContacttxt.getText());
+        populateOrgEmployeesTbl();
     }//GEN-LAST:event_updateEmpDetailsBtnActionPerformed
 
     private void addtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addtxtActionPerformed
@@ -944,6 +1005,14 @@ public class OrganizationJPanel extends javax.swing.JPanel {
     private void emptypecomboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emptypecomboActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_emptypecomboActionPerformed
+
+    private void sendreqBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendreqBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sendreqBtnActionPerformed
+
+    private void revokereqBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_revokereqBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_revokereqBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -994,7 +1063,6 @@ public class OrganizationJPanel extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTable jTable2;
     private javax.swing.JButton logoutBtn;
     private javax.swing.JTextField nametxt;
     private javax.swing.JTextField needvoltxt;
@@ -1003,6 +1071,8 @@ public class OrganizationJPanel extends javax.swing.JPanel {
     private javax.swing.JPasswordField newpasstxt;
     private javax.swing.JLabel prevpasslbl;
     private javax.swing.JPasswordField prevpasstxt;
+    private javax.swing.JButton revokereqBtn;
+    private javax.swing.JButton sendreqBtn;
     private javax.swing.JTextField statetxt;
     private javax.swing.JTextField updateEmpContacttxt;
     private javax.swing.JButton updateEmpDetailsBtn;
@@ -1015,6 +1085,7 @@ public class OrganizationJPanel extends javax.swing.JPanel {
     private javax.swing.JButton updatepassbtn2;
     private javax.swing.JLabel updatepasswordlbl;
     private javax.swing.JLabel updatepasswordlbl1;
+    private javax.swing.JTable volunteerTbl;
     // End of variables declaration//GEN-END:variables
 
     private void populateOrgDetails() {
@@ -1081,6 +1152,40 @@ public class OrganizationJPanel extends javax.swing.JPanel {
             row[3] = e.getPhone();
             dtm.addRow(row);      
         }
+    }
+
+    private void populateVolunteerTbl() {
+        Organization org= business.getOrganization();
+        ArrayList<Volunteer> vollist = business.getVolunteerdirectory().getAllVol();    
+        ArrayList<Volunteer> selectedvolunteer = new ArrayList<>();
+        for(Volunteer v : vollist){
+            String volcity = v.getCity();
+            String volcountry = v.getCountry();
+            if(volcity.equals(org.getCity()) && volcountry.equals(org.getCountry())){
+                selectedvolunteer.add(v);
+            }
+        }
+        
+        DefaultTableModel dtm = (DefaultTableModel) volunteerTbl.getModel();
+        dtm.setRowCount(0);
+        for(Volunteer v : selectedvolunteer){
+            Object[] row = new Object[7];
+            row[0] = v.getPersonid();
+            row[1] = v.getName();
+            row[2] = v.getPhone();
+            row[3] = v.getCity();
+            row[4] = v.getAge();
+            row[5] = v.getGender();
+            OrganizationVolunteer ov = business.getOrganizationvolunteerdirectory().findRequestIfPresent(org, v);
+            if(ov!=null){
+                row[6] = ov.getRequeststatus();
+            }
+            else{
+                row[6] = "";
+            }
+            dtm.addRow(row);      
+        }
+        
     }
 
 }

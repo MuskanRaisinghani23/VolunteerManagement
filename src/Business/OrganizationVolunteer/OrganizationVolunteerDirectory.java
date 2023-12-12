@@ -33,4 +33,13 @@ public class OrganizationVolunteerDirectory {
     public ArrayList<OrganizationVolunteer> getAllRequests(){
         return ovlist;
     }
+    
+    public OrganizationVolunteer findRequestIfPresent(Organization o, Volunteer v){
+        for (OrganizationVolunteer ov : ovlist) {
+            if (ov.getOrg().equals(o) && ov.getVol().equals(v)) {
+                return ov;
+            }
+        }
+        return null; //not found after going through the whole list
+    }
 }
