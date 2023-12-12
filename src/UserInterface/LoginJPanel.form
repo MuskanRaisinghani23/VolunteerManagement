@@ -180,10 +180,12 @@
           <Color blue="99" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="3">
+          <StringArray count="5">
             <StringItem index="0" value="Enterprise"/>
             <StringItem index="1" value="Organization"/>
             <StringItem index="2" value="Volunteer"/>
+            <StringItem index="3" value="Employee"/>
+            <StringItem index="4" value="Admin"/>
           </StringArray>
         </Property>
       </Properties>

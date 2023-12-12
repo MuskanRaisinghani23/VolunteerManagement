@@ -124,7 +124,7 @@ public class LoginJPanel extends javax.swing.JPanel {
 
         comboSelected.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
         comboSelected.setForeground(new java.awt.Color(0, 0, 153));
-        comboSelected.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enterprise", "Organization", "Volunteer" }));
+        comboSelected.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enterprise", "Organization", "Volunteer", "Employee", "Admin" }));
         comboSelected.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboSelectedActionPerformed(evt);
@@ -203,7 +203,7 @@ public class LoginJPanel extends javax.swing.JPanel {
                 Boolean checkpassword = (organizationPass.equals(password)) ? true : false;
                 
                 if(checkpassword){ // if correct user id and password, go to user panel
-                    // Setting current enterprise
+                    // Setting current organization
                     business.setOrganization(organization);
                     
                     OrganizationJPanel panel = new OrganizationJPanel(homeJPanel, business);
@@ -232,7 +232,7 @@ public class LoginJPanel extends javax.swing.JPanel {
                 Boolean checkpassword = (volunteerPass.equals(password)) ? true : false;
                 
                 if(checkpassword){ // if correct user id and password, go to user panel
-                    // Setting current enterprise
+                    // Setting current volunteer
                     business.setVolunteer(volunteer);
                     
                     VolunteerJPanel panel = new VolunteerJPanel(homeJPanel, business);
@@ -253,7 +253,7 @@ public class LoginJPanel extends javax.swing.JPanel {
 
         
 
-//      Volunteer option selected
+//      Employee option selected
         if(comboSelected.getSelectedItem().toString().equalsIgnoreCase("Employee")){
                int  Id = Integer.parseInt(useridtxt.getText());
            Employee employee = business.getEmployeedirectory().findEmployee(Id);
@@ -262,7 +262,7 @@ public class LoginJPanel extends javax.swing.JPanel {
                 Boolean checkpassword = (EmployeePass.equals(password)) ? true : false;
                 
                 if(checkpassword){ // if correct user id and password, go to user panel
-                    // Setting current enterprise
+                    // Setting current employee
                     business.setEmployee(employee);
                     
                     EmployeeJPanel panel = new EmployeeJPanel(business);

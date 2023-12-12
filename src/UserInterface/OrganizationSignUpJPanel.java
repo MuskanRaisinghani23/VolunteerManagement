@@ -5,7 +5,7 @@
 package UserInterface;
 
 import Business.Business;
-import Business.ConfigureABusiness;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -43,17 +43,17 @@ public class OrganizationSignUpJPanel extends javax.swing.JPanel {
         confirmpwd = new javax.swing.JPasswordField();
         accountbtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        nametxt = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        addresstxt = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtCity = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        statetxt = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        countrytxt = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        enterprisejComboBox = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -112,54 +112,54 @@ public class OrganizationSignUpJPanel extends javax.swing.JPanel {
         jLabel1.setText("Name");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, -1, -1));
 
-        jTextField1.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, 230, 30));
+        nametxt.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        add(nametxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, 230, 30));
 
         jLabel2.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 153));
         jLabel2.setText("Address");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 180, -1, -1));
 
-        jTextField2.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 170, 230, 30));
+        addresstxt.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        add(addresstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 170, 230, 30));
 
         jLabel3.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 153));
         jLabel3.setText("City");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 240, -1, -1));
 
-        jTextField3.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 230, 230, 30));
+        txtCity.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        add(txtCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 230, 230, 30));
 
         jLabel4.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 153));
         jLabel4.setText("State");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 290, -1, -1));
 
-        jTextField4.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 290, 230, 30));
+        statetxt.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        add(statetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 290, 230, 30));
 
         jLabel5.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 153));
         jLabel5.setText("Country");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 340, -1, -1));
 
-        jTextField5.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 340, 230, 30));
+        countrytxt.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        add(countrytxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 340, 230, 30));
 
         jLabel6.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 153));
         jLabel6.setText("Enterprise Type:");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 390, -1, -1));
 
-        jComboBox1.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(0, 0, 153));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        enterprisejComboBox.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        enterprisejComboBox.setForeground(new java.awt.Color(0, 0, 153));
+        enterprisejComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                enterprisejComboBoxActionPerformed(evt);
             }
         });
-        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 390, 230, 30));
+        add(enterprisejComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 390, 230, 30));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/bg2.png"))); // NOI18N
         add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 490, -1, -1));
@@ -171,20 +171,50 @@ public class OrganizationSignUpJPanel extends javax.swing.JPanel {
 
     private void accountbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountbtnActionPerformed
         // TODO add your handling code here:
+        int id = Integer.parseInt(idtxt.getText());
+        String Name = nametxt.getText();
+        char[] Password = createpwd.getPassword();
+        char[] confirmPassword = confirmpwd.getPassword();
+        String entType = enterprisejComboBox.getSelectedItem().toString();
+        Boolean passwordVerification = passwordVerify(Password, confirmPassword);
+        String address = addresstxt.getText();
+        String city = txtCity.getText();
+        String state = statetxt.getText();
+        String country = countrytxt.getText();
+        if(passwordVerification){
+            JOptionPane.showMessageDialog(null, "Organization" + Name +" created successfully.");
+        }
     }//GEN-LAST:event_accountbtnActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+     private Boolean passwordVerify(char[] newPassword, char[] confirmPassword) {
+        Boolean flag = true;
+        String password = new String(newPassword);
+        if(((password.matches("[a-zA-Z0-9@._-]{3,}") == false))){
+            JOptionPane.showMessageDialog(null, "Incorrect Password Format");
+            flag = false;
+        }
+        String confirmpassword = new String(confirmPassword);
+        if(password.equals(confirmpassword)==false){
+            JOptionPane.showMessageDialog(null, "Confirm password doesnot match with set Password");
+            flag = false;
+        }
+        return flag;        
+    }
+     
+    private void enterprisejComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterprisejComboBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_enterprisejComboBoxActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton accountbtn;
+    private javax.swing.JTextField addresstxt;
     private javax.swing.JPasswordField confirmpwd;
+    private javax.swing.JTextField countrytxt;
     private javax.swing.JPasswordField createpwd;
+    private javax.swing.JComboBox<String> enterprisejComboBox;
     private javax.swing.JLabel idlbl;
     private javax.swing.JTextField idtxt;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -194,11 +224,9 @@ public class OrganizationSignUpJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField nametxt;
     private javax.swing.JLabel signuplbl;
+    private javax.swing.JTextField statetxt;
+    private javax.swing.JTextField txtCity;
     // End of variables declaration//GEN-END:variables
 }

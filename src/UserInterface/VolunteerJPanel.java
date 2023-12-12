@@ -5,8 +5,15 @@
 package UserInterface;
 
 import Business.Business;
+import Business.Enterprise.Enterprise;
+import Business.Organization.Organization;
+import Business.OrganizationVolunteer.OrganizationVolunteer;
+import Business.Volunteer.Volunteer;
 import java.awt.CardLayout;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -49,7 +56,38 @@ public class VolunteerJPanel extends javax.swing.JPanel {
         jLabel16 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
+        updatepasswordlbl = new javax.swing.JLabel();
+        idlbl = new javax.swing.JLabel();
+        Namelbl = new javax.swing.JLabel();
+        nametxt = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        agetxt = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        addresstxt = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        citytxt = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        statetxt = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        countrytxt = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        genderjComboBox = new javax.swing.JComboBox<>();
+        updatedetailsbtn = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        updatepasswordlbl1 = new javax.swing.JLabel();
+        prevpasslbl = new javax.swing.JLabel();
+        prevpasstxt = new javax.swing.JPasswordField();
+        newpasslbl = new javax.swing.JLabel();
+        newpasstxt = new javax.swing.JPasswordField();
+        confirmpasslbl = new javax.swing.JLabel();
+        confirmpasstxt = new javax.swing.JPasswordField();
+        updatepassbtn = new javax.swing.JButton();
+        idtxt = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        orgRequestTable = new javax.swing.JTable();
+        acceptreqBtn = new javax.swing.JButton();
+        rejectreqBtn = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(1597, 943));
         setPreferredSize(new java.awt.Dimension(1597, 943));
@@ -85,7 +123,7 @@ public class VolunteerJPanel extends javax.swing.JPanel {
                 .addComponent(cclogo, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(492, 492, 492)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 552, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 567, Short.MAX_VALUE)
                 .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(73, 73, 73))
         );
@@ -101,7 +139,7 @@ public class VolunteerJPanel extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(cclogo, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jSplitPane1.setTopComponent(jPanel2);
@@ -147,37 +185,209 @@ public class VolunteerJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(71, 71, 71)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(201, Short.MAX_VALUE))
+                .addContainerGap(226, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Home", jPanel5);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1597, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 775, Short.MAX_VALUE)
-        );
+        updatepasswordlbl.setFont(new java.awt.Font("Cambria Math", 1, 16)); // NOI18N
+        updatepasswordlbl.setForeground(new java.awt.Color(0, 0, 153));
+        updatepasswordlbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        updatepasswordlbl.setText("Update Basic Details");
+        jPanel4.add(updatepasswordlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 48, 349, 49));
+
+        idlbl.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        idlbl.setForeground(new java.awt.Color(0, 0, 153));
+        idlbl.setText("ID:");
+        jPanel4.add(idlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 108, 29));
+
+        Namelbl.setForeground(new java.awt.Color(0, 0, 153));
+        Namelbl.setText("Name");
+        jPanel4.add(Namelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, -1, -1));
+
+        nametxt.setPreferredSize(new java.awt.Dimension(64, 23));
+        jPanel4.add(nametxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 219, 29));
+
+        jLabel7.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel7.setText("Age");
+        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, -1, -1));
+
+        agetxt.setPreferredSize(new java.awt.Dimension(64, 23));
+        agetxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agetxtActionPerformed(evt);
+            }
+        });
+        jPanel4.add(agetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 219, 30));
+
+        jLabel4.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel4.setText("Address");
+        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, -1, -1));
+        jPanel4.add(addresstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, 220, 30));
+
+        jLabel5.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel5.setText("City");
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 380, -1, -1));
+        jPanel4.add(citytxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, 220, 30));
+
+        jLabel6.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel6.setText("State");
+        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 430, -1, -1));
+        jPanel4.add(statetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 420, 219, 30));
+
+        jLabel8.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel8.setText("Country");
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 480, -1, -1));
+        jPanel4.add(countrytxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 470, 220, 30));
+
+        jLabel9.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel9.setText("Gender");
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, -1, -1));
+
+        genderjComboBox.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        genderjComboBox.setForeground(new java.awt.Color(0, 0, 153));
+        genderjComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Others" }));
+        jPanel4.add(genderjComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, 220, 30));
+
+        updatedetailsbtn.setBackground(new java.awt.Color(0, 0, 153));
+        updatedetailsbtn.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
+        updatedetailsbtn.setForeground(new java.awt.Color(255, 255, 255));
+        updatedetailsbtn.setText("UPDATE DETAILS");
+        updatedetailsbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updatedetailsbtnActionPerformed(evt);
+            }
+        });
+        jPanel4.add(updatedetailsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 560, 162, 31));
+
+        jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator1.setForeground(new java.awt.Color(0, 51, 153));
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel4.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 90, 50, 420));
+
+        updatepasswordlbl1.setFont(new java.awt.Font("Cambria Math", 1, 16)); // NOI18N
+        updatepasswordlbl1.setForeground(new java.awt.Color(0, 0, 153));
+        updatepasswordlbl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        updatepasswordlbl1.setText("Update Password");
+        jPanel4.add(updatepasswordlbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 50, -1, -1));
+
+        prevpasslbl.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        prevpasslbl.setForeground(new java.awt.Color(0, 0, 153));
+        prevpasslbl.setText("Previous Password:");
+        jPanel4.add(prevpasslbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 120, -1, -1));
+
+        prevpasstxt.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        jPanel4.add(prevpasstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 110, 190, -1));
+
+        newpasslbl.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        newpasslbl.setForeground(new java.awt.Color(0, 0, 153));
+        newpasslbl.setText("New Password:");
+        jPanel4.add(newpasslbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 180, -1, -1));
+
+        newpasstxt.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        jPanel4.add(newpasstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 170, 190, -1));
+
+        confirmpasslbl.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        confirmpasslbl.setForeground(new java.awt.Color(0, 0, 153));
+        confirmpasslbl.setText("Confirm Password:");
+        jPanel4.add(confirmpasslbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 240, -1, -1));
+
+        confirmpasstxt.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        jPanel4.add(confirmpasstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 230, 190, -1));
+
+        updatepassbtn.setBackground(new java.awt.Color(0, 0, 153));
+        updatepassbtn.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
+        updatepassbtn.setForeground(new java.awt.Color(255, 255, 255));
+        updatepassbtn.setText("UPDATE PASSWORD");
+        updatepassbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updatepassbtnActionPerformed(evt);
+            }
+        });
+        jPanel4.add(updatepassbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 320, -1, -1));
+
+        idtxt.setEnabled(false);
+        jPanel4.add(idtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, 220, -1));
 
         jTabbedPane2.addTab("Manage Profile", jPanel4);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        orgRequestTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Organization", "Volunteer", "Status"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(orgRequestTable);
+        if (orgRequestTable.getColumnModel().getColumnCount() > 0) {
+            orgRequestTable.getColumnModel().getColumn(0).setResizable(false);
+            orgRequestTable.getColumnModel().getColumn(1).setResizable(false);
+            orgRequestTable.getColumnModel().getColumn(2).setResizable(false);
+        }
+
+        acceptreqBtn.setBackground(new java.awt.Color(0, 0, 153));
+        acceptreqBtn.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
+        acceptreqBtn.setForeground(new java.awt.Color(255, 255, 255));
+        acceptreqBtn.setText("Accept Request");
+        acceptreqBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                acceptreqBtnActionPerformed(evt);
+            }
+        });
+
+        rejectreqBtn.setBackground(new java.awt.Color(0, 0, 153));
+        rejectreqBtn.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
+        rejectreqBtn.setForeground(new java.awt.Color(255, 255, 255));
+        rejectreqBtn.setText("Reject Request");
+        rejectreqBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rejectreqBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1597, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(357, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 925, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(315, 315, 315))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(acceptreqBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(121, 121, 121)
+                        .addComponent(rejectreqBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(374, 374, 374))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 775, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(75, 75, 75)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rejectreqBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(acceptreqBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(325, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Organization Requests", jPanel1);
@@ -186,11 +396,14 @@ public class VolunteerJPanel extends javax.swing.JPanel {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane2)
+            .addComponent(jTabbedPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jSplitPane1.setRightComponent(jPanel3);
@@ -213,20 +426,180 @@ public class VolunteerJPanel extends javax.swing.JPanel {
         layout.previous(homeJPanel);
     }//GEN-LAST:event_logoutBtnActionPerformed
 
+    private void agetxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agetxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_agetxtActionPerformed
+
+    private void updatedetailsbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatedetailsbtnActionPerformed
+        Boolean flag = true;
+        int volId = Integer.parseInt(idtxt.getText());
+
+        String name = nametxt.getText();
+        if(name.matches("[a-zA-Z ]+") == false){
+            JOptionPane.showMessageDialog(null, "Incorrect Name");
+            flag = false;
+            nametxt.setText("");
+        }
+        
+        String age = agetxt.getText();
+        if(age.matches("[0-9][0-9]+") == false){
+            JOptionPane.showMessageDialog(null, "Incorrect Age");
+            flag = false;
+            agetxt.setText("");
+        }
+        int ageint = Integer.parseInt(age);
+        
+        String address = addresstxt.getText();
+
+        String city = citytxt.getText();
+        if(city.matches("[a-zA-Z, ]+") == false){
+            JOptionPane.showMessageDialog(null, "Incorrect City");
+            flag = false;
+            citytxt.setText("");
+        }
+
+        String state = statetxt.getText();
+        if(state.matches("[a-zA-Z, ]+") == false){
+            JOptionPane.showMessageDialog(null, "Incorrect State");
+            flag = false;
+            statetxt.setText("");
+        }
+
+        String country = countrytxt.getText();
+        if(state.matches("[a-zA-Z, ]+") == false){
+            JOptionPane.showMessageDialog(null, "Incorrect Country");
+            flag = false;
+            countrytxt.setText("");
+        }
+
+        String gender = genderjComboBox.getSelectedItem().toString();
+
+        Volunteer vol = business.getVolunteerdirectory().findVolunteer(volId);
+
+        if(flag==true){
+            vol.setName(name);
+            vol.setAge(ageint);
+            vol.setAddress(address);
+            vol.setCity(city);
+            vol.setState(state);
+            vol.setCountry(country);
+
+            JOptionPane.showMessageDialog(null, "Volunteer details updated successfully!");
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Error while updating Volunteer details. Check the information before submitting!");
+        }
+    }//GEN-LAST:event_updatedetailsbtnActionPerformed
+
+    private void updatepassbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatepassbtnActionPerformed
+        Boolean flag = true;
+        int volId = Integer.parseInt(idtxt.getText());
+        String prevPassword =String.valueOf(prevpasstxt.getPassword());
+        String password = String.valueOf(newpasstxt.getPassword());
+        String confirmpassword = String.valueOf(confirmpasstxt.getPassword());
+
+        if(prevPassword.equals(password)){
+            JOptionPane.showMessageDialog(null, "Previous password and new password cannot be same!");
+            newpasstxt.setText("");
+            confirmpasstxt.setText("");
+            flag = false;
+        }
+        if(password.matches("[a-zA-Z0-9@._-]{3,}") == false){
+            JOptionPane.showMessageDialog(null, "Incorrect Password Format");
+            newpasstxt.setText("");
+            confirmpasstxt.setText("");
+            flag = false;
+        }
+
+        if(!password.equals(confirmpassword)){
+            JOptionPane.showMessageDialog(null, "Confirm password doesnot match with set Password");
+            confirmpasstxt.setText("");
+            flag = false;
+        }
+
+        Volunteer vol = business.getVolunteerdirectory().findVolunteer(volId);
+        String volPass = String.valueOf(vol.getPassword());
+        Boolean checkExistingPassStatus = false;
+
+        if(volPass.equals(prevPassword)){
+            checkExistingPassStatus=true;
+        }
+
+        if(checkExistingPassStatus==false){
+            JOptionPane.showMessageDialog(null, "Incorrect Previous Password!");
+            prevpasstxt.setText("");
+            flag = false;
+        }
+        //        System.out.println(prevPassword +"--"+password+"--"+confirmpassword);
+        if(flag == true){
+            vol.setPassword(password.toCharArray());
+            JOptionPane.showMessageDialog(null, "Password updated Successfully");
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Re-enter correct details to update password.");
+        }
+
+    }//GEN-LAST:event_updatepassbtnActionPerformed
+
+    private void acceptreqBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptreqBtnActionPerformed
+        
+    }//GEN-LAST:event_acceptreqBtnActionPerformed
+
+    private void rejectreqBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rejectreqBtnActionPerformed
+        
+    }//GEN-LAST:event_rejectreqBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Namelbl;
+    private javax.swing.JButton acceptreqBtn;
+    private javax.swing.JTextField addresstxt;
+    private javax.swing.JTextField agetxt;
     private javax.swing.JLabel cclogo;
+    private javax.swing.JTextField citytxt;
+    private javax.swing.JLabel confirmpasslbl;
+    private javax.swing.JPasswordField confirmpasstxt;
+    private javax.swing.JTextField countrytxt;
+    private javax.swing.JComboBox<String> genderjComboBox;
+    private javax.swing.JLabel idlbl;
+    private javax.swing.JTextField idtxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JButton logoutBtn;
+    private javax.swing.JTextField nametxt;
+    private javax.swing.JLabel newpasslbl;
+    private javax.swing.JPasswordField newpasstxt;
+    private javax.swing.JTable orgRequestTable;
+    private javax.swing.JLabel prevpasslbl;
+    private javax.swing.JPasswordField prevpasstxt;
+    private javax.swing.JButton rejectreqBtn;
+    private javax.swing.JTextField statetxt;
+    private javax.swing.JButton updatedetailsbtn;
+    private javax.swing.JButton updatepassbtn;
+    private javax.swing.JLabel updatepasswordlbl;
+    private javax.swing.JLabel updatepasswordlbl1;
     // End of variables declaration//GEN-END:variables
+
+private void populateVolunteerTbl() {
+        
+        
+}
+
 }
