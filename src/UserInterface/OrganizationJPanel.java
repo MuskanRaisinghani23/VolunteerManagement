@@ -6,6 +6,7 @@ package UserInterface;
 
 import Business.Business;
 import Business.Employee.Employee;
+import Business.Employee.EmployeeDirectory;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import java.awt.CardLayout;
@@ -35,6 +36,7 @@ public class OrganizationJPanel extends javax.swing.JPanel {
         this.business = business;
         this.homeJPanel = homeJPanel;
         populateOrgDetails();
+        populateOrgEmployeesTbl();
         populateEmployeeRoleCombos();
         populateNextEmployeeId();
     }
@@ -54,6 +56,10 @@ public class OrganizationJPanel extends javax.swing.JPanel {
         cclogo = new javax.swing.JLabel();
         logoutBtn = new javax.swing.JButton();
         jTabbedPane2 = new javax.swing.JTabbedPane();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         idlbl = new javax.swing.JLabel();
         idtxt = new javax.swing.JTextField();
@@ -98,7 +104,7 @@ public class OrganizationJPanel extends javax.swing.JPanel {
         addemployeebtn = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        upadteEmpTbl = new javax.swing.JTable();
+        updateEmpTbl = new javax.swing.JTable();
         updatedetailsbtn2 = new javax.swing.JButton();
         idlbl2 = new javax.swing.JLabel();
         updateEmpIdtxt = new javax.swing.JTextField();
@@ -124,6 +130,7 @@ public class OrganizationJPanel extends javax.swing.JPanel {
 
         headinglbl.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         headinglbl.setForeground(new java.awt.Color(0, 0, 153));
+        headinglbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         headinglbl.setText("Organization");
 
         cclogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Logo.png"))); // NOI18N
@@ -146,9 +153,9 @@ public class OrganizationJPanel extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(cclogo, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(420, 420, 420)
-                .addComponent(headinglbl)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 636, Short.MAX_VALUE)
+                .addGap(40, 40, 40)
+                .addComponent(headinglbl, javax.swing.GroupLayout.PREFERRED_SIZE, 1119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(97, 97, 97))
         );
@@ -172,6 +179,47 @@ public class OrganizationJPanel extends javax.swing.JPanel {
         jTabbedPane2.setBackground(new java.awt.Color(255, 255, 255));
         jTabbedPane2.setForeground(new java.awt.Color(0, 0, 153));
         jTabbedPane2.setMinimumSize(new java.awt.Dimension(1597, 979));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel15.setFont(new java.awt.Font("Cambria Math", 1, 24)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel15.setText("Welcome to WE VOLUNTEER'S Organization Panel");
+
+        jLabel16.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel16.setText("<html>As an Organization, you have the power to make a meaningful impact. Using the panel, you can manage your <br>credentials and request volunteers for your initiatives. Streamline your volunteer management with our intuitive system.<br> Raise requests during disaster management or for ongoing projects. WEVolunteer is your central hub for efficient <br>collaboration and community support.</html>\n");
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/org home.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(551, 551, 551)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(335, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 739, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 972, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(290, 290, 290))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(jLabel15)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(94, 94, 94)
+                .addComponent(jLabel1)
+                .addContainerGap(347, Short.MAX_VALUE))
+        );
+
+        jTabbedPane2.addTab("Home", jPanel3);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -548,7 +596,7 @@ public class OrganizationJPanel extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        upadteEmpTbl.setModel(new javax.swing.table.DefaultTableModel(
+        updateEmpTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -567,12 +615,12 @@ public class OrganizationJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(upadteEmpTbl);
-        if (upadteEmpTbl.getColumnModel().getColumnCount() > 0) {
-            upadteEmpTbl.getColumnModel().getColumn(0).setResizable(false);
-            upadteEmpTbl.getColumnModel().getColumn(1).setResizable(false);
-            upadteEmpTbl.getColumnModel().getColumn(2).setResizable(false);
-            upadteEmpTbl.getColumnModel().getColumn(3).setResizable(false);
+        jScrollPane1.setViewportView(updateEmpTbl);
+        if (updateEmpTbl.getColumnModel().getColumnCount() > 0) {
+            updateEmpTbl.getColumnModel().getColumn(0).setResizable(false);
+            updateEmpTbl.getColumnModel().getColumn(1).setResizable(false);
+            updateEmpTbl.getColumnModel().getColumn(2).setResizable(false);
+            updateEmpTbl.getColumnModel().getColumn(3).setResizable(false);
         }
 
         updatedetailsbtn2.setBackground(new java.awt.Color(0, 0, 153));
@@ -819,6 +867,28 @@ public class OrganizationJPanel extends javax.swing.JPanel {
             flag = false;
         }
         
+        Organization org = business.getOrganizationdirectory().findOrg(orgId);
+        String orgPass = org.getOrganizationPass().toString();
+        Boolean checkExistingPassStatus = false;
+        if(orgPass.equals(prevPassword)){
+            checkExistingPassStatus=true;
+        }
+        
+        if(checkExistingPassStatus==false){
+            JOptionPane.showMessageDialog(null, "Incorrect Previous Password!");
+            prevpasstxt.setText("");
+            flag = false;
+        }
+//        System.out.println(prevPassword +"--"+password+"--"+confirmpassword);
+        if(flag == true){
+            org.setOrganizationPass(password.toCharArray());
+            JOptionPane.showMessageDialog(null, "Password updated Successfully");         
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Re-enter correct details to update password.");
+        }
+        
+        
     }//GEN-LAST:event_updatepassbtn2ActionPerformed
 
     private void addemployeebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addemployeebtnActionPerformed
@@ -829,18 +899,26 @@ public class OrganizationJPanel extends javax.swing.JPanel {
         String phone = addempcontacttxt.getText();
         String role = addemprolecombo.getSelectedItem().toString();
         
-        Employee e = new Employee(personid, name, password, "Employee", phone, role);
+        Employee e = business.getEmployeedirectory().newEmployee(personid, name, password, "Employee", phone, role);
         org.addEmployee(e);
+                
+        JOptionPane.showMessageDialog(null, "Employee added Successfully"); 
+        populateOrgEmployeesTbl();
+        populateNextEmployeeId();
+        addempnametxt.setText("");
+        addemppasspwd.setText("");
+        addempconfirmpwd.setText("");
+        addempcontacttxt.setText("");
     }//GEN-LAST:event_addemployeebtnActionPerformed
 
     private void updatedetailsbtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatedetailsbtn2ActionPerformed
-        int selectedRowIndex = upadteEmpTbl.getSelectedRow();
+        int selectedRowIndex = updateEmpTbl.getSelectedRow();
         
         if(selectedRowIndex<0){
             JOptionPane.showMessageDialog(this, "Please select a row to update.");
         }
         else{
-            DefaultTableModel model = (DefaultTableModel) upadteEmpTbl.getModel();
+            DefaultTableModel model = (DefaultTableModel) updateEmpTbl.getModel();
             updateEmpIdtxt.setText(String.valueOf(model.getValueAt(selectedRowIndex, 0)));
             updateEmpnametxt.setText(String.valueOf(model.getValueAt(selectedRowIndex, 1)));
             updateempcombo.setSelectedItem(String.valueOf(model.getValueAt(selectedRowIndex, 2)));
@@ -889,11 +967,14 @@ public class OrganizationJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel idlbl1;
     private javax.swing.JLabel idlbl2;
     private javax.swing.JTextField idtxt;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -904,6 +985,7 @@ public class OrganizationJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -922,10 +1004,10 @@ public class OrganizationJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel prevpasslbl;
     private javax.swing.JPasswordField prevpasstxt;
     private javax.swing.JTextField statetxt;
-    private javax.swing.JTable upadteEmpTbl;
     private javax.swing.JTextField updateEmpContacttxt;
     private javax.swing.JButton updateEmpDetailsBtn;
     private javax.swing.JTextField updateEmpIdtxt;
+    private javax.swing.JTable updateEmpTbl;
     private javax.swing.JTextField updateEmpnametxt;
     private javax.swing.JButton updatedetailsbtn;
     private javax.swing.JButton updatedetailsbtn2;
@@ -982,6 +1064,23 @@ public class OrganizationJPanel extends javax.swing.JPanel {
         Employee lastemployee = emplist.get(emplist.size() - 1);
         int nextid = lastemployee.getPersonid() + 1;
         addempid.setText(String.valueOf(nextid));
+    }
+
+    private void populateOrgEmployeesTbl() {
+        Organization org = business.getOrganization();
+        headinglbl.setText(org.getName());
+        
+//        Table populate
+        DefaultTableModel dtm = (DefaultTableModel) updateEmpTbl.getModel();
+        dtm.setRowCount(0);
+        for(Employee e: org.getEmpDirectory()){
+            Object[] row = new Object[4];
+            row[0] = e.getPersonid();
+            row[1] = e.getName();
+            row[2] = e.getRole();
+            row[3] = e.getPhone();
+            dtm.addRow(row);      
+        }
     }
 
 }

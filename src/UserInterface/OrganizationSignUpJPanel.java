@@ -96,8 +96,9 @@ public class OrganizationSignUpJPanel extends javax.swing.JPanel {
         confirmpwd.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         add(confirmpwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 330, 230, 30));
 
+        accountbtn.setBackground(new java.awt.Color(0, 0, 153));
         accountbtn.setFont(new java.awt.Font("Cambria Math", 1, 18)); // NOI18N
-        accountbtn.setForeground(new java.awt.Color(0, 0, 153));
+        accountbtn.setForeground(new java.awt.Color(255, 255, 255));
         accountbtn.setText("CREATE ORGANIZATION");
         accountbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -106,8 +106,9 @@ public class LoginJPanel extends javax.swing.JPanel {
         });
         add(CheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 320, 128, -1));
 
+        loginbtn.setBackground(new java.awt.Color(0, 0, 153));
         loginbtn.setFont(new java.awt.Font("Cambria Math", 1, 20)); // NOI18N
-        loginbtn.setForeground(new java.awt.Color(0, 0, 153));
+        loginbtn.setForeground(new java.awt.Color(255, 255, 255));
         loginbtn.setText("LOGIN");
         loginbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,8 +196,8 @@ public class LoginJPanel extends javax.swing.JPanel {
 
 //      Organization option selected
         if(comboSelected.getSelectedItem().toString().equalsIgnoreCase("Organization")){
-                int  Id = Integer.parseInt(useridtxt.getText());
-           Organization organization = business.getOrganizationdirectory().findOrg(Id);
+            int  Id = Integer.parseInt(useridtxt.getText());
+            Organization organization = business.getOrganizationdirectory().findOrg(Id);
             if(organization!=null){
                 String organizationPass = String.valueOf(organization.getOrganizationPass());
                 Boolean checkpassword = (organizationPass.equals(password)) ? true : false;
@@ -224,8 +225,8 @@ public class LoginJPanel extends javax.swing.JPanel {
 
 //      Volunteer option selected
         if(comboSelected.getSelectedItem().toString().equalsIgnoreCase("Volunteer")){
-                int  Id = Integer.parseInt(useridtxt.getText());
-           Volunteer volunteer = business.getVolunteerdirectory().findVolunteer(Id);
+            int  Id = Integer.parseInt(useridtxt.getText());
+            Volunteer volunteer = business.getVolunteerdirectory().findVolunteer(Id);
             if(volunteer!=null){
                 String volunteerPass = String.valueOf(volunteer.getPassword());
                 Boolean checkpassword = (volunteerPass.equals(password)) ? true : false;
