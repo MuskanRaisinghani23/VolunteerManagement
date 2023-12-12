@@ -554,7 +554,9 @@ public class VolunteerJPanel extends javax.swing.JPanel {
         String volPass = String.valueOf(vol.getPassword());
         Boolean checkExistingPassStatus = false;
 
-        if(volPass.equals(prevPassword)){
+        char[] hashedprevpassword = business.hashPassword(prevPassword);
+        
+        if(volPass.equals(String.valueOf(hashedprevpassword))){
             checkExistingPassStatus=true;
         }
 
@@ -565,7 +567,7 @@ public class VolunteerJPanel extends javax.swing.JPanel {
         }
         //        System.out.println(prevPassword +"--"+password+"--"+confirmpassword);
         if(flag == true){
-            vol.setPassword(password.toCharArray());
+            vol.setPassword(business.hashPassword(password));
             JOptionPane.showMessageDialog(null, "Password updated Successfully");
         }
         else{

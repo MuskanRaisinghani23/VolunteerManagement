@@ -58,7 +58,7 @@ public class ConfigureABusiness {
             while (resultSet.next()) {
                 int empId = resultSet.getInt("id");
                 String empName = resultSet.getString("Name");
-                char[] password = resultSet.getString("Password").toCharArray();
+                char[] password = business.hashPassword(resultSet.getString("Password"));
                 String contact = resultSet.getString("Contact");
                 String empRole = resultSet.getString("Role");
                 Employee e = empDir.newEmployee(empId, empName, password, "Employee", contact, empRole);
@@ -80,7 +80,7 @@ public class ConfigureABusiness {
             ResultSet resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 String enterType = resultSet.getString("Type");
-                char [] password = resultSet.getString("password").toCharArray();
+                char [] password = business.hashPassword(resultSet.getString("password"));
                 Enterprise ent = enterpriseDir.newEnterprise(enterType, password);
             }
         }
@@ -105,7 +105,7 @@ public class ConfigureABusiness {
                 String orgState = resultSet.getString("State");
                 String orgCountry = resultSet.getString("Country");
                 int needVolunteerCount = resultSet.getInt("NeedVolunteerCount");
-                char [] password = resultSet.getString("password").toCharArray();
+                char [] password = business.hashPassword(resultSet.getString("password"));
                 Organization org = orgDir.newOrganization(orgId, orgName, orgAdd, orgCity, orgState, orgCountry, needVolunteerCount, password);
             }
         }
@@ -126,7 +126,7 @@ public class ConfigureABusiness {
             while (resultSet.next()) {
                 int volId = resultSet.getInt("id");
                 String volName = resultSet.getString("Name");
-                char[] volPassword = resultSet.getString("Password").toCharArray();
+                char[] volPassword = business.hashPassword(resultSet.getString("Password"));
                 String volContact = resultSet.getString("Contact");
                 String volAdd = resultSet.getString("Address");
                 String volCity = resultSet.getString("City");

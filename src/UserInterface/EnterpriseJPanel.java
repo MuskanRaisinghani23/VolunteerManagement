@@ -461,9 +461,9 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
 
         // Create chart based on the dataset
         JFreeChart chart = ChartFactory.createBarChart(
-                "Top 3 Best Sales People",     // Chart title
-                "Sales",             // X-axis label
-                "Number of orders sold above target price",    // Y-axis label
+                "Organization's Volunteer Requirements",     // Chart title
+                "Organizations",             // X-axis label
+                "Number of volunteers required",    // Y-axis label
                 dataset);
         customizeBarChart(chart);
         

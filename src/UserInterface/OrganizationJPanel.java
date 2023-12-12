@@ -1029,7 +1029,9 @@ public class OrganizationJPanel extends javax.swing.JPanel {
         String orgPass = String.valueOf(org.getOrganizationPass());
         Boolean checkExistingPassStatus = false;
         
-        if(orgPass.equals(prevPassword)){
+        char[] hashedprevpassword = business.hashPassword(prevPassword);
+        
+        if(orgPass.equals(String.valueOf(hashedprevpassword))){
             checkExistingPassStatus=true;
         }
         
@@ -1040,7 +1042,7 @@ public class OrganizationJPanel extends javax.swing.JPanel {
         }
 //        System.out.println(prevPassword +"--"+password+"--"+confirmpassword);
         if(flag == true){
-            org.setOrganizationPass(password.toCharArray());
+            org.setOrganizationPass(business.hashPassword(password));
             JOptionPane.showMessageDialog(null, "Password updated Successfully");         
         }
         else{
@@ -1057,8 +1059,9 @@ public class OrganizationJPanel extends javax.swing.JPanel {
         char[] password = addemppasspwd.getPassword();
         String phone = addempcontacttxt.getText();
         String role = addemprolecombo.getSelectedItem().toString();
+        char[] hashedpassword = business.hashPassword(password);
         
-        Employee e = business.getEmployeedirectory().newEmployee(personid, name, password, "Employee", phone, role);
+        Employee e = business.getEmployeedirectory().newEmployee(personid, name, hashedpassword, "Employee", phone, role);
         org.addEmployee(e);
                 
         JOptionPane.showMessageDialog(null, "Employee added Successfully"); 

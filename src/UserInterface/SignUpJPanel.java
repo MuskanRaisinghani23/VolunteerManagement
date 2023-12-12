@@ -22,7 +22,6 @@ public class SignUpJPanel extends javax.swing.JPanel {
      */
     private JPanel homeJPanel;
     Business business;
-    Business business1;
     
     public SignUpJPanel(JPanel homeJPanel, Business business) {
         initComponents();
@@ -36,7 +35,7 @@ public class SignUpJPanel extends javax.swing.JPanel {
         jRadioButton1.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
                 if (jRadioButton1.isSelected()) {
-                    EnterpriseSignUpJPanel panel = new EnterpriseSignUpJPanel(homeJPanel, business1);
+                    EnterpriseSignUpJPanel panel = new EnterpriseSignUpJPanel(homeJPanel, business);
                     jSplitPane1.setRightComponent(panel);
                 }
             }
@@ -45,7 +44,7 @@ public class SignUpJPanel extends javax.swing.JPanel {
         jRadioButton2.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
                 if (jRadioButton2.isSelected()) {
-                    OrganizationSignUpJPanel panel = new OrganizationSignUpJPanel(homeJPanel, business1);
+                    OrganizationSignUpJPanel panel = new OrganizationSignUpJPanel(homeJPanel, business);
                     jSplitPane1.setRightComponent(panel);
                 }
             }
@@ -54,7 +53,7 @@ public class SignUpJPanel extends javax.swing.JPanel {
         jRadioButton3.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
                 if (jRadioButton3.isSelected()) {
-                    VolunteerSignUpJPanel panel = new VolunteerSignUpJPanel(homeJPanel, business1);
+                    VolunteerSignUpJPanel panel = new VolunteerSignUpJPanel(homeJPanel, business);
                     jSplitPane1.setRightComponent(panel);
                 }
             }
@@ -125,9 +124,9 @@ public class SignUpJPanel extends javax.swing.JPanel {
                 .addComponent(jRadioButton2)
                 .addGap(124, 124, 124)
                 .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 365, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 296, Short.MAX_VALUE)
                 .addComponent(backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53))
+                .addGap(122, 122, 122))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
