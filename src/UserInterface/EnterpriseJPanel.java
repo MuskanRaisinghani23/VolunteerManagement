@@ -7,10 +7,31 @@ package UserInterface;
 import Business.Business;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
+import Business.Volunteer.Volunteer;
 import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Font;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.CategoryAxis;
+import org.jfree.chart.axis.CategoryLabelPositions;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.renderer.category.BarRenderer;
+import org.jfree.data.category.CategoryDataset;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
+import org.jfree.data.general.PieDataset;
 
 /**
  *
@@ -68,6 +89,9 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
         statetxt = new javax.swing.JTextField();
         countrytxt = new javax.swing.JTextField();
         updatedetailsbtn = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        orgAnalyticsBtn = new javax.swing.JButton();
+        volAnalyticsBtn = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(1597, 978));
         setPreferredSize(new java.awt.Dimension(1597, 978));
@@ -102,7 +126,7 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(cclogo, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 459, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 481, Short.MAX_VALUE)
                 .addComponent(headinglbl)
                 .addGap(544, 544, 544)
                 .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -151,7 +175,7 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(335, Short.MAX_VALUE)
+                .addContainerGap(357, Short.MAX_VALUE)
                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 739, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(523, 523, 523))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -291,7 +315,7 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
                             .addComponent(citytxt, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
                             .addComponent(statetxt)
                             .addComponent(countrytxt))))
-                .addContainerGap(327, Short.MAX_VALUE))
+                .addContainerGap(349, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -337,11 +361,56 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
 
         jTabbedPane2.addTab("Manage Organizations", jPanel4);
 
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+
+        orgAnalyticsBtn.setBackground(new java.awt.Color(0, 0, 153));
+        orgAnalyticsBtn.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
+        orgAnalyticsBtn.setForeground(new java.awt.Color(255, 255, 255));
+        orgAnalyticsBtn.setText("Organization Analytics");
+        orgAnalyticsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orgAnalyticsBtnActionPerformed(evt);
+            }
+        });
+
+        volAnalyticsBtn.setBackground(new java.awt.Color(0, 0, 153));
+        volAnalyticsBtn.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
+        volAnalyticsBtn.setForeground(new java.awt.Color(255, 255, 255));
+        volAnalyticsBtn.setText("Volunteer Analytics");
+        volAnalyticsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volAnalyticsBtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(72, 72, 72)
+                .addComponent(orgAnalyticsBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(91, 91, 91)
+                .addComponent(volAnalyticsBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(1118, 1118, 1118))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(96, 96, 96)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(orgAnalyticsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(volAnalyticsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(686, Short.MAX_VALUE))
+        );
+
+        jTabbedPane2.addTab("Analytics", jPanel5);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jTabbedPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1619, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -354,7 +423,7 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1619, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -386,6 +455,35 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
         layout.previous(homeJPanel);
     }//GEN-LAST:event_logoutBtnActionPerformed
 
+    private void orgAnalyticsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orgAnalyticsBtnActionPerformed
+        CategoryDataset dataset = createOrgDataset();
+
+        // Create chart based on the dataset
+        JFreeChart chart = ChartFactory.createBarChart(
+                "Top 3 Best Sales People",     // Chart title
+                "Sales",             // X-axis label
+                "Number of orders sold above target price",    // Y-axis label
+                dataset);
+        customizeBarChart(chart);
+        
+        ChartFrame frame = new ChartFrame("Results", chart);
+        frame.pack();
+        frame.setVisible(true);
+
+    }//GEN-LAST:event_orgAnalyticsBtnActionPerformed
+
+    private void volAnalyticsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volAnalyticsBtnActionPerformed
+        PieDataset dataset = createVolunteerDataset();
+        
+        JFreeChart chart = ChartFactory.createPieChart(
+                "Volunteer Distribution with gender",
+                dataset
+        );
+        ChartFrame frame = new ChartFrame("Results", chart);
+        frame.pack();
+        frame.setVisible(true);
+    }//GEN-LAST:event_volAnalyticsBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel cclogo;
@@ -406,6 +504,7 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
@@ -413,8 +512,10 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
     private javax.swing.JTable manageOrg;
     private javax.swing.JTextField nametxt;
     private javax.swing.JTextField needvoltxt;
+    private javax.swing.JButton orgAnalyticsBtn;
     private javax.swing.JTextField statetxt;
     private javax.swing.JButton updatedetailsbtn;
+    private javax.swing.JButton volAnalyticsBtn;
     // End of variables declaration//GEN-END:variables
 
     private void populateTable() {
@@ -435,5 +536,74 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
             row[5] = org.getNeedVolunteerCount();
             dtm.addRow(row);      
         }
+    }
+
+    private void customizeBarChart(JFreeChart chart) {
+        chart.setBackgroundPaint(Color.white);
+        CategoryPlot plot = chart.getCategoryPlot();
+        CategoryAxis domainAxis = plot.getDomainAxis();
+        domainAxis.setCategoryLabelPositions(CategoryLabelPositions.UP_45); // Rotate labels for better readability
+        domainAxis.setTickLabelFont(new Font("SansSerif", Font.PLAIN, 12));
+        chart.getLegend().setItemFont(new Font("SansSerif", Font.PLAIN, 12));
+        BarRenderer renderer = (BarRenderer) plot.getRenderer();
+        // Set maximum bar width in data units
+        renderer.setMaximumBarWidth(0.1);
+    }
+
+    private CategoryDataset createOrgDataset() {
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        HashMap<String, Integer> org_hash = new HashMap<String, Integer>();
+        
+        ArrayList<Organization> olist = business.getEnterprise().getOrglist();
+        
+        for(Organization o: olist){
+            org_hash.put(o.getName(), o.getNeedVolunteerCount());
+        }
+        
+        List<Map.Entry<String, Integer>> entryList = new LinkedList<>(org_hash.entrySet());
+        Comparator<Map.Entry<String, Integer>> valueComparator = Comparator.comparing(Map.Entry::getValue);
+        entryList.sort(valueComparator);
+        
+        for (int i = entryList.size() - 1; i >= 0; i--) {
+            Map.Entry<String, Integer> entry = entryList.get(i);
+            String org_name = entry.getKey();
+            int value = entry.getValue();
+            dataset.addValue(value, "Organization Volunteer Requirements", org_name);
+        }
+        
+        return (CategoryDataset) dataset;
+    }
+    
+    private PieDataset createVolunteerDataset() {
+        DefaultPieDataset dataset = new DefaultPieDataset();
+        HashMap<String, Integer> vol_hash = new HashMap<String, Integer>();
+        ArrayList<Volunteer> vlist = business.getVolunteerdirectory().getAllVol();
+        int mcount=1;
+        int fcount=1;
+        
+        for(Volunteer v: vlist){
+            if(v.getGender().equals("M") && mcount==1){
+                vol_hash.put("M", mcount);
+                mcount+=1;
+            }
+            else{
+                vol_hash.put("F", fcount);
+                fcount+=1;
+            }
+        }
+        
+        List<Map.Entry<String, Integer>> entryList = new LinkedList<>(vol_hash.entrySet());
+        Comparator<Map.Entry<String, Integer>> valueComparator = Comparator.comparing(Map.Entry::getValue);
+        entryList.sort(valueComparator);
+        for (int i = entryList.size() - 1; i >= 0; i--) {
+            Map.Entry<String, Integer> entry = entryList.get(i);
+            String s = entry.getKey();
+            int value = entry.getValue();
+            // Add data to the dataset
+            dataset.setValue(s,value);
+            
+        }
+
+        return (PieDataset) dataset;
     }
 }
