@@ -5,6 +5,7 @@
 package UserInterface;
 
 import Business.Business;
+import Business.Organization.Organization;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -181,6 +182,9 @@ public class OrganizationSignUpJPanel extends javax.swing.JPanel {
         String city = txtCity.getText();
         String state = statetxt.getText();
         String country = countrytxt.getText();
+        
+        Organization org = business.getOrganizationdirectory().newOrganization(id, Name, address, city, state, country, 0, Password);
+        
         if(passwordVerification){
             JOptionPane.showMessageDialog(null, "Organization" + Name +" created successfully.");
         }

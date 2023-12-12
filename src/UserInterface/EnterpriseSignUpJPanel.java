@@ -5,6 +5,7 @@
 package UserInterface;
 
 import Business.Business;
+import Business.Enterprise.Enterprise;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -99,6 +100,9 @@ public class EnterpriseSignUpJPanel extends javax.swing.JPanel {
         char[] Password = createpwd.getPassword();
         char[] confirmPassword = confirmpwd.getPassword();
         Boolean passwordVerification = passwordVerify(Password, confirmPassword);
+        
+        Enterprise ent = business.getEnterprisedirectory().newEnterprise(Type, Password);
+        
         if(passwordVerification){
             JOptionPane.showMessageDialog(null, "Enterprise" + Type +" account created successfully.");
             

@@ -153,6 +153,7 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
 
         jTabbedPane2.setBackground(new java.awt.Color(255, 255, 255));
         jTabbedPane2.setForeground(new java.awt.Color(0, 0, 153));
+        jTabbedPane2.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -410,7 +411,7 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1619, Short.MAX_VALUE)
+            .addComponent(jTabbedPane2, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -423,7 +424,7 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1619, Short.MAX_VALUE)
+            .addComponent(jSplitPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -580,17 +581,24 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
         ArrayList<Volunteer> vlist = business.getVolunteerdirectory().getAllVol();
         int mcount=1;
         int fcount=1;
+        int ocount=1;
         
         for(Volunteer v: vlist){
-            if(v.getGender().equals("M") && mcount==1){
-                vol_hash.put("M", mcount);
+            if(v.getGender().equalsIgnoreCase("Male")){
+                vol_hash.put("Male", mcount);
                 mcount+=1;
             }
-            else{
-                vol_hash.put("F", fcount);
+            else if(v.getGender().equalsIgnoreCase("Female")){
+                vol_hash.put("Female", fcount);
                 fcount+=1;
             }
+            else{
+                vol_hash.put("Others", ocount);
+                ocount+=1;
+            }
         }
+//        vol_hash.forEach((key, value) -> System.out.println(key + " " + value));
+
         
         List<Map.Entry<String, Integer>> entryList = new LinkedList<>(vol_hash.entrySet());
         Comparator<Map.Entry<String, Integer>> valueComparator = Comparator.comparing(Map.Entry::getValue);
@@ -601,7 +609,6 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
             int value = entry.getValue();
             // Add data to the dataset
             dataset.setValue(s,value);
-            
         }
 
         return (PieDataset) dataset;
