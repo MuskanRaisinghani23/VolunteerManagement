@@ -101,22 +101,25 @@ public class EnterpriseSignUpJPanel extends javax.swing.JPanel {
         char[] confirmPassword = confirmpwd.getPassword();
         Boolean passwordVerification = passwordVerify(Password, confirmPassword);
         
-        Enterprise ent = business.getEnterprisedirectory().newEnterprise(Type, Password);
-        
         if(passwordVerification){
-            JOptionPane.showMessageDialog(null, "Enterprise" + Type +" account created successfully.");
+            char[] hashedpassword = business.hashPassword(Password);
+            Enterprise ent = business.getEnterprisedirectory().newEnterprise(Type, hashedpassword);
+            JOptionPane.showMessageDialog(null, "Enterprise " + Type +" created successfully.");
             
+            idtxt.setText("");
+            createpwd.setText("");
+            confirmpwd.setText("");
         }
     }//GEN-LAST:event_accountbtnActionPerformed
 
      private Boolean passwordVerify(char[] newPassword, char[] confirmPassword) {
         Boolean flag = true;
-        String password = new String(newPassword);
+        String password = String.valueOf(newPassword);
         if(((password.matches("[a-zA-Z0-9@._-]{3,}") == false))){
             JOptionPane.showMessageDialog(null, "Incorrect Password Format");
             flag = false;
         }
-        String confirmpassword = new String(confirmPassword);
+        String confirmpassword = String.valueOf(confirmPassword);
         if(password.equals(confirmpassword)==false){
             JOptionPane.showMessageDialog(null, "Confirm password doesnot match with set Password");
             flag = false;

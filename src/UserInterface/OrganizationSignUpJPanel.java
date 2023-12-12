@@ -5,7 +5,11 @@
 package UserInterface;
 
 import Business.Business;
+import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -24,6 +28,7 @@ public class OrganizationSignUpJPanel extends javax.swing.JPanel {
         initComponents();
         this.homeJPanel = homeJPanel;
         this.business = business;
+        initialPopulate();
     }
 
     /**
@@ -48,7 +53,7 @@ public class OrganizationSignUpJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         addresstxt = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtCity = new javax.swing.JTextField();
+        citytxt = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         statetxt = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -73,6 +78,7 @@ public class OrganizationSignUpJPanel extends javax.swing.JPanel {
         idlbl.setText("ID:");
         add(idlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 108, 29));
 
+        idtxt.setEditable(false);
         idtxt.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         add(idtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, 230, 30));
 
@@ -129,8 +135,8 @@ public class OrganizationSignUpJPanel extends javax.swing.JPanel {
         jLabel3.setText("City");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 240, -1, -1));
 
-        txtCity.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        add(txtCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 230, 230, 30));
+        citytxt.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        add(citytxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 230, 230, 30));
 
         jLabel4.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 153));
@@ -160,7 +166,7 @@ public class OrganizationSignUpJPanel extends javax.swing.JPanel {
                 enterprisejComboBoxActionPerformed(evt);
             }
         });
-        add(enterprisejComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 390, 230, 30));
+        add(enterprisejComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, 230, 30));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/bg2.png"))); // NOI18N
         add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 490, -1, -1));
@@ -179,14 +185,18 @@ public class OrganizationSignUpJPanel extends javax.swing.JPanel {
         String entType = enterprisejComboBox.getSelectedItem().toString();
         Boolean passwordVerification = passwordVerify(Password, confirmPassword);
         String address = addresstxt.getText();
-        String city = txtCity.getText();
+        String city = citytxt.getText();
         String state = statetxt.getText();
         String country = countrytxt.getText();
         
-        Organization org = business.getOrganizationdirectory().newOrganization(id, Name, address, city, state, country, 0, Password);
         
         if(passwordVerification){
-            JOptionPane.showMessageDialog(null, "Organization" + Name +" created successfully.");
+            char[] hashedpassword = business.hashPassword(Password);
+            Organization org = business.getOrganizationdirectory().newOrganization(id, Name, address, city, state, country, 0, hashedpassword);
+            Enterprise e = business.getEnterprisedirectory().findEnterprise(entType);
+            e.addOrg(org);
+            JOptionPane.showMessageDialog(null, "Organization " + Name +" created successfully. Use "+ id + " while logging in.");
+            initialPopulate();
         }
     }//GEN-LAST:event_accountbtnActionPerformed
 
@@ -213,6 +223,7 @@ public class OrganizationSignUpJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton accountbtn;
     private javax.swing.JTextField addresstxt;
+    private javax.swing.JTextField citytxt;
     private javax.swing.JPasswordField confirmpwd;
     private javax.swing.JTextField countrytxt;
     private javax.swing.JPasswordField createpwd;
@@ -231,6 +242,28 @@ public class OrganizationSignUpJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField nametxt;
     private javax.swing.JLabel signuplbl;
     private javax.swing.JTextField statetxt;
-    private javax.swing.JTextField txtCity;
     // End of variables declaration//GEN-END:variables
+
+    private void initialPopulate() {
+        ArrayList<Organization> orglist = business.getOrganizationdirectory().getAllOrg();;
+        Organization lastorgid = orglist.get(orglist.size() - 1);
+        int nextid = lastorgid.getId()+ 1;
+        idtxt.setText(String.valueOf(nextid));
+        
+        Set<String> enterprisetypeset = new HashSet<String>();
+        for(Enterprise ent : business.getEnterprisedirectory().getAllEnter()){
+            enterprisetypeset.add(ent.getType());
+        }
+        for(String enttype : enterprisetypeset) {
+            enterprisejComboBox.addItem(enttype);
+        }
+        
+        nametxt.setText("");
+        addresstxt.setText("");
+        citytxt.setText("");
+        statetxt.setText("");
+        countrytxt.setText("");
+        createpwd.setText("");
+        confirmpwd.setText("");
+    }
 }

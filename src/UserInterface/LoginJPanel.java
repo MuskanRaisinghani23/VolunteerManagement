@@ -165,7 +165,7 @@ public class LoginJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_CheckBoxActionPerformed
 
     private void loginbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginbtnActionPerformed
-        String password = new String(passwordpwd.getPassword());
+        String password = String.valueOf(business.hashPassword(passwordpwd.getPassword()));
         
         // Enterprise option selected
         if(comboSelected.getSelectedItem().toString().equalsIgnoreCase("Enterprise")){
@@ -257,8 +257,8 @@ public class LoginJPanel extends javax.swing.JPanel {
 
 //      Employee option selected
         if(comboSelected.getSelectedItem().toString().equalsIgnoreCase("Employee")){
-               int  Id = Integer.parseInt(useridtxt.getText());
-           Employee employee = business.getEmployeedirectory().findEmployee(Id);
+            int  Id = Integer.parseInt(useridtxt.getText());
+            Employee employee = business.getEmployeedirectory().findEmployee(Id);
             if(employee!=null){
                 String EmployeePass = String.valueOf(employee.getPassword());
                 Boolean checkpassword = (EmployeePass.equals(password)) ? true : false;
