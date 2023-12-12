@@ -89,12 +89,14 @@ public class LoginJPanel extends javax.swing.JPanel {
         backbtn.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
         backbtn.setForeground(new java.awt.Color(0, 0, 153));
         backbtn.setText("<< back to Homepage");
+        backbtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        backbtn.setContentAreaFilled(false);
         backbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backbtnActionPerformed(evt);
             }
         });
-        add(backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1270, 40, -1, 33));
+        add(backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1270, 40, 180, 33));
 
         CheckBox.setFont(new java.awt.Font("Cambria Math", 0, 12)); // NOI18N
         CheckBox.setForeground(new java.awt.Color(0, 0, 153));
@@ -164,7 +166,7 @@ public class LoginJPanel extends javax.swing.JPanel {
 
     private void loginbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginbtnActionPerformed
         String password = new String(passwordpwd.getPassword());
-        System.out.println(password);
+        
         // Enterprise option selected
         if(comboSelected.getSelectedItem().toString().equalsIgnoreCase("Enterprise")){
             String Id = useridtxt.getText();

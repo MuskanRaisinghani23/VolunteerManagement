@@ -193,7 +193,7 @@
                           <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="347" max="32767" attributes="0"/>
+                          <EmptySpace pref="350" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -282,7 +282,7 @@
                                               <Component id="addtxt" alignment="0" max="32767" attributes="0"/>
                                               <Component id="statetxt" alignment="0" max="32767" attributes="0"/>
                                               <Component id="countrytxt" alignment="1" max="32767" attributes="0"/>
-                                              <Component id="emptypecombo" max="32767" attributes="0"/>
+                                              <Component id="enterprisetypecombo" max="32767" attributes="0"/>
                                               <Component id="citytxt" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
@@ -383,7 +383,7 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="emptypecombo" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                                      <Component id="enterprisetypecombo" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
@@ -678,14 +678,20 @@
                     <Property name="text" type="java.lang.String" value="Update Password"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="emptypecombo">
+                <Component class="javax.swing.JComboBox" name="enterprisetypecombo">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Cambria Math" size="14" style="0"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="99" green="0" red="0" type="rgb"/>
+                    </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="0"/>
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="emptypecomboActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="enterprisetypecomboActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -813,7 +819,7 @@
                           </Group>
                           <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="addemployeebtn" min="-2" pref="31" max="-2" attributes="0"/>
-                          <EmptySpace pref="515" max="32767" attributes="0"/>
+                          <EmptySpace pref="518" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1038,7 +1044,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="424" max="32767" attributes="0"/>
+                          <EmptySpace pref="427" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1248,7 +1254,7 @@
                               <Component id="sendreqBtn" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                               <Component id="revokereqBtn" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="575" max="32767" attributes="0"/>
+                          <EmptySpace pref="586" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

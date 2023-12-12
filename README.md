@@ -1,7 +1,7 @@
 # WEVolunteer Project 
 
 ## Project Overview
-WEVolunteer is a Java-based application developed in NetBeans with the aim of creating a centralized system to connect volunteers with organizations . The project focuses on streamlining the process of mapping volunteering opportunities to aid requests, fostering a sense of community engagement and support.
+WEVolunteer serves as a worldwide platform facilitating communication between volunteers and organizations in need. Developed using Java in NetBeans, this application aims to establish a centralized system that seamlessly connects volunteers with organizations. The project's core objective is to enhance the efficiency of aligning volunteer opportunities with aid requests, fostering a stronger sense of community engagement and support.
 
 ## Problem Statement
 Currently, there is no centralized system to efficiently connect volunteers with those seeking help. WEVolunteer aims to bridge this gap by providing a platform for companies, NGOs, and aid requesters to collaborate and coordinate effectively.
@@ -20,9 +20,14 @@ The primary purpose of WEVolunteer is to:
 ![Class diagram](/src/Resources/classdiagram.png)
 ### Panels Screenshots : 
 ![Home Page](/src/Resources/Screenshot1.png)
+--
 ![Login Page](/src/Resources/Screenshot2.png)
+--
 ![Sign up Page](/src/Resources/Screenshot3.png)
+--
 ![Organization Panel](/src/Resources/Screenshot4.png)
+--
+![Analytics](/src/Resources/Screenshot5.PNG)
 
 
 ## Key Features

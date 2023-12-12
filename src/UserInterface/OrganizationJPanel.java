@@ -35,13 +35,14 @@ public class OrganizationJPanel extends javax.swing.JPanel {
         initComponents();
         this.business = business;
         this.homeJPanel = homeJPanel;
-        populateOrgDetails();
         populateOrgEmployeesTbl();
         populateEmployeeRoleCombos();
+        populateEnterpriseTypeCombo();
         populateNextEmployeeId();
         populateVolunteerTbl();
         populateAllEmployees();
         populateAllVolunteers();
+        populateOrgDetails();
     }
 
     /**
@@ -88,7 +89,7 @@ public class OrganizationJPanel extends javax.swing.JPanel {
         updatepassbtn2 = new javax.swing.JButton();
         updatepasswordlbl = new javax.swing.JLabel();
         updatepasswordlbl1 = new javax.swing.JLabel();
-        emptypecombo = new javax.swing.JComboBox<>();
+        enterprisetypecombo = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
         needvoltxt = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
@@ -228,7 +229,7 @@ public class OrganizationJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(94, 94, 94)
                 .addComponent(jLabel1)
-                .addContainerGap(347, Short.MAX_VALUE))
+                .addContainerGap(350, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Home", jPanel3);
@@ -338,9 +339,11 @@ public class OrganizationJPanel extends javax.swing.JPanel {
         updatepasswordlbl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         updatepasswordlbl1.setText("Update Password");
 
-        emptypecombo.addActionListener(new java.awt.event.ActionListener() {
+        enterprisetypecombo.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        enterprisetypecombo.setForeground(new java.awt.Color(0, 0, 153));
+        enterprisetypecombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emptypecomboActionPerformed(evt);
+                enterprisetypecomboActionPerformed(evt);
             }
         });
 
@@ -385,7 +388,7 @@ public class OrganizationJPanel extends javax.swing.JPanel {
                                     .addComponent(addtxt, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(statetxt, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(countrytxt)
-                                    .addComponent(emptypecombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(enterprisetypecombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(citytxt))))
                         .addGap(187, 187, 187)))
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -457,7 +460,7 @@ public class OrganizationJPanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(emptypecombo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(enterprisetypecombo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(needvoltxt, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -606,7 +609,7 @@ public class OrganizationJPanel extends javax.swing.JPanel {
                     .addComponent(addempcontacttxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addComponent(addemployeebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(515, Short.MAX_VALUE))
+                .addContainerGap(518, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Add Employee", jPanel6);
@@ -741,7 +744,7 @@ public class OrganizationJPanel extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(updateEmpnametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(424, Short.MAX_VALUE))
+                .addContainerGap(427, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Update Employees", jPanel1);
@@ -824,7 +827,7 @@ public class OrganizationJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sendreqBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(revokereqBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(575, Short.MAX_VALUE))
+                .addContainerGap(586, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Connect to Volunteers", jPanel5);
@@ -964,7 +967,7 @@ public class OrganizationJPanel extends javax.swing.JPanel {
             countrytxt.setText("");
         }
         
-        String entType = emptypecombo.getSelectedItem().toString();
+        String entType = enterprisetypecombo.getSelectedItem().toString();
         
         int needvolcount = Integer.parseInt(needvoltxt.getText());
         
@@ -1102,9 +1105,9 @@ public class OrganizationJPanel extends javax.swing.JPanel {
         layout.previous(homeJPanel);
     }//GEN-LAST:event_logoutBtnActionPerformed
 
-    private void emptypecomboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emptypecomboActionPerformed
+    private void enterprisetypecomboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterprisetypecomboActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_emptypecomboActionPerformed
+    }//GEN-LAST:event_enterprisetypecomboActionPerformed
 
     private void sendreqBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendreqBtnActionPerformed
         Organization org = business.getOrganization();
@@ -1187,7 +1190,7 @@ public class OrganizationJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel confirmpasslbl1;
     private javax.swing.JPasswordField confirmpasstxt;
     private javax.swing.JTextField countrytxt;
-    private javax.swing.JComboBox<String> emptypecombo;
+    private javax.swing.JComboBox<String> enterprisetypecombo;
     private javax.swing.JLabel headinglbl;
     private javax.swing.JLabel idlbl;
     private javax.swing.JLabel idlbl1;
@@ -1274,7 +1277,7 @@ public class OrganizationJPanel extends javax.swing.JPanel {
         citytxt.setText(city);
         statetxt.setText(state);
         countrytxt.setText(country);
-        emptypecombo.setSelectedItem(type);
+        enterprisetypecombo.setSelectedItem(type);
         needvoltxt.setText(String.valueOf(needVolCount));
     }
 
@@ -1284,7 +1287,6 @@ public class OrganizationJPanel extends javax.swing.JPanel {
             empRoleSet.add(emp.getRole());
         }
         for(String emprole : empRoleSet) {
-            emptypecombo.addItem(emprole);
             addemprolecombo.addItem(emprole);
             updateempcombo.addItem(emprole);
         }
@@ -1322,24 +1324,31 @@ public class OrganizationJPanel extends javax.swing.JPanel {
         for(Volunteer v : vollist){
             String volcity = v.getCity();
             String volcountry = v.getCountry();
-            if(volcity.equals(org.getCity()) && volcountry.equals(org.getCountry())){
+            if(volcity.equalsIgnoreCase(org.getCity()) && volcountry.equalsIgnoreCase(org.getCountry())){
                 selectedvolunteer.add(v);
             }
         }
-        
+                
         DefaultTableModel dtm = (DefaultTableModel) volunteerTbl.getModel();
         dtm.setRowCount(0);
         for(Volunteer v : selectedvolunteer){
             Object[] row = new Object[7];
             row[0] = v.getPersonid();
             row[1] = v.getName();
-            row[2] = v.getPhone();
+            
             row[3] = v.getCity();
             row[4] = v.getAge();
             row[5] = v.getGender();
             OrganizationVolunteer ov = business.getOrganizationvolunteerdirectory().findRequestIfPresent(org, v);
             if(ov!=null){
                 row[6] = ov.getRequeststatus();
+//                Showcase volunteer contact only when request is accpted
+                if(ov.getRequeststatus().equalsIgnoreCase("Accepted")){
+                    row[2] = v.getPhone();
+                }
+                else{
+                    row[2] = "";
+                }
             }
             else{
                 row[6] = "";
@@ -1381,6 +1390,14 @@ public class OrganizationJPanel extends javax.swing.JPanel {
             row[5] = v.getState();
             row[6] = v.getPhone();
             dtm.addRow(row);      
+
+    private void populateEnterpriseTypeCombo() {
+        Set<String> enterprisetypeset = new HashSet<String>();
+        for(Enterprise ent : business.getEnterprisedirectory().getAllEnter()){
+            enterprisetypeset.add(ent.getType());
+        }
+        for(String enttype : enterprisetypeset) {
+            enterprisetypecombo.addItem(enttype);
         }
     }
 
