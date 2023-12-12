@@ -20,9 +20,13 @@ The primary purpose of WEVolunteer is to:
 ![Class diagram](/src/Resources/classdiagram.png)
 ### Panels Screenshots : 
 ![Home Page](/src/Resources/Screenshot1.png)
+--
 ![Login Page](/src/Resources/Screenshot2.png)
+--
 ![Sign up Page](/src/Resources/Screenshot3.png)
+--
 ![Organization Panel](/src/Resources/Screenshot4.png)
+--
 ![Analytics](/src/Resources/Screenshot5.PNG)
 
 
