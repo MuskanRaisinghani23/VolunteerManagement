@@ -23,6 +23,7 @@ The primary purpose of WEVolunteer is to:
 ![Login Page](/src/Resources/Screenshot2.png)
 ![Sign up Page](/src/Resources/Screenshot3.png)
 ![Organization Panel](/src/Resources/Screenshot4.png)
+![Analytics](/src/Resources/Screenshot5.png)
 
 
 ## Key Features
