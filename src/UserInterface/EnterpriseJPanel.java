@@ -48,6 +48,10 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
         cclogo = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         manageOrg = new javax.swing.JTable();
@@ -116,15 +120,58 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(cclogo, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jSplitPane1.setTopComponent(jPanel2);
 
-        jPanel3.setBackground(new java.awt.Color(0, 0, 153));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         jTabbedPane2.setBackground(new java.awt.Color(255, 255, 255));
         jTabbedPane2.setForeground(new java.awt.Color(0, 0, 153));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel15.setFont(new java.awt.Font("Cambria Math", 1, 24)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel15.setText("Welcome to WE VOLUNTEER'S Enterprise Panel");
+
+        jLabel16.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel16.setText("<html>Enterprises play a crucial role in fostering community engagement. At WEVolunteer, your participation makes a significant difference. <br>Sign up to connect with volunteers, NGOs, and aid requesters.<br> Seamlessly integrate your enterprise into initiatives that align with your values.<br> Together, we can build a prosperous, loving, and globally connected community. Join us in making a positive impact!<html>\n");
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/ent home.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(551, 551, 551)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(335, Short.MAX_VALUE)
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 739, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(523, 523, 523))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 1100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(jLabel15)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTabbedPane2.addTab("Home", jPanel1);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -285,7 +332,7 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
                                 .addComponent(jLabel5)
                                 .addGap(38, 38, 38)
                                 .addComponent(jLabel6)))))
-                .addContainerGap(282, Short.MAX_VALUE))
+                .addContainerGap(285, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Manage Organizations", jPanel4);
@@ -347,11 +394,15 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel headinglbl;
     private javax.swing.JLabel idlbl;
     private javax.swing.JTextField idtxt;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;

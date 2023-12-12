@@ -138,7 +138,7 @@ public class VMSMainJFrame extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI Emoji", 3, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Cambria Math", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 153));
         jLabel4.setText("Welcome to WE VOLUNTEER'S Volunteer Management System");
 
@@ -174,7 +174,7 @@ public class VMSMainJFrame extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(54, 54, 54)
                 .addComponent(jLabel1)
-                .addContainerGap(203, Short.MAX_VALUE))
+                .addContainerGap(201, Short.MAX_VALUE))
         );
 
         jSplitPane1.setBottomComponent(jPanel3);
