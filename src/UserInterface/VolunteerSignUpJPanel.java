@@ -6,6 +6,7 @@ package UserInterface;
 
 import Business.Business;
 import Business.ConfigureABusiness;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -43,20 +44,20 @@ public class VolunteerSignUpJPanel extends javax.swing.JPanel {
         confirmpwd = new javax.swing.JPasswordField();
         accountbtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        nametxt = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        addtxt = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        citytxt = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        statetxt = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        countrytxt = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        agetxt = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        genderjComboBox = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(0, 0, 153));
@@ -75,7 +76,7 @@ public class VolunteerSignUpJPanel extends javax.swing.JPanel {
         add(idlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, 108, 29));
 
         idtxt.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        add(idtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, 219, 29));
+        add(idtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, 219, 29));
 
         jLabel12.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 153));
@@ -88,7 +89,7 @@ public class VolunteerSignUpJPanel extends javax.swing.JPanel {
                 createpwdActionPerformed(evt);
             }
         });
-        add(createpwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, 219, 30));
+        add(createpwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, 219, 30));
 
         jLabel13.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 153));
@@ -113,28 +114,28 @@ public class VolunteerSignUpJPanel extends javax.swing.JPanel {
         jLabel1.setText("Name");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, -1, -1));
 
-        jTextField1.setPreferredSize(new java.awt.Dimension(64, 23));
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 219, 29));
+        nametxt.setPreferredSize(new java.awt.Dimension(64, 23));
+        add(nametxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 219, 29));
 
         jLabel2.setForeground(new java.awt.Color(0, 0, 153));
         jLabel2.setText("Address");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 160, -1, -1));
-        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 150, 220, 30));
+        add(addtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 150, 220, 30));
 
         jLabel3.setForeground(new java.awt.Color(0, 0, 153));
         jLabel3.setText("City");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 210, -1, -1));
-        add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 200, 220, 30));
+        add(citytxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 200, 220, 30));
 
         jLabel4.setForeground(new java.awt.Color(0, 0, 153));
         jLabel4.setText("State");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 260, -1, -1));
-        add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 250, 219, 30));
+        add(statetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 250, 219, 30));
 
         jLabel5.setForeground(new java.awt.Color(0, 0, 153));
         jLabel5.setText("Country");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 300, -1, -1));
-        add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 300, 220, 30));
+        add(countrytxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 300, 220, 30));
 
         jLabel6.setForeground(new java.awt.Color(0, 0, 153));
         jLabel6.setText("Gender");
@@ -144,21 +145,21 @@ public class VolunteerSignUpJPanel extends javax.swing.JPanel {
         jLabel7.setText("Age");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 370, -1, -1));
 
-        jTextField7.setPreferredSize(new java.awt.Dimension(64, 23));
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        agetxt.setPreferredSize(new java.awt.Dimension(64, 23));
+        agetxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                agetxtActionPerformed(evt);
             }
         });
-        add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 219, 30));
+        add(agetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 219, 30));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/bg2.png"))); // NOI18N
         add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 490, -1, -1));
 
-        jComboBox1.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(0, 0, 153));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Others" }));
-        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 350, 220, 30));
+        genderjComboBox.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        genderjComboBox.setForeground(new java.awt.Color(0, 0, 153));
+        genderjComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Others" }));
+        add(genderjComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 350, 220, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void createpwdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createpwdActionPerformed
@@ -167,20 +168,53 @@ public class VolunteerSignUpJPanel extends javax.swing.JPanel {
 
     private void accountbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountbtnActionPerformed
         // TODO add your handling code here:
+        int id = Integer.parseInt(idtxt.getText());
+        String Name = nametxt.getText();
+        char[] Password = createpwd.getPassword();
+        char[] confirmPassword = confirmpwd.getPassword();
+        int age = Integer.parseInt(agetxt.getText());
+        String genderType = genderjComboBox.getSelectedItem().toString();
+        Boolean passwordVerification = passwordVerify(Password, confirmPassword);
+        String address = addtxt.getText();
+        String city = citytxt.getText();
+        String state = statetxt.getText();
+        String country = countrytxt.getText();
+        if(passwordVerification){
+            JOptionPane.showMessageDialog(null, "Volunteer" + Name +" created successfully.");
+        }
     }//GEN-LAST:event_accountbtnActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private Boolean passwordVerify(char[] newPassword, char[] confirmPassword) {
+        Boolean flag = true;
+        String password = new String(newPassword);
+        if(((password.matches("[a-zA-Z0-9@._-]{3,}") == false))){
+            JOptionPane.showMessageDialog(null, "Incorrect Password Format");
+            flag = false;
+        }
+        String confirmpassword = new String(confirmPassword);
+        if(password.equals(confirmpassword)==false){
+            JOptionPane.showMessageDialog(null, "Confirm password doesnot match with set Password");
+            flag = false;
+        }
+        return flag;        
+    }
+    
+    private void agetxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agetxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_agetxtActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton accountbtn;
+    private javax.swing.JTextField addtxt;
+    private javax.swing.JTextField agetxt;
+    private javax.swing.JTextField citytxt;
     private javax.swing.JPasswordField confirmpwd;
+    private javax.swing.JTextField countrytxt;
     private javax.swing.JPasswordField createpwd;
+    private javax.swing.JComboBox<String> genderjComboBox;
     private javax.swing.JLabel idlbl;
     private javax.swing.JTextField idtxt;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -191,12 +225,8 @@ public class VolunteerSignUpJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField nametxt;
     private javax.swing.JLabel signuplbl;
+    private javax.swing.JTextField statetxt;
     // End of variables declaration//GEN-END:variables
 }

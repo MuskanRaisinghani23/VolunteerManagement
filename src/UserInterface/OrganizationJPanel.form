@@ -1220,9 +1220,9 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="687" max="-2" attributes="0"/>
-                                  <Component id="sendreqBtn" min="-2" pref="129" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="-2" pref="665" max="-2" attributes="0"/>
+                                  <Component id="sendreqBtn" min="-2" pref="151" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="revokereqBtn" min="-2" pref="156" max="-2" attributes="0"/>
                               </Group>
@@ -1245,7 +1245,7 @@
                               <Component id="sendreqBtn" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                               <Component id="revokereqBtn" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="583" max="32767" attributes="0"/>
+                          <EmptySpace pref="575" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

@@ -38,4 +38,5 @@ public class VolunteerDirectory {
     public ArrayList<Volunteer> getAllVol(){
         return volunteerlist;
     }
+    
 }
