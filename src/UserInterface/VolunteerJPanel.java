@@ -32,6 +32,8 @@ public class VolunteerJPanel extends javax.swing.JPanel {
         initComponents();
         this.homeJPanel = homeJPanel;
         this.business = business;
+        populateOrganizationRequests();
+        populateVolunteerDetails();
     }
     
 
@@ -58,10 +60,13 @@ public class VolunteerJPanel extends javax.swing.JPanel {
         jPanel4 = new javax.swing.JPanel();
         updatepasswordlbl = new javax.swing.JLabel();
         idlbl = new javax.swing.JLabel();
+        idtxt = new javax.swing.JTextField();
         Namelbl = new javax.swing.JLabel();
         nametxt = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         agetxt = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        genderjComboBox = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         addresstxt = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -70,8 +75,6 @@ public class VolunteerJPanel extends javax.swing.JPanel {
         statetxt = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         countrytxt = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        genderjComboBox = new javax.swing.JComboBox<>();
         updatedetailsbtn = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         updatepasswordlbl1 = new javax.swing.JLabel();
@@ -82,7 +85,8 @@ public class VolunteerJPanel extends javax.swing.JPanel {
         confirmpasslbl = new javax.swing.JLabel();
         confirmpasstxt = new javax.swing.JPasswordField();
         updatepassbtn = new javax.swing.JButton();
-        idtxt = new javax.swing.JTextField();
+        contacttxt = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         orgRequestTable = new javax.swing.JTable();
@@ -93,6 +97,7 @@ public class VolunteerJPanel extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1597, 943));
 
         jSplitPane1.setDividerLocation(130);
+        jSplitPane1.setDividerSize(2);
         jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -123,9 +128,9 @@ public class VolunteerJPanel extends javax.swing.JPanel {
                 .addComponent(cclogo, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(492, 492, 492)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 567, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 500, Short.MAX_VALUE)
                 .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(73, 73, 73))
+                .addGap(137, 137, 137))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,6 +209,10 @@ public class VolunteerJPanel extends javax.swing.JPanel {
         idlbl.setText("ID:");
         jPanel4.add(idlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 108, 29));
 
+        idtxt.setEditable(false);
+        idtxt.setEnabled(false);
+        jPanel4.add(idtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, 220, 30));
+
         Namelbl.setForeground(new java.awt.Color(0, 0, 153));
         Namelbl.setText("Name");
         jPanel4.add(Namelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, -1, -1));
@@ -222,6 +231,15 @@ public class VolunteerJPanel extends javax.swing.JPanel {
             }
         });
         jPanel4.add(agetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 219, 30));
+
+        jLabel9.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel9.setText("Gender");
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, -1, -1));
+
+        genderjComboBox.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        genderjComboBox.setForeground(new java.awt.Color(0, 0, 153));
+        genderjComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Others" }));
+        jPanel4.add(genderjComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, 220, 30));
 
         jLabel4.setForeground(new java.awt.Color(0, 0, 153));
         jLabel4.setText("Address");
@@ -243,15 +261,6 @@ public class VolunteerJPanel extends javax.swing.JPanel {
         jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 480, -1, -1));
         jPanel4.add(countrytxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 470, 220, 30));
 
-        jLabel9.setForeground(new java.awt.Color(0, 0, 153));
-        jLabel9.setText("Gender");
-        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, -1, -1));
-
-        genderjComboBox.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        genderjComboBox.setForeground(new java.awt.Color(0, 0, 153));
-        genderjComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Others" }));
-        jPanel4.add(genderjComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, 220, 30));
-
         updatedetailsbtn.setBackground(new java.awt.Color(0, 0, 153));
         updatedetailsbtn.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
         updatedetailsbtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -261,7 +270,7 @@ public class VolunteerJPanel extends javax.swing.JPanel {
                 updatedetailsbtnActionPerformed(evt);
             }
         });
-        jPanel4.add(updatedetailsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 560, 162, 31));
+        jPanel4.add(updatedetailsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 600, 162, 31));
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator1.setForeground(new java.awt.Color(0, 51, 153));
@@ -272,31 +281,31 @@ public class VolunteerJPanel extends javax.swing.JPanel {
         updatepasswordlbl1.setForeground(new java.awt.Color(0, 0, 153));
         updatepasswordlbl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         updatepasswordlbl1.setText("Update Password");
-        jPanel4.add(updatepasswordlbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 50, -1, -1));
+        jPanel4.add(updatepasswordlbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 70, -1, -1));
 
         prevpasslbl.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         prevpasslbl.setForeground(new java.awt.Color(0, 0, 153));
         prevpasslbl.setText("Previous Password:");
-        jPanel4.add(prevpasslbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 120, -1, -1));
+        jPanel4.add(prevpasslbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 130, -1, -1));
 
         prevpasstxt.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jPanel4.add(prevpasstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 110, 190, -1));
+        jPanel4.add(prevpasstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 123, 190, 30));
 
         newpasslbl.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         newpasslbl.setForeground(new java.awt.Color(0, 0, 153));
         newpasslbl.setText("New Password:");
-        jPanel4.add(newpasslbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 180, -1, -1));
+        jPanel4.add(newpasslbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 190, -1, -1));
 
         newpasstxt.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jPanel4.add(newpasstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 170, 190, -1));
+        jPanel4.add(newpasstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 180, 190, 30));
 
         confirmpasslbl.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         confirmpasslbl.setForeground(new java.awt.Color(0, 0, 153));
         confirmpasslbl.setText("Confirm Password:");
-        jPanel4.add(confirmpasslbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 240, -1, -1));
+        jPanel4.add(confirmpasslbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 250, -1, -1));
 
         confirmpasstxt.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jPanel4.add(confirmpasstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 230, 190, -1));
+        jPanel4.add(confirmpasstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 240, 190, 30));
 
         updatepassbtn.setBackground(new java.awt.Color(0, 0, 153));
         updatepassbtn.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
@@ -307,10 +316,19 @@ public class VolunteerJPanel extends javax.swing.JPanel {
                 updatepassbtnActionPerformed(evt);
             }
         });
-        jPanel4.add(updatepassbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 320, -1, -1));
+        jPanel4.add(updatepassbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 320, 180, 40));
 
-        idtxt.setEnabled(false);
-        jPanel4.add(idtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, 220, -1));
+        contacttxt.setPreferredSize(new java.awt.Dimension(64, 23));
+        contacttxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                contacttxtActionPerformed(evt);
+            }
+        });
+        jPanel4.add(contacttxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 520, 219, 30));
+
+        jLabel10.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel10.setText("Contact");
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 530, -1, -1));
 
         jTabbedPane2.addTab("Manage Profile", jPanel4);
 
@@ -318,17 +336,17 @@ public class VolunteerJPanel extends javax.swing.JPanel {
 
         orgRequestTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Organization", "Volunteer", "Status"
+                "Org  Id", "Organization Name", "Type", "Address", "City", "Need Volunteer Count", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, true, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -339,7 +357,15 @@ public class VolunteerJPanel extends javax.swing.JPanel {
         if (orgRequestTable.getColumnModel().getColumnCount() > 0) {
             orgRequestTable.getColumnModel().getColumn(0).setResizable(false);
             orgRequestTable.getColumnModel().getColumn(1).setResizable(false);
+            orgRequestTable.getColumnModel().getColumn(1).setPreferredWidth(250);
             orgRequestTable.getColumnModel().getColumn(2).setResizable(false);
+            orgRequestTable.getColumnModel().getColumn(2).setPreferredWidth(170);
+            orgRequestTable.getColumnModel().getColumn(3).setResizable(false);
+            orgRequestTable.getColumnModel().getColumn(3).setPreferredWidth(200);
+            orgRequestTable.getColumnModel().getColumn(4).setResizable(false);
+            orgRequestTable.getColumnModel().getColumn(5).setResizable(false);
+            orgRequestTable.getColumnModel().getColumn(5).setPreferredWidth(200);
+            orgRequestTable.getColumnModel().getColumn(6).setResizable(false);
         }
 
         acceptreqBtn.setBackground(new java.awt.Color(0, 0, 153));
@@ -366,28 +392,26 @@ public class VolunteerJPanel extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(357, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 925, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(315, 315, 315))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(310, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 972, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(acceptreqBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(121, 121, 121)
-                        .addComponent(rejectreqBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(374, 374, 374))))
+                        .addGap(69, 69, 69)
+                        .addComponent(rejectreqBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(315, 315, 315))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(52, 52, 52)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rejectreqBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(acceptreqBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(325, Short.MAX_VALUE))
+                    .addComponent(acceptreqBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rejectreqBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(380, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Organization Requests", jPanel1);
@@ -466,10 +490,17 @@ public class VolunteerJPanel extends javax.swing.JPanel {
         }
 
         String country = countrytxt.getText();
-        if(state.matches("[a-zA-Z, ]+") == false){
+        if(country.matches("[a-zA-Z, ]+") == false){
             JOptionPane.showMessageDialog(null, "Incorrect Country");
             flag = false;
             countrytxt.setText("");
+        }
+        
+        String contact = contacttxt.getText();
+        if(contact.matches("[0-9,+ ]+") == false){
+            JOptionPane.showMessageDialog(null, "Incorrect Contact");
+            flag = false;
+            contacttxt.setText("");
         }
 
         String gender = genderjComboBox.getSelectedItem().toString();
@@ -479,10 +510,12 @@ public class VolunteerJPanel extends javax.swing.JPanel {
         if(flag==true){
             vol.setName(name);
             vol.setAge(ageint);
+            vol.setGender(gender);
             vol.setAddress(address);
             vol.setCity(city);
             vol.setState(state);
             vol.setCountry(country);
+            vol.setPhone(contact);
 
             JOptionPane.showMessageDialog(null, "Volunteer details updated successfully!");
         }
@@ -542,12 +575,52 @@ public class VolunteerJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_updatepassbtnActionPerformed
 
     private void acceptreqBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptreqBtnActionPerformed
+        int selectedRowIndex = orgRequestTable.getSelectedRow();
         
+        if(selectedRowIndex<0){
+            JOptionPane.showMessageDialog(this, "Please select a row to accept.");
+        }
+        else{
+            DefaultTableModel model = (DefaultTableModel) orgRequestTable.getModel();
+            int org_id = Integer.parseInt(String.valueOf(model.getValueAt(selectedRowIndex, 0)));
+            int vol_id = business.getVolunteer().getPersonid();
+            Boolean update_status = business.getOrganizationvolunteerdirectory().requestUpdate(org_id, vol_id, "Accepted");
+            
+            if(update_status==true){
+                JOptionPane.showMessageDialog(null, "Request accepted successfully.");
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Error in accepting request. Please try again.");
+            }
+            populateOrganizationRequests();
+        }
     }//GEN-LAST:event_acceptreqBtnActionPerformed
 
     private void rejectreqBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rejectreqBtnActionPerformed
+        int selectedRowIndex = orgRequestTable.getSelectedRow();
         
+        if(selectedRowIndex<0){
+            JOptionPane.showMessageDialog(this, "Please select a row to reject.");
+        }
+        else{
+            DefaultTableModel model = (DefaultTableModel) orgRequestTable.getModel();
+            int org_id = Integer.parseInt(String.valueOf(model.getValueAt(selectedRowIndex, 0)));
+            int vol_id = business.getVolunteer().getPersonid();
+            Boolean update_status = business.getOrganizationvolunteerdirectory().requestUpdate(org_id, vol_id, "Rejected");
+            
+            if(update_status==true){
+                JOptionPane.showMessageDialog(null, "Request rejected successfully.");
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Error in rejecting request. Please try again.");
+            }
+            populateOrganizationRequests();
+        }
     }//GEN-LAST:event_rejectreqBtnActionPerformed
+
+    private void contacttxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contacttxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_contacttxtActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -559,11 +632,13 @@ public class VolunteerJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField citytxt;
     private javax.swing.JLabel confirmpasslbl;
     private javax.swing.JPasswordField confirmpasstxt;
+    private javax.swing.JTextField contacttxt;
     private javax.swing.JTextField countrytxt;
     private javax.swing.JComboBox<String> genderjComboBox;
     private javax.swing.JLabel idlbl;
     private javax.swing.JTextField idtxt;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
@@ -597,9 +672,65 @@ public class VolunteerJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel updatepasswordlbl1;
     // End of variables declaration//GEN-END:variables
 
-private void populateVolunteerTbl() {
+
+    private void populateOrganizationRequests() {
+        int volid = business.getVolunteer().getPersonid();
         
+        ArrayList<OrganizationVolunteer> ovlist = business.getOrganizationvolunteerdirectory().getAllRequests();
+        ArrayList<OrganizationVolunteer> requestedorgs = new ArrayList<>();
+        for(OrganizationVolunteer ov : ovlist){
+            int volidreq = ov.getVol().getPersonid();
+            
+            if(volidreq == volid){
+                requestedorgs.add(ov);
+            }
+        }
         
-}
+        DefaultTableModel dtm = (DefaultTableModel) orgRequestTable.getModel();
+        dtm.setRowCount(0);
+        for(OrganizationVolunteer ov : requestedorgs){
+            Organization o = ov.getOrg();            
+            Object[] row = new Object[7];
+            row[0] = o.getId();
+            row[1] = o.getName();
+            row[3] = o.getAddress();
+            row[4] = o.getCity();
+            row[5] = o.getNeedVolunteerCount();
+            row[6] = ov.getRequeststatus();
+            
+            // Finding org type
+            for(Enterprise e: business.getEnterprisedirectory().getAllEnter()){
+                Organization orgfound = e.findOrg(o.getId());
+                if(orgfound!=null){
+                   row[2] = e.getType();
+                }
+            }
+            
+            dtm.addRow(row);      
+        }
+    }
+
+    private void populateVolunteerDetails() {
+        Volunteer v = business.getVolunteer();
+        int id = v.getPersonid();
+        String name = v.getName();
+        int age = v.getAge();
+        String gender = v.getGender();
+        String address = v.getAddress();
+        String city = v.getCity();
+        String state = v.getState();
+        String country = v.getCountry();
+        String contact = v.getPhone();
+        
+        idtxt.setText(String.valueOf(id));
+        nametxt.setText(name);
+        agetxt.setText(String.valueOf(age));
+        genderjComboBox.setSelectedItem(gender);
+        addresstxt.setText(address);
+        citytxt.setText(city);
+        statetxt.setText(state);
+        countrytxt.setText(country);
+        contacttxt.setText(contact);
+    }
 
 }

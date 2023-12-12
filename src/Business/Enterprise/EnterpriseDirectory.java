@@ -28,7 +28,7 @@ public class EnterpriseDirectory {
     
     public Enterprise findEnterprise(String type){
         for (Enterprise ent : enterpriselist) {
-            if (ent.getType().equals(type)) {
+            if (ent.getType().equalsIgnoreCase(type)) {
                 return ent;
             }
         }

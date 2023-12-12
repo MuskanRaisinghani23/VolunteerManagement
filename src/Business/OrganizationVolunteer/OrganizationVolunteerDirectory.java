@@ -37,7 +37,6 @@ public class OrganizationVolunteerDirectory {
         OrganizationVolunteer ovToRemove = null;
         for(OrganizationVolunteer ov : ovlist){
             if(ov.getOrg().equals(o) && ov.getVol().equals(v)){
-                System.out.println("o: " + ov.getOrg().getName()+ " v: "+ ov.getVol().getName());
                 ovToRemove = ov;
                 break;
             }
@@ -57,5 +56,16 @@ public class OrganizationVolunteerDirectory {
             }
         }
         return null; //not found after going through the whole list
+    }
+    
+    public Boolean requestUpdate(int org_id, int vol_id, String status){
+        Boolean update_status = false;
+        for (OrganizationVolunteer ov : ovlist) {
+            if (ov.getOrg().getId()==org_id && ov.getVol().getPersonid()==vol_id) {
+                ov.setRequeststatus(status);
+                update_status = true;
+            }
+        }
+        return update_status;
     }
 }
