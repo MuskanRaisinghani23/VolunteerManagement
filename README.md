@@ -41,13 +41,15 @@ The primary purpose of WEVolunteer is to:
 
 ### Functionality:
 - Registration forms for organizations and individuals interested in volunteering.
-- Volunteer management system for organizations requesting volunteers.
+- Volunteer management system for organizations in need.
+- Encrypted passwords with SHA-256 for  extra security.
 - Requesting nearby volunteers for help.
 - Individual voluntee can volunteer for paricular place nearby to his/her location according to the preference(city, area , state)
 - Organization can raise request for volunteer incase of disaster management, within span of period volunteers will be available through our portal.
 - To ensure privacy, an Organization can view Contact details of Volunteer only when they accept the request.
 - Each volunteer has an assigned Organization's employee to ensure volunteering smooth experience.
 - Enterprise can see insights of Organizations and volunteers.
+- Admin can view details of all enterprises,  organizations, employees and volunteers in the system.
 
 
 ### Disaster Management:
