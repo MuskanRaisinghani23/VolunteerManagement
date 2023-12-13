@@ -6,9 +6,12 @@ package UserInterface;
 
 import Business.Business;
 import Business.Employee.Employee;
+import Business.Volunteer.Volunteer;
 import java.awt.CardLayout;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -26,6 +29,7 @@ public class EmployeeJPanel extends javax.swing.JPanel {
         this.business = business;
         this.homeJPanel = homeJPanel;
         populateInfo();
+        populateVolunteerTable();
     }
 
     /**
@@ -49,7 +53,6 @@ public class EmployeeJPanel extends javax.swing.JPanel {
         jLabel16 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jSeparator1 = new javax.swing.JSeparator();
         updatepasswordlbl1 = new javax.swing.JLabel();
         prevpasslbl = new javax.swing.JLabel();
         prevpasstxt = new javax.swing.JPasswordField();
@@ -65,11 +68,14 @@ public class EmployeeJPanel extends javax.swing.JPanel {
         jLabel13 = new javax.swing.JLabel();
         updateEmpContacttxt = new javax.swing.JTextField();
         updateEmpDetailsBtn = new javax.swing.JButton();
+        updatepasswordlbl2 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        assignedVolTbl = new javax.swing.JTable();
 
         jSplitPane1.setDividerLocation(130);
+        jSplitPane1.setDividerSize(2);
         jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -100,9 +106,9 @@ public class EmployeeJPanel extends javax.swing.JPanel {
                 .addComponent(cclogo, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(492, 492, 492)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 568, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 504, Short.MAX_VALUE)
                 .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(73, 73, 73))
+                .addGap(137, 137, 137))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,40 +176,35 @@ public class EmployeeJPanel extends javax.swing.JPanel {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
-        jSeparator1.setForeground(new java.awt.Color(0, 51, 153));
-        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jPanel4.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 90, 50, 420));
-
         updatepasswordlbl1.setFont(new java.awt.Font("Cambria Math", 1, 16)); // NOI18N
         updatepasswordlbl1.setForeground(new java.awt.Color(0, 0, 153));
         updatepasswordlbl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        updatepasswordlbl1.setText("Update Password");
-        jPanel4.add(updatepasswordlbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 50, -1, -1));
+        updatepasswordlbl1.setText("Update Basic Details");
+        jPanel4.add(updatepasswordlbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 280, 40));
 
         prevpasslbl.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         prevpasslbl.setForeground(new java.awt.Color(0, 0, 153));
         prevpasslbl.setText("Previous Password:");
-        jPanel4.add(prevpasslbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 120, -1, -1));
+        jPanel4.add(prevpasslbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 170, -1, -1));
 
         prevpasstxt.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jPanel4.add(prevpasstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 110, 190, -1));
+        jPanel4.add(prevpasstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 160, 220, 30));
 
         newpasslbl.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         newpasslbl.setForeground(new java.awt.Color(0, 0, 153));
         newpasslbl.setText("New Password:");
-        jPanel4.add(newpasslbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 180, -1, -1));
+        jPanel4.add(newpasslbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 240, -1, -1));
 
         newpasstxt.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jPanel4.add(newpasstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 170, 190, -1));
+        jPanel4.add(newpasstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 230, 220, 30));
 
         confirmpasslbl.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         confirmpasslbl.setForeground(new java.awt.Color(0, 0, 153));
         confirmpasslbl.setText("Confirm Password:");
-        jPanel4.add(confirmpasslbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 240, -1, -1));
+        jPanel4.add(confirmpasslbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 310, -1, -1));
 
         confirmpasstxt.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jPanel4.add(confirmpasstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 230, 190, -1));
+        jPanel4.add(confirmpasstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 300, 220, 30));
 
         updatepassbtn.setBackground(new java.awt.Color(0, 0, 153));
         updatepassbtn.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
@@ -214,7 +215,7 @@ public class EmployeeJPanel extends javax.swing.JPanel {
                 updatepassbtnActionPerformed(evt);
             }
         });
-        jPanel4.add(updatepassbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 320, -1, -1));
+        jPanel4.add(updatepassbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 390, 200, 40));
 
         idlbl2.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         idlbl2.setForeground(new java.awt.Color(0, 0, 153));
@@ -223,7 +224,7 @@ public class EmployeeJPanel extends javax.swing.JPanel {
 
         updateEmpIdtxt.setEditable(false);
         updateEmpIdtxt.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jPanel4.add(updateEmpIdtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, -1, -1));
+        jPanel4.add(updateEmpIdtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 163, 220, 30));
 
         jLabel9.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 153));
@@ -231,7 +232,7 @@ public class EmployeeJPanel extends javax.swing.JPanel {
         jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, -1, -1));
 
         updateEmpnametxt.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jPanel4.add(updateEmpnametxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, -1, -1));
+        jPanel4.add(updateEmpnametxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, 220, 30));
 
         jLabel13.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 153));
@@ -239,7 +240,7 @@ public class EmployeeJPanel extends javax.swing.JPanel {
         jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, -1, -1));
 
         updateEmpContacttxt.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
-        jPanel4.add(updateEmpContacttxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, -1, -1));
+        jPanel4.add(updateEmpContacttxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 220, 30));
 
         updateEmpDetailsBtn.setBackground(new java.awt.Color(0, 0, 153));
         updateEmpDetailsBtn.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
@@ -250,40 +251,71 @@ public class EmployeeJPanel extends javax.swing.JPanel {
                 updateEmpDetailsBtnActionPerformed(evt);
             }
         });
-        jPanel4.add(updateEmpDetailsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, -1, -1));
+        jPanel4.add(updateEmpDetailsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 390, 200, 40));
+
+        updatepasswordlbl2.setFont(new java.awt.Font("Cambria Math", 1, 16)); // NOI18N
+        updatepasswordlbl2.setForeground(new java.awt.Color(0, 0, 153));
+        updatepasswordlbl2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        updatepasswordlbl2.setText("Update Password");
+        jPanel4.add(updatepasswordlbl2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 90, -1, -1));
+
+        jSeparator1.setForeground(new java.awt.Color(0, 0, 153));
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel4.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 70, 40, 400));
 
         jTabbedPane2.addTab("Manage Profile", jPanel4);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        assignedVolTbl.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        assignedVolTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Volunteer id", "Name", "Contact", "Address", "City", "Age", "Gender"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(assignedVolTbl);
+        if (assignedVolTbl.getColumnModel().getColumnCount() > 0) {
+            assignedVolTbl.getColumnModel().getColumn(0).setResizable(false);
+            assignedVolTbl.getColumnModel().getColumn(0).setPreferredWidth(50);
+            assignedVolTbl.getColumnModel().getColumn(1).setResizable(false);
+            assignedVolTbl.getColumnModel().getColumn(1).setPreferredWidth(150);
+            assignedVolTbl.getColumnModel().getColumn(2).setResizable(false);
+            assignedVolTbl.getColumnModel().getColumn(3).setResizable(false);
+            assignedVolTbl.getColumnModel().getColumn(3).setPreferredWidth(200);
+            assignedVolTbl.getColumnModel().getColumn(4).setResizable(false);
+            assignedVolTbl.getColumnModel().getColumn(5).setResizable(false);
+            assignedVolTbl.getColumnModel().getColumn(6).setResizable(false);
+        }
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(281, 281, 281)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 678, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(638, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(153, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(161, 161, 161))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(151, 151, 151)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(466, Short.MAX_VALUE))
+                .addGap(59, 59, 59)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(418, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Volunteers Assigned", jPanel1);
@@ -351,8 +383,10 @@ public class EmployeeJPanel extends javax.swing.JPanel {
         Employee emp = business.getEmployeedirectory().findEmployee(empId);
         String empPass = String.valueOf(emp.getPassword());
         Boolean checkExistingPassStatus = false;
-
-        if(empPass.equals(prevPassword)){
+        
+        String hashPrevPassword = String.valueOf(business.hashPassword(prevPassword));
+        
+        if(empPass.equals(hashPrevPassword)){
             checkExistingPassStatus=true;
         }
 
@@ -363,7 +397,7 @@ public class EmployeeJPanel extends javax.swing.JPanel {
         }
         //        System.out.println(prevPassword +"--"+password+"--"+confirmpassword);
         if(flag == true){
-            emp.setPassword(password.toCharArray());
+            emp.setPassword(business.hashPassword(password));
             JOptionPane.showMessageDialog(null, "Password updated Successfully");
         }
         else{
@@ -376,10 +410,12 @@ public class EmployeeJPanel extends javax.swing.JPanel {
         Employee e = business.getEmployeedirectory().findEmployee(empid);
         e.setName(updateEmpnametxt.getText());
         e.setPhone(updateEmpContacttxt.getText());
+        JOptionPane.showMessageDialog(null, "Your details have been successfully updated.");
     }//GEN-LAST:event_updateEmpDetailsBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable assignedVolTbl;
     private javax.swing.JLabel cclogo;
     private javax.swing.JLabel confirmpasslbl;
     private javax.swing.JPasswordField confirmpasstxt;
@@ -399,7 +435,6 @@ public class EmployeeJPanel extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton logoutBtn;
     private javax.swing.JLabel newpasslbl;
     private javax.swing.JPasswordField newpasstxt;
@@ -411,9 +446,33 @@ public class EmployeeJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField updateEmpnametxt;
     private javax.swing.JButton updatepassbtn;
     private javax.swing.JLabel updatepasswordlbl1;
+    private javax.swing.JLabel updatepasswordlbl2;
     // End of variables declaration//GEN-END:variables
 
     private void populateInfo() {
- 
+        Employee e = business.getEmployee();
+        updateEmpIdtxt.setText(String.valueOf(e.getPersonid()));
+        updateEmpnametxt.setText(e.getName());
+        updateEmpContacttxt.setText(e.getPhone());
+    }
+
+    private void populateVolunteerTable() {
+        Employee e = business.getEmployee();
+        ArrayList<Volunteer> assignedVolList = e.getVolToEmplist();    
+                        
+        DefaultTableModel dtm = (DefaultTableModel) assignedVolTbl.getModel();
+        dtm.setRowCount(0);
+        for(Volunteer v : assignedVolList){
+            Object[] row = new Object[7];
+            row[0] = v.getPersonid();
+            row[1] = v.getName();
+            row[2] = v.getPhone();
+            row[3] = v.getAddress();
+            row[4] = v.getCity();
+            row[5] = v.getAge();
+            row[6] = v.getGender();
+                          
+            dtm.addRow(row);      
+        }
     }
 }

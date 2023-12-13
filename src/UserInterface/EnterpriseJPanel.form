@@ -61,7 +61,7 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="cclogo" min="-2" pref="182" max="-2" attributes="0"/>
-                      <EmptySpace pref="481" max="32767" attributes="0"/>
+                      <EmptySpace pref="459" max="32767" attributes="0"/>
                       <Component id="headinglbl" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="544" max="-2" attributes="0"/>
                       <Component id="logoutBtn" min="-2" pref="90" max="-2" attributes="0"/>
@@ -194,7 +194,7 @@
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="357" max="32767" attributes="0"/>
+                              <EmptySpace pref="335" max="32767" attributes="0"/>
                               <Component id="jLabel15" min="-2" pref="739" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="523" max="-2" attributes="0"/>
                           </Group>
@@ -299,7 +299,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="349" max="32767" attributes="0"/>
+                              <EmptySpace pref="327" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -581,10 +581,10 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                              <Component id="orgAnalyticsBtn" max="32767" attributes="0"/>
-                              <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
-                              <Component id="volAnalyticsBtn" max="32767" attributes="0"/>
-                              <EmptySpace min="-2" pref="1118" max="-2" attributes="0"/>
+                              <Component id="orgAnalyticsBtn" min="-2" pref="198" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                              <Component id="volAnalyticsBtn" min="-2" pref="201" max="-2" attributes="0"/>
+                              <EmptySpace pref="1054" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -593,10 +593,10 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="orgAnalyticsBtn" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                  <Component id="volAnalyticsBtn" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                  <Component id="orgAnalyticsBtn" alignment="3" min="-2" pref="51" max="-2" attributes="0"/>
+                                  <Component id="volAnalyticsBtn" alignment="3" min="-2" pref="51" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="686" max="32767" attributes="0"/>
+                              <EmptySpace pref="666" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>

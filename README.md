@@ -1,7 +1,7 @@
 # WEVolunteer Project 
 
 ## Project Overview
-WEVolunteer serves as a worldwide platform facilitating communication between volunteers and organizations in need. Developed using Java in NetBeans, this application aims to establish a centralized system that seamlessly connects volunteers with organizations. The project's core objective is to enhance the efficiency of aligning volunteer opportunities with aid requests, fostering a stronger sense of community engagement and support.
+WEVolunteer serves as a global platform facilitating communication between volunteers and organizations in need. Developed using Java in NetBeans, this application aims to establish a centralized system that seamlessly connects volunteers with organizations. The project's core objective is to enhance the efficiency of aligning volunteer opportunities with aid requests, fostering a stronger sense of community engagement and support.
 
 ## Problem Statement
 Currently, there is no centralized system to efficiently connect volunteers with those seeking help. WEVolunteer aims to bridge this gap by providing a platform for companies, NGOs, and aid requesters to collaborate and coordinate effectively.
@@ -35,6 +35,8 @@ The primary purpose of WEVolunteer is to:
 - **Individuals:** Can sign up, view volunteering opportunities, and sign up based on interests or mention specific interests for targeted mapping.
 - **Organizations:** Can provide facilities, or arrange volunteers for specific tasks.
 - **Enterprises** Can manage different organizations.
+- **Employee** Coordinate with volunteers after request approval
+- **Admin** Can view all details
 
 
 ### Functionality:
@@ -43,6 +45,9 @@ The primary purpose of WEVolunteer is to:
 - Requesting nearby volunteers for help.
 - Individual voluntee can volunteer for paricular place nearby to his/her location according to the preference(city, area , state)
 - Organization can raise request for volunteer incase of disaster management, within span of period volunteers will be available through our portal.
+- To ensure privacy, an Organization can view Contact details of Volunteer only when they accept the request.
+- Each volunteer has an assigned Organization's employee to ensure volunteering smooth experience.
+- Enterprise can see insights of Organizations and volunteers.
 
 
 ### Disaster Management:
