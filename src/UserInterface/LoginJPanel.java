@@ -233,7 +233,7 @@ public class LoginJPanel extends javax.swing.JPanel {
                 String volunteerPass = String.valueOf(volunteer.getPassword());
                 Boolean checkpassword = (volunteerPass.equals(password)) ? true : false;
                 
-                System.out.println("enterted vol pass: " + password +" set pass: "+ volunteerPass);
+//                System.out.println("enterted vol pass: " + password +" set pass: "+ volunteerPass);
                 
                 if(checkpassword){ // if correct user id and password, go to user panel
                     // Setting current volunteer
@@ -262,8 +262,6 @@ public class LoginJPanel extends javax.swing.JPanel {
             if(employee!=null){
                 String EmployeePass = String.valueOf(employee.getPassword());
                 Boolean checkpassword = (EmployeePass.equals(password)) ? true : false;
-                
-                System.out.println("enterted: " + password +" set pass: "+ EmployeePass);
                 
                 if(checkpassword){ // if correct user id and password, go to user panel
                     // Setting current employee

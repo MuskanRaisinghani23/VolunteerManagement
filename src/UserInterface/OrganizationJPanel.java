@@ -191,6 +191,7 @@ public class OrganizationJPanel extends javax.swing.JPanel {
 
         jTabbedPane2.setBackground(new java.awt.Color(255, 255, 255));
         jTabbedPane2.setForeground(new java.awt.Color(0, 0, 153));
+        jTabbedPane2.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jTabbedPane2.setMinimumSize(new java.awt.Dimension(1597, 979));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -821,22 +822,25 @@ public class OrganizationJPanel extends javax.swing.JPanel {
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(87, 87, 87)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sendreqBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(revokereqBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(586, Short.MAX_VALUE))
+                .addContainerGap(534, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Connect to Volunteers", jPanel5);
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabel17.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(0, 0, 153));
         jLabel17.setText("Select Employees: ");
 
+        assignemptable.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        assignemptable.setForeground(new java.awt.Color(0, 0, 153));
         assignemptable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
@@ -867,11 +871,13 @@ public class OrganizationJPanel extends javax.swing.JPanel {
             assignemptable.getColumnModel().getColumn(6).setResizable(false);
         }
 
+        jLabel18.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(0, 0, 153));
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setText("Select Volunteer from Below list to Assign to Employee");
+        jLabel18.setText("Select Volunteer from Below list to assign to Employee");
 
         AssignVolunteer.setBackground(new java.awt.Color(0, 0, 153));
+        AssignVolunteer.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
         AssignVolunteer.setForeground(new java.awt.Color(255, 255, 255));
         AssignVolunteer.setText("Assign Volunteer");
         AssignVolunteer.addActionListener(new java.awt.event.ActionListener() {
@@ -885,37 +891,32 @@ public class OrganizationJPanel extends javax.swing.JPanel {
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(208, 208, 208)
-                .addComponent(jLabel17)
-                .addGap(42, 42, 42)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1006, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(EmpjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(218, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 606, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(526, 526, 526))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addComponent(AssignVolunteer, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(336, 336, 336))))
+                .addGap(348, 348, 348)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(AssignVolunteer, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel7Layout.createSequentialGroup()
+                            .addComponent(jLabel17)
+                            .addGap(42, 42, 42)
+                            .addComponent(EmpjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1006, Short.MAX_VALUE)))
+                .addContainerGap(243, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(51, 51, 51)
+                .addGap(50, 50, 50)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
-                    .addComponent(EmpjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
+                    .addComponent(EmpjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(70, 70, 70)
                 .addComponent(jLabel18)
-                .addGap(18, 18, 18)
+                .addGap(40, 40, 40)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
+                .addGap(26, 26, 26)
                 .addComponent(AssignVolunteer, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(463, Short.MAX_VALUE))
+                .addContainerGap(440, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Assign Employee", jPanel7);
@@ -1125,9 +1126,17 @@ public class OrganizationJPanel extends javax.swing.JPanel {
         }
         
         Volunteer v = business.getVolunteerdirectory().findVolunteer(vid);
-        OrganizationVolunteer ov = business.getOrganizationvolunteerdirectory().addRequest(org, v, "Pending");
-        JOptionPane.showMessageDialog(null, "Request sent to volunteer successfully");
-        populateVolunteerTbl();
+        // Check if request already there
+        OrganizationVolunteer ovExist = business.getOrganizationvolunteerdirectory().findRequestIfPresent(org, v);
+        //Send request if not alreadyexists
+        if(ovExist==null){
+            OrganizationVolunteer ov = business.getOrganizationvolunteerdirectory().addRequest(org, v, "Pending");
+            JOptionPane.showMessageDialog(null, "Request sent to volunteer successfully");
+            populateVolunteerTbl();
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Request cannot be sent to this volunteer. Request might be pending/accepted/rejected.");
+        }
     }//GEN-LAST:event_sendreqBtnActionPerformed
 
     private void revokereqBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_revokereqBtnActionPerformed
@@ -1159,7 +1168,8 @@ public class OrganizationJPanel extends javax.swing.JPanel {
         else{
             DefaultTableModel model = (DefaultTableModel) assignemptable.getModel();
             int vid = Integer.parseInt(String.valueOf(model.getValueAt(selectedRowIndex, 0)));  
-
+            
+            //Getting employee and volunteer to assign
             Employee e = business.getEmployeedirectory().findEmployeeByName(EmpjComboBox.getSelectedItem().toString());
             Volunteer v = business.getVolunteerdirectory().findVolunteer(vid);
             e.addVolToEmplist(v);
@@ -1376,7 +1386,8 @@ public class OrganizationJPanel extends javax.swing.JPanel {
         for(Volunteer v : vollist){
             String volcity = v.getCity();
             String volcountry = v.getCountry();
-            if(volcity.equals(org.getCity()) && volcountry.equals(org.getCountry())){
+            OrganizationVolunteer ov = business.getOrganizationvolunteerdirectory().findRequestIfPresent(org, v);
+            if(ov!=null && ov.getRequeststatus().equalsIgnoreCase("Accepted")){
                 selectedvolunteer.add(v);
             }
         }
