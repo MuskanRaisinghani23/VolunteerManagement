@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -29,6 +29,7 @@
     <Container class="javax.swing.JSplitPane" name="jSplitPane1">
       <Properties>
         <Property name="dividerLocation" type="int" value="130"/>
+        <Property name="dividerSize" type="int" value="2"/>
         <Property name="orientation" type="int" value="0"/>
       </Properties>
 
@@ -54,9 +55,9 @@
                       <Component id="cclogo" min="-2" pref="182" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="492" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="601" max="32767" attributes="0"/>
+                      <EmptySpace pref="508" max="32767" attributes="0"/>
                       <Component id="logoutBtn" min="-2" pref="90" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="166" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -180,26 +181,34 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="335" max="32767" attributes="0"/>
-                              <Component id="jLabel15" min="-2" pref="739" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="523" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="474" max="-2" attributes="0"/>
-                              <Component id="jLabel2" min="-2" pref="545" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="479" max="-2" attributes="0"/>
+                                      <Component id="jLabel2" min="-2" pref="545" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel15" min="-2" pref="739" max="-2" attributes="0"/>
+                                          <Component id="jLabel16" min="-2" pref="1293" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace pref="220" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                               <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                              <Component id="jLabel16" min="-2" pref="134" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                               <Component id="jLabel2" min="-2" pref="308" max="-2" attributes="0"/>
-                              <EmptySpace pref="530" max="32767" attributes="0"/>
+                              <EmptySpace pref="411" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -223,6 +232,17 @@
                         </Property>
                       </Properties>
                     </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel16">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Cambria Math" size="18" style="0"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="99" green="0" red="0" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="&lt;html&gt;Admins wield comprehensive control over the entire WE VOLUNTEER system. &lt;br&gt;Through the admin panel, you have the authority to access and review intricate details concerning all enterprises, organizations, employees, and volunteers enrolled.&lt;br&gt;Effortlessly navigate through the extensive database, gaining valuable insights into the collective contributions and engagements of each entity.&lt;br&gt;As an admin, you play a pivotal role in overseeing the intricate network of participants within the system.&lt;br&gt;Utilize the admin panel to monitor the diverse activities of enterprises, ensuring seamless coordination between organizations, employees, and volunteers.&lt;html&gt; "/>
+                      </Properties>
+                    </Component>
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="jPanel1">
@@ -244,8 +264,8 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="271" max="-2" attributes="0"/>
-                              <Component id="jScrollPane1" min="-2" pref="744" max="-2" attributes="0"/>
-                              <EmptySpace pref="582" max="32767" attributes="0"/>
+                              <Component id="jScrollPane1" min="-2" pref="336" max="-2" attributes="0"/>
+                              <EmptySpace pref="990" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -254,7 +274,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                               <Component id="jScrollPane1" min="-2" pref="306" max="-2" attributes="0"/>
-                              <EmptySpace pref="610" max="32767" attributes="0"/>
+                              <EmptySpace pref="651" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -271,7 +291,7 @@
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="1" rowCount="4">
-                                <Column editable="true" title="Enterprise Type" type="java.lang.Object"/>
+                                <Column editable="true" title="Enterprises" type="java.lang.Object"/>
                               </Table>
                             </Property>
                             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -321,7 +341,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                               <Component id="jScrollPane2" min="-2" pref="369" max="-2" attributes="0"/>
-                              <EmptySpace pref="546" max="32767" attributes="0"/>
+                              <EmptySpace pref="587" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -406,19 +426,19 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
-                              <Component id="jScrollPane6" min="-2" pref="1384" max="-2" attributes="0"/>
-                              <EmptySpace pref="114" max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace pref="158" max="32767" attributes="0"/>
+                              <Component id="jScrollPane6" min="-2" pref="1306" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
                               <Component id="jScrollPane6" min="-2" pref="277" max="-2" attributes="0"/>
-                              <EmptySpace pref="651" max="32767" attributes="0"/>
+                              <EmptySpace pref="665" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -434,67 +454,55 @@
                         <Component class="javax.swing.JTable" name="tblVolunteer">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="10" rowCount="4">
-                                <Column editable="true" title="Volunteer Id" type="java.lang.Object"/>
-                                <Column editable="true" title="Volunteer Name" type="java.lang.Object"/>
-                                <Column editable="true" title="Volunteer Age" type="java.lang.Object"/>
-                                <Column editable="true" title="Volunteer Gender" type="java.lang.Object"/>
-                                <Column editable="true" title="Volunteer Type" type="java.lang.Object"/>
-                                <Column editable="true" title="Volunteer Phone" type="java.lang.Object"/>
-                                <Column editable="true" title="Volunteer Address" type="java.lang.Object"/>
-                                <Column editable="true" title="Volunteer City" type="java.lang.Object"/>
-                                <Column editable="true" title="Volunteer State" type="java.lang.Object"/>
-                                <Column editable="true" title="Volunteer Country" type="java.lang.Object"/>
+                              <Table columnCount="8" rowCount="4">
+                                <Column editable="false" title="Volunteer Id" type="java.lang.Object"/>
+                                <Column editable="false" title="Volunteer Name" type="java.lang.Object"/>
+                                <Column editable="false" title="Volunteer Age" type="java.lang.Object"/>
+                                <Column editable="false" title="Volunteer Gender" type="java.lang.Object"/>
+                                <Column editable="false" title="Volunteer Phone" type="java.lang.Object"/>
+                                <Column editable="false" title="Volunteer Address" type="java.lang.Object"/>
+                                <Column editable="false" title="Volunteer City" type="java.lang.Object"/>
+                                <Column editable="false" title="Volunteer Country" type="java.lang.Object"/>
                               </Table>
                             </Property>
                             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                               <TableColumnModel selectionModel="0">
-                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                                   <Title/>
                                   <Editor/>
                                   <Renderer/>
                                 </Column>
-                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="150" resizable="false">
                                   <Title/>
                                   <Editor/>
                                   <Renderer/>
                                 </Column>
-                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="150" resizable="false">
                                   <Title/>
                                   <Editor/>
                                   <Renderer/>
                                 </Column>
-                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                                   <Title/>
                                   <Editor/>
                                   <Renderer/>
                                 </Column>
-                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                                   <Title/>
                                   <Editor/>
                                   <Renderer/>
                                 </Column>
-                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                                   <Title/>
                                   <Editor/>
                                   <Renderer/>
                                 </Column>
-                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                                   <Title/>
                                   <Editor/>
                                   <Renderer/>
                                 </Column>
-                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                  <Title/>
-                                  <Editor/>
-                                  <Renderer/>
-                                </Column>
-                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                  <Title/>
-                                  <Editor/>
-                                  <Renderer/>
-                                </Column>
-                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                                   <Title/>
                                   <Editor/>
                                   <Renderer/>
@@ -528,18 +536,18 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="284" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="268" max="-2" attributes="0"/>
                               <Component id="jScrollPane5" min="-2" pref="708" max="-2" attributes="0"/>
-                              <EmptySpace pref="605" max="32767" attributes="0"/>
+                              <EmptySpace pref="621" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
                               <Component id="jScrollPane5" min="-2" pref="246" max="-2" attributes="0"/>
-                              <EmptySpace pref="670" max="32767" attributes="0"/>
+                              <EmptySpace pref="706" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -555,21 +563,15 @@
                         <Component class="javax.swing.JTable" name="tblEmployee">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="5" rowCount="4">
+                              <Table columnCount="4" rowCount="4">
                                 <Column editable="false" title="Employee Id" type="java.lang.Object"/>
                                 <Column editable="false" title="Employee Name" type="java.lang.Object"/>
-                                <Column editable="false" title="Employee Type" type="java.lang.Object"/>
                                 <Column editable="false" title="Employee Phone" type="java.lang.Object"/>
                                 <Column editable="false" title="Employee Role" type="java.lang.Object"/>
                               </Table>
                             </Property>
                             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                               <TableColumnModel selectionModel="0">
-                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
-                                  <Title/>
-                                  <Editor/>
-                                  <Renderer/>
-                                </Column>
                                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                                   <Title/>
                                   <Editor/>
