@@ -6,9 +6,13 @@ package UserInterface;
 
 import Business.Business;
 import Business.Employee.Employee;
+import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
+import Business.OrganizationVolunteer.OrganizationVolunteer;
+import Business.Volunteer.Volunteer;
 import javax.swing.JPanel;
 import java.awt.CardLayout;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -51,6 +55,7 @@ public class AdminJPanel extends javax.swing.JPanel {
         jPanel5 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblEnterprise = new javax.swing.JTable();
@@ -65,6 +70,7 @@ public class AdminJPanel extends javax.swing.JPanel {
         tblEmployee = new javax.swing.JTable();
 
         jSplitPane1.setDividerLocation(130);
+        jSplitPane1.setDividerSize(2);
         jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -95,9 +101,9 @@ public class AdminJPanel extends javax.swing.JPanel {
                 .addComponent(cclogo, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(492, 492, 492)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 601, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 508, Short.MAX_VALUE)
                 .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(73, 73, 73))
+                .addGap(166, 166, 166))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,27 +135,36 @@ public class AdminJPanel extends javax.swing.JPanel {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Software_engineer.png"))); // NOI18N
 
+        jLabel16.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel16.setText("<html>Admins wield comprehensive control over the entire WE VOLUNTEER system. <br>Through the admin panel, you have the authority to access and review intricate details concerning all enterprises, organizations, employees, and volunteers enrolled.<br>Effortlessly navigate through the extensive database, gaining valuable insights into the collective contributions and engagements of each entity.<br>As an admin, you play a pivotal role in overseeing the intricate network of participants within the system.<br>Utilize the admin panel to monitor the diverse activities of enterprises, ensuring seamless coordination between organizations, employees, and volunteers.<html> ");
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(335, Short.MAX_VALUE)
-                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 739, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(523, 523, 523))
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(474, 474, 474)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(479, 479, 479)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 739, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 1293, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(220, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addGap(58, 58, 58)
                 .addComponent(jLabel15)
-                .addGap(75, 75, 75)
+                .addGap(38, 38, 38)
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(530, Short.MAX_VALUE))
+                .addContainerGap(411, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Home", jPanel5);
@@ -164,7 +179,7 @@ public class AdminJPanel extends javax.swing.JPanel {
                 {null}
             },
             new String [] {
-                "Enterprise Type"
+                "Enterprises"
             }
         ));
         jScrollPane1.setViewportView(tblEnterprise);
@@ -178,15 +193,15 @@ public class AdminJPanel extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(271, 271, 271)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 744, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(582, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(990, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(74, 74, 74)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(610, Short.MAX_VALUE))
+                .addContainerGap(651, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Enterprise Analytics", jPanel1);
@@ -236,7 +251,7 @@ public class AdminJPanel extends javax.swing.JPanel {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(75, 75, 75)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(546, Short.MAX_VALUE))
+                .addContainerGap(587, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Organization Analytics", jPanel4);
@@ -245,32 +260,52 @@ public class AdminJPanel extends javax.swing.JPanel {
 
         tblVolunteer.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Volunteer Id", "Volunteer Name", "Volunteer Age", "Volunteer Gender", "Volunteer Type", "Volunteer Phone", "Volunteer Address", "Volunteer City", "Volunteer State", "Volunteer Country"
+                "Volunteer Id", "Volunteer Name", "Volunteer Age", "Volunteer Gender", "Volunteer Phone", "Volunteer Address", "Volunteer City", "Volunteer Country"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane6.setViewportView(tblVolunteer);
+        if (tblVolunteer.getColumnModel().getColumnCount() > 0) {
+            tblVolunteer.getColumnModel().getColumn(0).setResizable(false);
+            tblVolunteer.getColumnModel().getColumn(1).setResizable(false);
+            tblVolunteer.getColumnModel().getColumn(1).setPreferredWidth(150);
+            tblVolunteer.getColumnModel().getColumn(2).setResizable(false);
+            tblVolunteer.getColumnModel().getColumn(2).setPreferredWidth(150);
+            tblVolunteer.getColumnModel().getColumn(3).setResizable(false);
+            tblVolunteer.getColumnModel().getColumn(4).setResizable(false);
+            tblVolunteer.getColumnModel().getColumn(5).setResizable(false);
+            tblVolunteer.getColumnModel().getColumn(6).setResizable(false);
+            tblVolunteer.getColumnModel().getColumn(7).setResizable(false);
+        }
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(99, 99, 99)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 1384, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(114, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(158, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 1306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(133, 133, 133))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(62, 62, 62)
+                .addGap(89, 89, 89)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(651, Short.MAX_VALUE))
+                .addContainerGap(665, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Volunteer Analytics", jPanel6);
@@ -279,17 +314,17 @@ public class AdminJPanel extends javax.swing.JPanel {
 
         tblEmployee.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Employee Id", "Employee Name", "Employee Type", "Employee Phone", "Employee Role"
+                "Employee Id", "Employee Name", "Employee Phone", "Employee Role"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -302,7 +337,6 @@ public class AdminJPanel extends javax.swing.JPanel {
             tblEmployee.getColumnModel().getColumn(1).setResizable(false);
             tblEmployee.getColumnModel().getColumn(2).setResizable(false);
             tblEmployee.getColumnModel().getColumn(3).setResizable(false);
-            tblEmployee.getColumnModel().getColumn(4).setResizable(false);
         }
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -310,16 +344,16 @@ public class AdminJPanel extends javax.swing.JPanel {
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(284, 284, 284)
+                .addGap(268, 268, 268)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 708, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(605, Short.MAX_VALUE))
+                .addContainerGap(621, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(74, 74, 74)
+                .addGap(79, 79, 79)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(670, Short.MAX_VALUE))
+                .addContainerGap(706, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Employee Analytics", jPanel7);
@@ -363,6 +397,7 @@ public class AdminJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel cclogo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -385,18 +420,66 @@ public class AdminJPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void populateEnterprise() {
-        
+        ArrayList<Enterprise> enterpriselist = business.getEnterprisedirectory().getAllEnter();
+                
+        DefaultTableModel dtm = (DefaultTableModel) tblEnterprise.getModel();
+        dtm.setRowCount(0);
+        for(Enterprise e : enterpriselist){
+            Object[] row = new Object[1];
+            row[0] = e.getType();
+            dtm.addRow(row);      
+        }
     }
 
     private void populateOrganization() {
-        
+        ArrayList<Organization> orglist= business.getOrganizationdirectory().getAllOrg();
+                
+        DefaultTableModel dtm = (DefaultTableModel) tblOrganization.getModel();
+        dtm.setRowCount(0);
+        for(Organization o : orglist){
+            Object[] row = new Object[6];
+            row[0] = o.getId();
+            row[1] = o.getName();
+            row[2] = o.getAddress();
+            row[3] = o.getCity();
+            row[4] = o.getState();
+            row[5] = o.getCountry();
+            dtm.addRow(row);      
+        }
     }
 
     private void populateEmployee() {
-        
+        ArrayList<Employee> emplist= business.getEmployeedirectory().getAllEmp();
+                
+        DefaultTableModel dtm = (DefaultTableModel) tblEmployee.getModel();
+        dtm.setRowCount(0);
+        for(Employee e : emplist){
+            Object[] row = new Object[4];
+            row[0] = e.getPersonid();
+            row[1] = e.getName();
+            row[2] = e.getPhone();
+            row[3] = e.getRole();
+            
+            dtm.addRow(row);      
+        }
     }
 
     private void populateVolunteer() {
-        
+        ArrayList<Volunteer> vollist= business.getVolunteerdirectory().getAllVol();
+                
+        DefaultTableModel dtm = (DefaultTableModel) tblVolunteer.getModel();
+        dtm.setRowCount(0);
+        for(Volunteer v : vollist){
+            Object[] row = new Object[8];
+            row[0] = v.getPersonid();
+            row[1] = v.getName();
+            row[2] = v.getAge();
+            row[3] = v.getGender();
+            row[4] = v.getPhone();
+            row[5] = v.getAddress();
+            row[6] = v.getCity();
+            row[7] = v.getCountry();
+            dtm.addRow(row);      
+        }
     }
 }

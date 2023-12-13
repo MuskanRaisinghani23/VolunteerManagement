@@ -871,7 +871,7 @@ public class OrganizationJPanel extends javax.swing.JPanel {
             assignemptable.getColumnModel().getColumn(6).setResizable(false);
         }
 
-        jLabel18.setFont(new java.awt.Font("Cambria Math", 0, 14)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Cambria Math", 1, 18)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(0, 0, 153));
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText("Select Volunteer from Below list to assign to Employee");
@@ -916,7 +916,7 @@ public class OrganizationJPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(AssignVolunteer, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(440, Short.MAX_VALUE))
+                .addContainerGap(435, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Assign Employee", jPanel7);

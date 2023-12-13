@@ -1414,7 +1414,7 @@
                           <Component id="jScrollPane3" min="-2" pref="229" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Component id="AssignVolunteer" min="-2" pref="41" max="-2" attributes="0"/>
-                          <EmptySpace pref="440" max="32767" attributes="0"/>
+                          <EmptySpace pref="435" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1516,7 +1516,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel18">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Cambria Math" size="14" style="0"/>
+                      <Font name="Cambria Math" size="18" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="99" green="0" red="0" type="rgb"/>
