@@ -149,7 +149,7 @@ public class EmployeeJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 739, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(290, 290, 290))
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(550, 550, 550)
+                .addGap(595, 595, 595)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );

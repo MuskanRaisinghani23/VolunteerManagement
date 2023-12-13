@@ -233,6 +233,8 @@ public class LoginJPanel extends javax.swing.JPanel {
                 String volunteerPass = String.valueOf(volunteer.getPassword());
                 Boolean checkpassword = (volunteerPass.equals(password)) ? true : false;
                 
+                System.out.println("enterted vol pass: " + password +" set pass: "+ volunteerPass);
+                
                 if(checkpassword){ // if correct user id and password, go to user panel
                     // Setting current volunteer
                     business.setVolunteer(volunteer);
@@ -261,6 +263,8 @@ public class LoginJPanel extends javax.swing.JPanel {
                 String EmployeePass = String.valueOf(employee.getPassword());
                 Boolean checkpassword = (EmployeePass.equals(password)) ? true : false;
                 
+                System.out.println("enterted: " + password +" set pass: "+ EmployeePass);
+                
                 if(checkpassword){ // if correct user id and password, go to user panel
                     // Setting current employee
                     business.setEmployee(employee);
@@ -282,10 +286,11 @@ public class LoginJPanel extends javax.swing.JPanel {
         } 
 
         //admin login
- if(comboSelected.getSelectedItem().toString().equalsIgnoreCase("Admin")){
-            String  Id = useridtxt.getText();
-            if(Id.matches("Admin")){
-                if(password.matches("admin")){
+        if(comboSelected.getSelectedItem().toString().equalsIgnoreCase("Admin")){
+            String Id = useridtxt.getText();
+            String adminPassword = String.valueOf(business.hashPassword("admin"));
+            if(Id.equalsIgnoreCase("Admin")){
+                if(password.equals(adminPassword)){
                     AdminJPanel panel = new AdminJPanel(homeJPanel, business);
                     homeJPanel.add("AdminJPanel" ,panel);
                     CardLayout layout = (CardLayout) homeJPanel.getLayout();
@@ -298,7 +303,7 @@ public class LoginJPanel extends javax.swing.JPanel {
                 }
             }   
             else{
-                JOptionPane.showMessageDialog(null, "Admin does not exist! Enter valid Organization ID");
+                JOptionPane.showMessageDialog(null, "Wrong credentials! Enter valid Admin details");
             }
         }         
     }//GEN-LAST:event_loginbtnActionPerformed
