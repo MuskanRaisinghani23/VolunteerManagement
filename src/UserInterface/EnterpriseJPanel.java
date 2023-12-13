@@ -92,6 +92,7 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
         jPanel5 = new javax.swing.JPanel();
         orgAnalyticsBtn = new javax.swing.JButton();
         volAnalyticsBtn = new javax.swing.JButton();
+        volAnalyticsBtn1 = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(1597, 978));
         setPreferredSize(new java.awt.Dimension(1597, 978));
@@ -367,7 +368,7 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
         orgAnalyticsBtn.setBackground(new java.awt.Color(0, 0, 153));
         orgAnalyticsBtn.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
         orgAnalyticsBtn.setForeground(new java.awt.Color(255, 255, 255));
-        orgAnalyticsBtn.setText("Organization Analytics");
+        orgAnalyticsBtn.setText("Organization Volunteer Requirements");
         orgAnalyticsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 orgAnalyticsBtnActionPerformed(evt);
@@ -377,10 +378,20 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
         volAnalyticsBtn.setBackground(new java.awt.Color(0, 0, 153));
         volAnalyticsBtn.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
         volAnalyticsBtn.setForeground(new java.awt.Color(255, 255, 255));
-        volAnalyticsBtn.setText("Volunteer Analytics");
+        volAnalyticsBtn.setText("Volunteer Gender Distribution");
         volAnalyticsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 volAnalyticsBtnActionPerformed(evt);
+            }
+        });
+
+        volAnalyticsBtn1.setBackground(new java.awt.Color(0, 0, 153));
+        volAnalyticsBtn1.setFont(new java.awt.Font("Cambria Math", 1, 14)); // NOI18N
+        volAnalyticsBtn1.setForeground(new java.awt.Color(255, 255, 255));
+        volAnalyticsBtn1.setText("Volunteer Age Distribution");
+        volAnalyticsBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volAnalyticsBtn1ActionPerformed(evt);
             }
         });
 
@@ -390,19 +401,23 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(72, 72, 72)
-                .addComponent(orgAnalyticsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
-                .addComponent(volAnalyticsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1054, Short.MAX_VALUE))
+                .addComponent(orgAnalyticsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addComponent(volAnalyticsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(volAnalyticsBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(549, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(96, 96, 96)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(orgAnalyticsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(volAnalyticsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(666, Short.MAX_VALUE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(volAnalyticsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(volAnalyticsBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(orgAnalyticsBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(655, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Analytics", jPanel5);
@@ -461,7 +476,7 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
 
         // Create chart based on the dataset
         JFreeChart chart = ChartFactory.createBarChart(
-                "Organization's Volunteer Requirements",     // Chart title
+                "Organization's Volunteer Requirement Distribution",     // Chart title
                 "Organizations",             // X-axis label
                 "Number of volunteers required",    // Y-axis label
                 dataset);
@@ -484,6 +499,22 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
         frame.pack();
         frame.setVisible(true);
     }//GEN-LAST:event_volAnalyticsBtnActionPerformed
+
+    private void volAnalyticsBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volAnalyticsBtn1ActionPerformed
+        CategoryDataset dataset = createVolAgeDataset();
+
+        // Create chart based on the dataset
+        JFreeChart chart = ChartFactory.createBarChart(
+                "Volunteer Age Distribution",     // Chart title
+                "Age groups",             // X-axis label
+                "Number of volunteers in the group",    // Y-axis label
+                dataset);
+        customizeBarChart(chart);
+        
+        ChartFrame frame = new ChartFrame("Results", chart);
+        frame.pack();
+        frame.setVisible(true);
+    }//GEN-LAST:event_volAnalyticsBtn1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -517,6 +548,7 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField statetxt;
     private javax.swing.JButton updatedetailsbtn;
     private javax.swing.JButton volAnalyticsBtn;
+    private javax.swing.JButton volAnalyticsBtn1;
     // End of variables declaration//GEN-END:variables
 
     private void populateTable() {
@@ -612,5 +644,50 @@ public class EnterpriseJPanel extends javax.swing.JPanel {
         }
 
         return (PieDataset) dataset;
+    }
+
+    private CategoryDataset createVolAgeDataset() {
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        HashMap<String, Integer> age_hash = new HashMap<String, Integer>();
+        
+        ArrayList<Volunteer> vlist = business.getVolunteerdirectory().getAllVol();
+        
+        // Age groups
+        int young_adult = 1;
+        int adult_mid = 1;
+        int mid_senior = 1;
+        int senior = 1;
+        
+        for(Volunteer v: vlist){
+            if(v.getAge() >= 15 && v.getAge()<= 24 ){
+                age_hash.put("Young(15-24)", young_adult);
+                young_adult+=1;
+            }
+            else if(v.getAge() >= 25 && v.getAge()<= 40){
+                age_hash.put("Adult(25-40)", adult_mid);
+                adult_mid+=1;
+            }
+            else if(v.getAge() >= 41 && v.getAge()<= 55){
+                age_hash.put("Middle Aged(41-55)", mid_senior);
+                mid_senior+=1;
+            }
+            else if(v.getAge() > 55){
+                age_hash.put("Senior(55+)", senior);
+                senior+=1;
+            }
+        }
+        
+        List<Map.Entry<String, Integer>> entryList = new LinkedList<>(age_hash.entrySet());
+//        Comparator<Map.Entry<String, Integer>> valueComparator = Comparator.comparing(Map.Entry::getValue);
+//        entryList.sort(valueComparator);
+        
+        for (int i = entryList.size() - 1; i >= 0; i--) {
+            Map.Entry<String, Integer> entry = entryList.get(i);
+            String age_group = entry.getKey();
+            int value = entry.getValue();
+            dataset.addValue(value, "Volunteer age group count", age_group);
+        }
+        
+        return (CategoryDataset) dataset;
     }
 }
